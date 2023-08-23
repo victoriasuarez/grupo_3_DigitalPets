@@ -13,7 +13,7 @@ Trabajo hace 14 años en Jerárquicos Salud. Donde me encuentro como referente d
 Este proyecto me tiene muy entusiasmada, descubrí un mundo muy versátil, que tiene mucho impacto en el mundo entero, te ofrece la posibilidad de contribuir a la creación de soluciones que pueda tener un impacto significativo en la vida de las personas. Además, considero que me permitirá estar a la vanguardia de la innovación.
 
 Mi nombre es Victoria Suárez, tengo 25 años, soy San Cristóbal - Santa fe, actualmente viviendo en Elisa.
-Vengo de la rama de la Economía y Administración pero, estoy en el mundo IT hace casi 2 años. Orienda en Backend pero abierta a seguir aprendiendo! Actual y recientemente conseguí trabajo que me va a ayudar con nuevos desafíos y aprendizajes! Además creo que puedo aportar mucho en el equipo para que el conocimiento sea retroalimentado.
+Vengo de la rama de la Economía y Administración pero, estoy en el mundo IT hace casi 2 años. Orientada en Backend pero abierta a seguir aprendiendo! Actual y recientemente conseguí trabajo que me va a ayudar con nuevos desafíos y aprendizajes! Además creo que puedo aportar mucho en el equipo para que el conocimiento sea retroalimentado.
 
-
+Mi nombre es Hernan Micelli, tengo 29 años, soy de Reconquista - Santa Fe. Actualmente trabajo en la municipalidad de mi ciudad, como administrativo en el area de Gobierno Abierto y Modernización. Además, estoy terminando la carrera de Tec. Universitario en Ciudades Inteligentes, el programa provincial de "Gestion y Desarrollo Territorial", e incursionando en este curso de Desarrollo Full Stack, como primera experiencia en esta rama de conocimiento. Considero que puedo aportar cuestiones de trabajo en equipo y liderazgo, gracias a actividades que realice durante los ultimos 8 años en emprendedurismo, asi como tambien armado de proyectos gracias a la carrera que estoy realizando, con la impronta de la visión de una smart city.
 
