@@ -12,7 +12,8 @@ Mi nombre es Vanesa D'Andrea, tengo 33 años, soy de Santa Fe - Capital.
 Trabajo hace 14 años en Jerárquicos Salud. Donde me encuentro como referente de un grupo.
 Este proyecto me tiene muy entusiasmada, descubrí un mundo muy versátil, que tiene mucho impacto en el mundo entero, te ofrece la posibilidad de contribuir a la creación de soluciones que pueda tener un impacto significativo en la vida de las personas. Además, considero que me permitirá estar a la vanguardia de la innovación.
 
-
+Mi nombre es Victoria Suárez, tengo 25 años, soy San Cristóbal - Santa fe, actualmente viviendo en Elisa.
+Vengo de la rama de la Economía y Administración pero, estoy en el mundo IT hace casi 2 años. Orienda en Backend pero abierta a seguir aprendiendo! Actual y recientemente conseguí trabajo que me va a ayudar con nuevos desafíos y aprendizajes! Además creo que puedo aportar mucho en el equipo para que el conocimiento sea retroalimentado.
 
 
 
