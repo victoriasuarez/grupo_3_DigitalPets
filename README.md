@@ -20,3 +20,11 @@ Mi nombre es Hernan Micelli, tengo 29 años, soy de Reconquista - Santa Fe. Actu
 Mi nombre es Lucas Garcia, tengo 26 años y soy de Bovril - Entre Ríos pero desde hace seis años que vivo en Santa Fe - Capital. Actualmente estoy cursando el tercer año de la carrera de Ingeniería Informática en la UNL (Universidad Nacional del Litoral). Me apasiona todo lo relacionado con la tecnología y la innovación, por eso siempre estoy dispuesto a aprender nuevas tecnologías y herramientas que me permitan desarrollarme profesionalmente. Estoy muy motivado con este proyecto porque es mi primera experiencia realizando un trabajo que tiene un enfoque más realista y que me permite aprender a trabajar en equipo. Además, creo que es una excelente oportunidad para poner en práctica tanto los conocimientos que he obtenido en mi formación académica previa como los que estoy adquiriendo en este curso.
 
 Mi nombre es Emanuel Pernice, tengo 32 años, soy de Tortugas - Santa Fe. Hace 9 años que trabajo en una cooperativa agrícola, en el área de administración. Actualmente cursando Desarrollo Full Stack. Con muchas expectativas de este proyecto que promueve la colaboración y el aprendizaje grupal. Considero que me va a permite adquirir nuevos conocimientos ya que es una experiencia que se asemeja a la realidad. Hacía tiempo que estaba interesado en programación y esto me motiva a aprender cosas nuevas.
+
+
+Páginas con las cuáles usamos de referencia: 
+    • https://www.puppis.com.ar/
+    • https://cordoba.pluspet.com.ar/
+    • https://www.natural-life.com.ar/
+    • https://pellegrinipetshop.com.ar/
+    • https://www.tiendademascotas.com.ar/
