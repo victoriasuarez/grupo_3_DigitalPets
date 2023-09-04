@@ -23,8 +23,8 @@ Mi nombre es Emanuel Pernice, tengo 32 años, soy de Tortugas - Santa Fe. Hace 9
 
 
 Páginas con las cuáles usamos de referencia: 
-    • https://www.puppis.com.ar/
-    • https://cordoba.pluspet.com.ar/
-    • https://www.natural-life.com.ar/
-    • https://pellegrinipetshop.com.ar/
-    • https://www.tiendademascotas.com.ar/
+    • https://www.puppis.com.ar/ → Puppis fue elegido porque nos llamó la atención la forma de su buscador, su carrusel de fotos y su botón para seleccionar la cantidad de productos, si bien no son iguales nos ayudó con la creación.
+    • https://cordoba.pluspet.com.ar/ → A Plus Pet Córdoba lo elegimos porque nos gustó su apartado de 'Marcas populares' y la forma con que está distribuída la información.
+    • https://www.natural-life.com.ar/ → Natural Life se eligió por su carrusel de fotos, por la forma en que se visualiza la categoría de productos por animales y por su detalle de producto en el carrito.
+    • https://pellegrinipetshop.com.ar/ → Pellegrini Pet Shop nos gustó mucho sus cards de productos, su versión mobile, su detalle de producto en el carrito, su mení hamburguesa y su interfaz en general.
+    • https://www.tiendademascotas.com.ar/ → Tienda de mascotas fue elegida por la simpleza , por el diseño de sus cards de producto y por el formato de carrito de compras.
