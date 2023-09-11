@@ -1,0 +1,19 @@
+{
+  "name": "grupo_3_digitalpets",
+  "version": "1.0.0",
+  "description": "Descripción del producto y servicio ofrecido:\r Digital Pets es un paraíso para los amantes de las mascotas. Ofrecemos una amplia gama de productos de alta calidad, desde alimentos nutritivos y juguetes divertidos hasta accesorios elegantes y productos de cuidado. \r En Digital Pets, nos comprometemos a cuidar de tus queridas mascotas como si fueran nuestras.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
