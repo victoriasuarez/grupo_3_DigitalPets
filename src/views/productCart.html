@@ -6,6 +6,43 @@
     <title>Finalizar la compra - Digital Pets | PETSHOP</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="product">
+            <img src="imagen-producto.jpg" alt="Producto 1">
+            <div class="product-info">
+                <h2>Producto 1</h2>
+                <p>Descripción del producto.</p>
+            </div>
+            <div class="product-price">
+                $10.00
+            </div>
+            <input class="quantity" type="number" value="1" min="1">
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="options">
+            <label for="shipping">Envío:</label>
+            <select id="shipping" name="shipping">
+                <option value="retiro">Retiro en sucursal</option>
+                <option value="domicilio">Envío a domicilio</option>
+            </select>
+        </div>
+        <div class="options">
+            <label for="payment">Medio de Pago:</label>
+            <select id="payment" name="payment">
+                <option value="transferencia">Transferencia</option>
+                <option value="mercadopago">Mercado Pago</option>
+                <option value="sucursal">Pago en Sucursal</option>
+            </select>
+        </div>
+        <div class="checkout">
+            <p>Detalle de la compra:</p>
+            <p>Carrito $10.00</p>
+            <p>Envío $0.00</p>
+            <p>Total: $10.00</p>
+            <button>Finalizar Compra</button>
+        </div>
+    </div>
+
 </body>
 </html>
