@@ -3,81 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/home.css">
     <title>Digital Pets | PETSHOP</title>
 </head>
 <body>
-    <header></header>
-    
-    <section class="carousel">
-        <!-- Acá hiría el carousel -->
+  <header>
+    <nav class="top-header">
+        <div class="logo">
+            <img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets">
+        </div>
+        <div class="search">
+            <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
+            <button type="submit" id="btn-search"><i class="fa fa-search"></i></button> 
+        </div>
+        <div class="account">
+            <ul>
+                <li><a href="/login" class="login">Ingresar</a></li>
+                |<li><a href="/register" class="register">Registrarse</a></li> 
+                <li><a href="/productCart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+            </ul>
+        </div>
+    </nav>
+  </header>
+  <main>
+    <section class="carousel"> 
+        <a href="#"><img src="/images/oferta-whiskas.webp" alt="Oferta Pedigree"></a>
     </section>
-
     <section class="categories">
-        <h2>Categorías</h2>
-        <div class="category">
-            <img src="" alt="Categoría 1">
-            <p>Nombre de la Categoría 1</p>
-        </div>
-        <div class="category">
-            <img src="" alt="Categoría 2">
-            <p>Nombre de la Categoría 2</p>
-        </div>
-        <div class="category">
-            <img src="" alt="Categoría 3">
-            <p>Nombre de la Categoría 3</p>
-        </div>
-        <div class="category">
-            <img src="" alt="Categoría 4">
-            <p>Nombre de la Categoría 4</p>
-        </div>
-        <div class="category">
-            <img src="" alt="Categoría 5">
-            <p>Nombre de la Categoría 5</p>
-        </div>
-         
+        <article>
+            <div>
+                <a href="#"><img src="/images/categoria-perros.jpg" alt="Dog"></a>
+                <p><a href="#">Perros</a></p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <a href="#"><img src="/images/categoria-gatos.jpg" alt="Cat"></a>
+                <p><a href="#">Gatos</a></p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <a href="#"><img src="/images/categoria-aves.jpg" alt="Bird"></a>
+                <p><a href="#">Aves</a></p>
+            </div>
+            </article>
+        <article>
+            <div>
+                <a href="#"><img src="/images/categoria-peces.jpg" alt="Fish"></a>
+                <p><a href="#">Peces</a></p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <a href="#"><img src="/images/categoria-otros.png" alt="Others"></a>
+                <p><a href="#">Otros</a></p>
+            </div>
+        </article>
     </section>
 
-    <section class="brands">
-        <h2>Marcas Destacadas</h2>
-        <div class="brand">
-            <img src="" alt="Marca 1">
-            <p>Marca 1</p>
+    <section class="featured-brands">
+        <h2>Encontralo por marca</h2>
+        <div class="brands">
+            <article>
+                <a href="#"><img src="/images/Kongo.jpg" alt="Kongo"></a>
+            </article>
+            <article>
+                <a href="#"><img src="/images/Whiskas.jpg" alt="Whiskas"></a>
+            </article>
+            <article>
+                <a href="#"><img src="/images/Pedigree.png" alt="Pedigree"></a>
+            </article>
+            <article>
+                <a href="#"><img src="/images/Sabrositos.png" alt="Sabrositos"></a>
+            </article>
         </div>
-        <div class="brand">
-            <img src="" alt="Marca 2">
-            <p>Marca 2</p>
-        </div>
-        <div class="brand">
-            <img src="" alt="Marca 3">
-            <p>Marca 3</p>
-        </div>
-              
     </section>
-
     <section class="suggested-products">
-        <h2>Productos Sugeridos</h2>
-        <div class="product">
-            <img src="" alt="Producto 1">
-            <p>Categoría del Producto</p>
-            <p>Nombre del Producto</p>
-            <p>Precio</p>
-        </div>
-
-        <div class="product">
-            <img src="" alt="Producto 2">
-            <p>Categoría del Producto</p>
-            <p>Nombre del Producto</p>
-            <p>Precio</p>
-        </div>
-       
-        <div class="product">
-            <img src="" alt="Producto 3">
-            <p>Categoría del Producto</p>
-            <p>Nombre del Producto</p>
-            <p>Precio</p>
+        <h2>Productos destacados</h2>
+        <div class="products">
+            <a href="#">
+                <article>
+                    <img src="/images/producto-whiskasSaborPescado.webp" alt="Alimento-Whiskas">
+                    <div class="product-details">
+                        <p class="product-name">Whiskas Sabor Pescado x10kg</p>
+                        <p class="price">$10.000</p>
+                        <p class="description">Descripción: ...</p>
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article>
+                    <img src="/images/Producto-KongoGoldAdultosPack.webp" alt="Alimento-Kongo-Adultos">
+                    <div class="product-details">
+                        <p class="product-name">Kongo Gold Adultos x15kg</p>
+                        <p class="price">$13.500</p>
+                        <p class="description">Descripción: ...</p>
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article>
+                    <img src="/images/Producto-AlimentoCoonejos.webp" alt="Alimento-Conejos">
+                    <div class="product-details">
+                        <p class="product-name">Alimento para conejos x750gr</p>
+                        <p class="price">$2.000</p>
+                        <p class="description">Descripción: ...</p>
+                    </div>
+                </article>
+            </a>
+            <a href="#">
+                <article>
+                    <img src="/images/Producto-KongoMedianoYAdulto.webp" alt="Alimento-Kongo-Mediano">
+                    <div class="product-details">
+                        <p class="product-name">Kongo - Mediano Y Adulto x10kg</p>
+                        <p class="price">$10.000</p>
+                        <p class="description">Descripción: ...</p>
+                    </div>
+                </article>
+            </a>
+            <a href="#"><article>
+                <img src="/images/producto-pipetaPower-20-a-40-Perros.webp" alt="pipetaPower-Perros">
+                <div class="product-details">
+                    <p class="product-name">Pipeta Power-Perros de 20 a 40kg</p>
+                    <p class="price">$2.500</p>
+                    <p class="description">Descripción: ...</p>
+                </div>
+            </article></a>
+            <a href="#"><article>
+                <img src="/images/producto-SabrositosGatoAdulto.webp" alt="Alimento-sabrositos-gato">
+                <div class="product-details">
+                    <p class="product-name">Mix Sabrositos para gato x1kg</p>
+                    <p class="price">$2.000</p>
+                    <p class="description">Descripción: ...</p>
+                </div>
+            </article></a>
         </div>
     </section>
-
-    <footer></footer>
+</main>
+<footer id="footer">
+    <div class="logo">
+        <img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets">
+    </div>
+    <div class="footer-links">
+        <div class="infomation">
+            <ul>
+                <li><a href="#">Sobre nosotros          +</a></li>
+                <li><a href="#">Información             +</a></li>
+                <li><a href="#">Preguntas frecuentes    +</a></li>
+            </ul>
+        </div>
+        <div class="networks">
+            <h6>Redes</h6>    
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+    </div>
+  </footer>
 </body>
 </html>
