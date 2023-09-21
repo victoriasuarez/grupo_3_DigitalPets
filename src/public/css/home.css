@@ -38,8 +38,10 @@ button {
     align-content: center;
     align-items: center;
     background-color: #fff;/*#cebb9c;*/
-    border-bottom:#eee solid 2px;
+}
 
+header {
+    border-bottom:#eee solid 2px;
 }
 .logo{
     margin: 20px;
