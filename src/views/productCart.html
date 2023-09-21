@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/css/cart.css">
     <title>Finalizar la compra - Digital Pets | PETSHOP</title>
 </head>
+
 <body>
     <header>
         <nav class="top-header">
@@ -15,13 +17,13 @@
             </div>
             <div class="search">
                 <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
-                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button> 
+                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button>
             </div>
             <div class="account">
                 <ul>
                     <li><a href="/login" class="login">Ingresar</a></li>
-                    |<li><a href="/register" class="register">Registrarse</a></li> 
-                    <li><a href="/productCart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+                    |<li><a href="/register" class="register">Registrarse</a></li>
+                    <li><a href="/productCart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -36,52 +38,145 @@
 
     </header>
     <main>
+
+        <div class="barra-desc-prod">
+            <span style="color: transparent;">------------------------------------</span>
+            <span class="prod">Producto</span>
+            <span class="desc">Descripción</span>
+            <span class="price">Precio<span>
+            <span class="count">Cantidad<span>
+        </div>
+
         <div class="parent">
-            <div class="container">
-                <div class="product">
-                    <img src="/images/Producto-AlimentoCoonejos.webp" alt="Producto 1">
-                    <span class="product-info">
-                        <span>Producto 1</span>
-                        <span>Descripción del producto.</span>
-                    </span>
-                    <span class="product-price">
-                        $10.00
-                    </span>
-                    <span class="quantity-control">
-                        <button class="quantity-button" onclick="decreaseQuantity()">-</button>
-                        <input class="quantity-input" type="number" value="1" min="1">
-                        <button class="quantity-button" onclick="increaseQuantity()">+</button>
-                    </span>
+            <div class="div-parent1">
+                <div class="container">
+                    <div class="div1">
+                        <img src="/images/Producto-AlimentoCoonejos.webp" alt="Producto 1">
+                    </div>
+                    <div class="div2">
+
+                        <p>Comida para conejo</p>
+                    </div>
+                    <div class="div3">
+
+                        <p>Alimento balanceado diario para conejos</p>
+                    </div>
+                    <div class="div4">
+
+                        <p class="product-price">$10.00</p>
+                    </div>
+                    <div class="div5">
+
+                        <p class="quantity-control">
+                            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
+                            <input class="quantity-input" type="number" value="1" min="1">
+                            <button class="quantity-button" onclick="increaseQuantity()">+</button>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="sidebar">
-                <div class="envio">
-                <legend>Envío:</legend>
-                <div class="option"></div>
-                    <input type="radio" name="envio" id="retiroSucursal"></input>
-                    <label for="retiroSucursal">Retiro en sucursal</label>
+
+            <div class="div-parent2">
+                <div class="container">
+                    <div class="div1">
+                        <img src="/images/Producto-AlimentoCoonejos.webp" alt="Producto 1">
+                    </div>
+                    <div class="div2">
+                        <p>Comida para conejo</p>
+                    </div>
+                    <div class="div3">
+                        <p>Alimento balanceado diario para conejos</p>
+                    </div>
+                    <div class="div4">
+                        <p class="product-price">$10.00</p>
+                    </div>
+                    <div class="div5">
+                        <p class="quantity-control">
+                            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
+                            <input class="quantity-input" type="number" value="1" min="1">
+                            <button class="quantity-button" onclick="increaseQuantity()">+</button>
+                        </p>
+                    </div>
                 </div>
-                <div class="option">
-                    <input type="radio" name="envio" id="envioDomicilio"></input>
-                    <label for="envioDomicilio">Envío a domicilio</label>
+            </div>
+
+
+            <div class="div-parent3">
+                <div class="container">
+                    <div class="div1">
+                        <img src="/images/Producto-AlimentoCoonejos.webp" alt="Producto 1">
+                    </div>
+                    <div class="div2">
+                        <p>Comida para conejo</p>
+                    </div>
+                    <div class="div3">
+                        <p>Alimento balanceado diario para conejos</p>
+                    </div>
+                    <div class="div4">
+                        <p class="product-price">$10.00</p>
+                    </div>
+                    <div class="div5">
+                        <p class="quantity-control">
+                            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
+                            <input class="quantity-input" type="number" value="1" min="1">
+                            <button class="quantity-button" onclick="increaseQuantity()">+</button>
+                        </p>
+                    </div>
                 </div>
+            </div>
+
+            <div class="div-parent4">
+                <div class="sidebar">
+                    <div class="envio">
+                        <legend>Envío:</legend>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="envio" id="retiroSucursal"></input>
+                        <label for="retiroSucursal">Retiro en sucursal</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="envio" id="envioDomicilio"></input>
+                        <label for="envioDomicilio">Envío a domicilio</label>
+                    </div>
                 </div>
+            </div>
+            <div class="div-parent5">
                 <div class="options">
-                    <label for="payment">Medio de Pago:</label>
-                    <select id="payment" name="payment">
-                        <option value="transferencia">Transferencia</option>
-                        <option value="mercadopago">Mercado Pago</option>
-                        <option value="sucursal">Pago en Sucursal</option>
-                    </select>
-                </div>
-                <div class="checkout">
-                    <p>Detalle de la compra:</p>
-                    <p>Carrito $10.00</p>
-                    <p>Envío $0.00</p>
-                    <p>Total: $10.00</p>
-                    <button>Finalizar Compra</button>
+                    <div class="mp">
+                        <legend>Medio de pago:</legend>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="envio" id="retiroSucursal"></input>
+                        <label for="retiroSucursal">Transferencia</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="envio" id="envioDomicilio"></input>
+                        <label for="envioDomicilio">Mercado Pago</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="envio" id="retiroSucursal"></input>
+                        <label for="retiroSucursal">Pago en Sucursal</label>
+                    </div>
                 </div>
             </div>
+            <div class="div-parent6">
+                <div class="parent6-complete">
+                    <div class="checkout">
+                        <div class="detalle">
+                            <legend>Detalle de la compra:</legend>
+                        </div>
+                        <div class="detalle-car">
+                            <p>Carrito ______ $10.00</p>
+                            <p>Envío ________ $0.00</p>
+                            <p>Total: _______ $10.00</p>
+                        </div>
+                    </div>
+                    <div class="btn-fc">
+                        <button>Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </main>
     <footer id="footer">
@@ -91,13 +186,13 @@
         <div class="footer-links">
             <div class="infomation">
                 <ul>
-                    <li><a href="#">Sobre nosotros          +</a></li>
-                    <li><a href="#">Información             +</a></li>
-                    <li><a href="#">Preguntas frecuentes    +</a></li>
+                    <li><a href="#">Sobre nosotros +</a></li>
+                    <li><a href="#">Información +</a></li>
+                    <li><a href="#">Preguntas frecuentes +</a></li>
                 </ul>
             </div>
             <div class="networks">
-                <h6>Redes</h6>    
+                <h6>Redes</h6>
                 <ul>
                     <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
                     <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
@@ -107,5 +202,22 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function decreaseQuantity() {
+            var inputElement = document.querySelector('.quantity-input');
+            var currentValue = parseInt(inputElement.value);
+            if (currentValue > 1) {
+                inputElement.value = currentValue - 1;
+            }
+        }
+
+        function increaseQuantity() {
+            var inputElement = document.querySelector('.quantity-input');
+            var currentValue = parseInt(inputElement.value);
+            inputElement.value = currentValue + 1;
+        }
+    </script>
 </body>
+
 </html>
