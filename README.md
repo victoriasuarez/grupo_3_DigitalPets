@@ -33,3 +33,7 @@ Páginas con las cuáles usamos de referencia:
 • https://pellegrinipetshop.com.ar/ → Pellegrini Pet Shop nos gustó mucho sus cards de productos, su versión mobile, su detalle de producto en el carrito, su menú hamburguesa y su interfaz en general.
 
 • https://www.tiendademascotas.com.ar/ → Tienda de mascotas fue elegida por la simpleza , por el diseño de sus cards de producto y por el formato de carrito de compras.
+
+<br>
+
+Link Trello: https://trello.com/b/QYwvmEyr/grupo3-digitalpets
