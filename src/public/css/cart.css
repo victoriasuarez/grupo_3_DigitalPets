@@ -38,11 +38,14 @@ button {
     align-content: center;
     align-items: center;
     background-color: #fff;/*#cebb9c;*/
+    /* border-bottom:#eee solid 2px; */
+
 }
 
 header {
     border-bottom:#eee solid 2px;
 }
+
 .logo{
     margin: 20px;
     width: 130px;
@@ -74,105 +77,85 @@ header {
     width: 50%;
 }
 #in-search{
-    font-size: 24px;
+    font-size: 17px;
     border-radius: 15px;
     width: 150%;
+    padding: 7px;
+}
+
+button#btn-search {
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+nav.barra {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 0 8px 10px;
+}
+
+nav.barra span.barra-oc, nav.barra div.ubicacion {
+    padding: 0 40px;
 }
 
 
 /*=================================================*/
+
 
 /*=======================MAIN======================*/
-main{
-    width: 100vw;
-    background-color: #fff;
+.parent {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 43px;
+    grid-row-gap: 0px;
 }
 
-.carousel img{
-    width: 100%;
+.container, .sidebar, .options, .checkout{
+    border: 3px solid red;
+    margin: 10px 5px;
 }
 
-section.categories{
-    margin: 40px;
+div.product {
     display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
+    align-items: center;
 }
 
-.categories article img{
-    border: 3px solid #000;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-}
-
-.featured-brands, .suggested-products{
-    margin-top:100px 0px;
-}
-.featured-brands h2, .suggested-products h2{
-    display: block;
-    background-color:#000;
-    color: #fff;
-    margin: 0px 50px;
-    padding: 10px 0px;
-}
-div.brands{
+div.product img {
+    width: 20%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;  
-    margin: 20px 50px; 
-} 
-div.brands article img{
-    height: 80px;
-}
-/*-----------------------------------------*/
-/*------------Productos------------------*/
-div.products{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
-    gap: 15px; 
-    margin: 20px 0px; 
-}
-div.products article{
-    width: 280px;
-    height: 400;
-    border: #333 solid 1px;
-    border-radius: 10px;
-}
-div.products article img{
-    width: 95%;
-    margin: 5px;
-}
-div.products article .product-details{
-    border-top: #eee solid 1px;
-    padding: 15px 0px;
-    font-size: 16px;
-    line-height: 24px;
+    align-items: flex-start;
 }
 
-.product-details .price{
-    font-size: 24px;
-    font-weight: 900;
-    margin: 10px 0px; 
+div.sidebar div.envio {
+    padding: 50px 20px;
 }
-/*-----------------------------------------*/
-div.products article{
-    transition: all 0.2s ease-in;
+
+div.envio div.option {
+    display: flex;
+    flex-direction: column;
 }
-div.products article:hover{
-    box-shadow:  0px 0px 10px rgb(100, 100, 100);
+
+main.main {
+    padding: 5%;
 }
-@media (min-width: 1024px){
-    div.products {
-        flex-basis: 25%;
-    }
+
+main.main h3 {
+    padding: 2%;
+    font-size: 20px;
+}
+
+main.main-login {
+    padding: 10%;
+}
+
+div.p {
+    padding: 2% 0;
 }
 
 
 /*=================================================*/
+
 /*=====================FOOTER======================*/
 #footer{
     display: flex;

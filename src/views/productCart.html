@@ -3,48 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/cart.css">
     <title>Finalizar la compra - Digital Pets | PETSHOP</title>
 </head>
 <body>
-    <header></header>
-        <div class="container">
-        <div class="product">
-            <img src="imagen-producto.jpg" alt="Producto 1">
-            <div class="product-info">
-                <h2>Producto 1</h2>
-                <p>Descripción del producto.</p>
+    <header>
+        <nav class="top-header">
+            <div class="logo">
+                <a href="/"><img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets"></a>
             </div>
-            <div class="product-price">
-                $10.00
+            <div class="search">
+                <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
+                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button> 
             </div>
-            <input class="quantity" type="number" value="1" min="1">
-        </div>
-    </div>
-    <div class="sidebar">
-        <div class="options">
-            <label for="shipping">Envío:</label>
-            <select id="shipping" name="shipping">
-                <option value="retiro">Retiro en sucursal</option>
-                <option value="domicilio">Envío a domicilio</option>
-            </select>
-        </div>
-        <div class="options">
-            <label for="payment">Medio de Pago:</label>
-            <select id="payment" name="payment">
-                <option value="transferencia">Transferencia</option>
-                <option value="mercadopago">Mercado Pago</option>
-                <option value="sucursal">Pago en Sucursal</option>
-            </select>
-        </div>
-        <div class="checkout">
-            <p>Detalle de la compra:</p>
-            <p>Carrito $10.00</p>
-            <p>Envío $0.00</p>
-            <p>Total: $10.00</p>
-            <button>Finalizar Compra</button>
-        </div>
-    </div>
+            <div class="account">
+                <ul>
+                    <li><a href="/login" class="login">Ingresar</a></li>
+                    |<li><a href="/register" class="register">Registrarse</a></li> 
+                    <li><a href="/productCart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+                </ul>
+            </div>
+        </nav>
+        <nav class="barra">
+            <div class="ubicacion">
+                <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
+                <span>Santa Fe</span>
+            </div>
+            <span class="barra-oc">Ofertas</span>
+            <span class="barra-oc">Categorias</span>
+        </nav>
 
-    <footer></footer>
+    </header>
+    <main>
+        <div class="parent">
+            <div class="container">
+                <div class="product">
+                    <img src="/images/Producto-AlimentoCoonejos.webp" alt="Producto 1">
+                    <span class="product-info">
+                        <span>Producto 1</span>
+                        <span>Descripción del producto.</span>
+                    </span>
+                    <span class="product-price">
+                        $10.00
+                    </span>
+                    <span class="quantity-control">
+                        <button class="quantity-button" onclick="decreaseQuantity()">-</button>
+                        <input class="quantity-input" type="number" value="1" min="1">
+                        <button class="quantity-button" onclick="increaseQuantity()">+</button>
+                    </span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="envio">
+                <legend>Envío:</legend>
+                <div class="option"></div>
+                    <input type="radio" name="envio" id="retiroSucursal"></input>
+                    <label for="retiroSucursal">Retiro en sucursal</label>
+                </div>
+                <div class="option">
+                    <input type="radio" name="envio" id="envioDomicilio"></input>
+                    <label for="envioDomicilio">Envío a domicilio</label>
+                </div>
+                </div>
+                <div class="options">
+                    <label for="payment">Medio de Pago:</label>
+                    <select id="payment" name="payment">
+                        <option value="transferencia">Transferencia</option>
+                        <option value="mercadopago">Mercado Pago</option>
+                        <option value="sucursal">Pago en Sucursal</option>
+                    </select>
+                </div>
+                <div class="checkout">
+                    <p>Detalle de la compra:</p>
+                    <p>Carrito $10.00</p>
+                    <p>Envío $0.00</p>
+                    <p>Total: $10.00</p>
+                    <button>Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="logo">
+            <img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets">
+        </div>
+        <div class="footer-links">
+            <div class="infomation">
+                <ul>
+                    <li><a href="#">Sobre nosotros          +</a></li>
+                    <li><a href="#">Información             +</a></li>
+                    <li><a href="#">Preguntas frecuentes    +</a></li>
+                </ul>
+            </div>
+            <div class="networks">
+                <h6>Redes</h6>    
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
