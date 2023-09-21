@@ -91,12 +91,13 @@ button#btn-search {
 nav.barra {
     display: flex;
     justify-content: flex-start;
-    padding: 0 0 5px 10px;
+    padding: 0 0 8px 10px;
 }
 
-nav.barra span {
-    padding: 0 50px;
+nav.barra span.barra-oc, nav.barra div.ubicacion {
+    padding: 0 40px;
 }
+
 
 /*=================================================*/
 
@@ -134,6 +135,24 @@ div.envio div.option {
     display: flex;
     flex-direction: column;
 }
+
+main.main {
+    padding: 5%;
+}
+
+main.main h3 {
+    padding: 2%;
+    font-size: 20px;
+}
+
+main.main-login {
+    padding: 10%;
+}
+
+div.p {
+    padding: 2% 0;
+}
+
 
 /*=================================================*/
 
