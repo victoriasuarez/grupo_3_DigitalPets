@@ -99,41 +99,115 @@ nav.barra span.barra-oc, nav.barra div.ubicacion {
 }
 
 
+
 /*=================================================*/
 
 
 /*=======================MAIN======================*/
+
+div.barra-desc-prod {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 0 20px 20px;
+}
+
+div.barra-desc-prod .prod {
+    margin-left: 10%;
+} 
+
+div.barra-desc-prod .desc {
+    margin-left: 11%;
+}
+
+div.barra-desc-prod .price {
+    margin-left: 8.5%;
+}
+
+div.barra-desc-prod .count {
+    margin-left: 56px;
+}
+
+
+/* Grid de main*/
+
 .parent {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 43px;
+    grid-column-gap: 0px;
     grid-row-gap: 0px;
+    padding: 0 50px 40px;
 }
 
+.div-parent1 { grid-area: 1 / 1 / 2 / 2; }
+.div-parent2 { grid-area: 2 / 1 / 3 / 2; }
+.div-parent3 { grid-area: 3 / 1 / 4 / 2; }
+.div-parent4 { grid-area: 1 / 2 / 2 / 3; }
+.div-parent5 { grid-area: 2 / 2 / 3 / 3; }
+.div-parent6 { grid-area: 3 / 2 / 4 / 3; }
+
+.div-parent1, .div-parent2, .div-parent3 {
+    border-top: 1px solid rgb(129, 129, 129);
+}
+
+.div-parent1, .div-parent2, .div-parent3 {
+    margin-left: 25px;
+}
+
+.div-parent4, .div-parent5, .div-parent6{
+    display: flex;
+    justify-content: center;
+}
+
+
+
 .container, .sidebar, .options, .checkout{
-    border: 3px solid red;
     margin: 10px 5px;
 }
 
-div.product {
+div.container {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
-div.product img {
-    width: 20%;
-    display: flex;
-    align-items: flex-start;
+div.container img {
+    width: 200px;
 }
 
 div.sidebar div.envio {
-    padding: 50px 20px;
+    padding: 15px 0;
 }
 
-div.envio div.option {
-    display: flex;
+div.sidebar, div.options {
+    background-color: #bbbbbb;
+    width: 45%;
+    border-radius: 30px;
+}
+
+div.checkout {
+    background-color: #bbbbbb;
+    width: 225px;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+div.option {
     flex-direction: column;
+    padding: 20px 0 10px 0;
+}
+
+div.options .mp {
+    padding: 15px 0;
+}
+
+div.checkout .detalle,div.checkout div.detalle-car{
+    padding: 20px 0;
+}
+
+.div-parent6 div.btn-fc button {
+    border-radius: 20px;
+    width: 60%;
+    height: 35px;
 }
 
 main.main {
@@ -151,6 +225,44 @@ main.main-login {
 
 div.p {
     padding: 2% 0;
+}
+
+/* Grid de detalle de product*/
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }
+.div3 { grid-area: 1 / 3 / 2 / 4; }
+.div4 { grid-area: 1 / 4 / 2 / 5; }
+.div5 { grid-area: 1 / 5 / 2 / 6; }
+.div6 { grid-area: 1 / 6 / 2 / 7; }
+
+div.div2 p, div.div3 p, div.div4 p {
+    padding: 85px 0;
+}
+
+div.div5 p {
+    padding: 75px 0;
+}
+
+
+p.quantity-control {
+    width: 125px;
+}
+
+p.quantity-control input.quantity-input {
+    width: 30px;
+}
+
+p.quantity-control button.quantity-button {
+    width: 30px;
 }
 
 
