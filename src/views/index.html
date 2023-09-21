@@ -38,8 +38,59 @@
   </header>
   <main>
     <section class="carousel"> 
-        <a href="#"><img src="/images/oferta-whiskas.webp" alt="Oferta Pedigree"></a>
+            <div class="carousel-images">
+                <img src="/images/publicidad-whiskas.webp" alt="publicidad-whiskas">
+                <img src="/images/publicidad-purina.webp" alt="publicidad-purina">
+                <img src="/images/publicidad-ejemplo.jpg" alt="publicidad-ejemplo">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev"><i class="fas fa-arrow-left"></i></button>
+                <button class="next"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="carousel-indicators">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+            </div>
     </section> 
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll('.carousel-images img');
+        const indicators = document.querySelectorAll('.carousel-indicators span');
+
+        function updateCarousel() {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        document.querySelector('.carousel-buttons .prev').addEventListener('click', () => {
+            index = (index - 1 + images.length) % images.length;
+            updateCarousel();   
+        });
+
+        document.querySelector('.carousel-buttons .next').addEventListener('click', () => {
+            index = (index + 1) % images.length;
+            updateCarousel();
+        });
+
+        indicators.forEach((indicator, i) => {
+            indicator.addEventListener('click', () => {
+                index = i;
+                updateCarousel();
+            });
+        });
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            updateCarousel();
+        }, 6000);
+
+        updateCarousel();
+    </script>
     <section class="categories">
         <article>
             <div>
@@ -93,60 +144,54 @@
     <section class="suggested-products">
         <h2>Productos destacados</h2>
         <div class="products">
-            <a href="#">
+            <a href="/productDetail">
                 <article>
                     <img src="/images/producto-whiskasSaborPescado.webp" alt="Alimento-Whiskas">
                     <div class="product-details">
                         <p class="product-name">Whiskas Sabor Pescado x10kg</p>
                         <p class="price">$10.000</p>
-                        <p class="description">Descripción: ...</p>
                     </div>
                 </article>
             </a>
-            <a href="#">
+            <a href="/productDetail">
                 <article>
                     <img src="/images/Producto-KongoGoldAdultosPack.webp" alt="Alimento-Kongo-Adultos">
                     <div class="product-details">
                         <p class="product-name">Kongo Gold Adultos x15kg</p>
                         <p class="price">$13.500</p>
-                        <p class="description">Descripción: ...</p>
                     </div>
                 </article>
             </a>
-            <a href="#">
+            <a href="/productDetail">
                 <article>
                     <img src="/images/Producto-AlimentoCoonejos.webp" alt="Alimento-Conejos">
                     <div class="product-details">
                         <p class="product-name">Alimento para conejos x750gr</p>
                         <p class="price">$2.000</p>
-                        <p class="description">Descripción: ...</p>
                     </div>
                 </article>
             </a>
-            <a href="#">
+            <a href="/productDetail">
                 <article>
                     <img src="/images/Producto-KongoMedianoYAdulto.webp" alt="Alimento-Kongo-Mediano">
                     <div class="product-details">
                         <p class="product-name">Kongo - Mediano Y Adulto x10kg</p>
                         <p class="price">$10.000</p>
-                        <p class="description">Descripción: ...</p>
                     </div>
                 </article>
             </a>
-            <a href="#"><article>
+            <a href="/productDetail"><article>
                 <img src="/images/producto-pipetaPower-20-a-40-Perros.webp" alt="pipetaPower-Perros">
                 <div class="product-details">
                     <p class="product-name">Pipeta Power-Perros de 20 a 40kg</p>
                     <p class="price">$2.500</p>
-                    <p class="description">Descripción: ...</p>
                 </div>
             </article></a>
-            <a href="#"><article>
+            <a href="/productDetail"><article>
                 <img src="/images/producto-SabrositosGatoAdulto.webp" alt="Alimento-sabrositos-gato">
                 <div class="product-details">
                     <p class="product-name">Mix Sabrositos para gato x1kg</p>
                     <p class="price">$2.000</p>
-                    <p class="description">Descripción: ...</p>
                 </div>
             </article></a>
         </div>

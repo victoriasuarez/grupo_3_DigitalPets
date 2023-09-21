@@ -43,7 +43,7 @@ body {
     transition: all 800ms;
 }
 .image-product {
-    width: 100%;
+    width: 300px;
 }
 .detail {
     width: 100%;
