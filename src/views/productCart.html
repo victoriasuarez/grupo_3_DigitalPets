@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/cart.css">
     <title>Finalizar la compra - Digital Pets | PETSHOP</title>
+    <link rel="shortcut icon" href="\images\LogoDigitalPets.png" type="image/x-icon">
 </head>
 
 <body>
@@ -67,11 +71,11 @@
                     </div>
                     <div class="div5">
 
-                        <p class="quantity-control">
-                            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
-                            <input class="quantity-input" type="number" value="1" min="1">
-                            <button class="quantity-button" onclick="increaseQuantity()">+</button>
-                        </p>
+                        <div class="wrapper">
+                            <span class="out">-</span>
+                            <span class="num">1</span>
+                            <span class="add">+</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,11 +95,11 @@
                         <p class="product-price">$10.00</p>
                     </div>
                     <div class="div5">
-                        <p class="quantity-control">
-                            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
-                            <input class="quantity-input" type="number" value="1" min="1">
-                            <button class="quantity-button" onclick="increaseQuantity()">+</button>
-                        </p>
+                        <div class="wrapper">
+                            <span class="out">-</span>
+                            <span class="num">1</span>
+                            <span class="add">+</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,11 +120,11 @@
                         <p class="product-price">$10.00</p>
                     </div>
                     <div class="div5">
-                        <p class="quantity-control">
-                            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
-                            <input class="quantity-input" type="number" value="1" min="1">
-                            <button class="quantity-button" onclick="increaseQuantity()">+</button>
-                        </p>
+                        <div class="wrapper">
+                            <span class="out">-</span>
+                            <span class="num">1</span>
+                            <span class="add">+</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,20 +208,21 @@
     </footer>
 
     <script>
-        function decreaseQuantity() {
-            var inputElement = document.querySelector('.quantity-input');
-            var currentValue = parseInt(inputElement.value);
-            if (currentValue > 1) {
-                inputElement.value = currentValue - 1;
-            }
-        }
-
-        function increaseQuantity() {
-            var inputElement = document.querySelector('.quantity-input');
-            var currentValue = parseInt(inputElement.value);
-            inputElement.value = currentValue + 1;
-        }
-    </script>
+        const add = document.querySelector(".add"),
+        out = document.querySelector(".out"),
+        num = document.querySelector(".num");
+        let a = 1;
+        add.addEventListener("click", ()=>{
+          a++;
+          num.innerText = a;
+        });
+        out.addEventListener("click", ()=>{
+          if (a > 1) {
+            a--;
+            num.innerText = a;
+          }
+        });
+      </script>
 </body>
 
 </html>

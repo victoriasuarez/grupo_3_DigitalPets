@@ -1,0 +1,69 @@
+/*=====================HEADER======================*/
+.top-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    background-color: #fff;
+
+}
+
+header {
+    border-bottom:#eee solid 2px;
+}
+
+.logo{
+    margin: 20px;
+    width: 180px;
+}
+.logo img{
+    width: 100%;
+}
+
+.account ul{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+.account ul li{
+    font-size: 14px;
+    padding: 2px;
+}
+
+.fab {
+    border-radius: 50%;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+#in-search{
+    font-size: 17px;
+    border-radius: 15px;
+    width: 150%;
+    padding: 7px;
+}
+
+button#btn-search{
+    background-color: #000;
+    color: #fff;
+    padding: 5px 5px;
+    border-radius: 50%;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+nav.barra {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 0 8px 10px;
+    background-color: #fff;
+}
+
+nav.barra span.barra-oc, nav.barra div.ubicacion {
+    padding: 0 40px;
+}
+/*=================================================*/

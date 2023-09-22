@@ -1,0 +1,38 @@
+/*=====================FOOTER======================*/
+#footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-top:#eee solid 2px;
+    margin: 0;
+}
+#footer .footer-links{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 20px;
+    text-align: left;
+}
+
+#footer .informacion{
+    margin: 60px 0px;
+}
+#footer .networks{
+    margin-top: 20px;
+}
+
+#footer h6{
+    margin: 10px 40px;
+}
+
+.networks ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+/*=================================================*/

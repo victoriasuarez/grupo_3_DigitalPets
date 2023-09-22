@@ -1,0 +1,56 @@
+.main-login h1, .main-register h1{
+    color: #333;
+}
+
+.main-login, .main-register{
+    padding: 5% 20%;
+}
+
+.form-register , .form-login {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-login label, .form-register label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #333;
+}
+
+main a{
+    font-weight: bold;
+}
+
+div.p{
+    padding: 20px 0px;
+    line-height: 1.5em;
+}
