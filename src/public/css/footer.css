@@ -15,6 +15,7 @@
     justify-content: flex-start;
     align-content: flex-start;
     text-align: left;
+    padding-left: 20px;
 }
 
 #footer .information li {
@@ -28,14 +29,13 @@
     position: absolute;
     right: 0;
 }
-
-#footer h6{
-    margin: 10px 40px;
+#footer .networks{
+    margin-top: 10px;
 }
-
 #footer .networks ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
 }
 /*=================================================*/
