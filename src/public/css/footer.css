@@ -3,11 +3,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-content: center;
     align-items: center;
     background-color: #fff;
     border-top:#eee solid 2px;
-    margin: 0;
+    padding: 10px 15px;
 }
 #footer .footer-links{
     display: flex;
@@ -15,24 +14,28 @@
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    margin: 20px;
     text-align: left;
+    padding-left: 20px;
 }
 
-#footer .informacion{
-    margin: 60px 0px;
+#footer .information li {
+    font-size: 14px;
+    position: relative;
+    padding-right: 20px; /* Espacio para el signo + */
+}
+
+#footer .information li::after {
+    content: "+";
+    position: absolute;
+    right: 0;
 }
 #footer .networks{
-    margin-top: 20px;
+    margin-top: 10px;
 }
-
-#footer h6{
-    margin: 10px 40px;
-}
-
-.networks ul{
+#footer .networks ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
 }
 /*=================================================*/
