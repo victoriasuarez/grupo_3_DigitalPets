@@ -1,69 +1,108 @@
 /*=====================HEADER======================*/
-.top-header{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    background-color: #fff;
-
-}
-
-header {
+#header-main {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    width: 100vw;
     border-bottom:#eee solid 2px;
 }
 
+.top-header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+}
+
+.burger-menu button {
+    font-size: 30px;
+    background-color: #fff;
+    border:#fff solid 1px;
+    border-radius: 5px;
+}
+.burger-menu button:hover {
+    background-color: #eee;
+}
+
 .logo{
-    margin: 20px;
-    width: 180px;
+    width: 120px;
 }
 .logo img{
     width: 100%;
 }
-
 .account ul{
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-}
-.account ul li{
-    font-size: 14px;
-    padding: 2px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
 }
 
-.fab {
-    border-radius: 50%;
-}
-.search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-}
-#in-search{
-    font-size: 17px;
-    border-radius: 15px;
-    width: 150%;
-    padding: 7px;
+.search, .account li a.login, .account li a.register ,.navBar{
+    display: none;
 }
 
-button#btn-search{
-    background-color: #000;
-    color: #fff;
-    padding: 5px 5px;
-    border-radius: 50%;
-    font-size: 17px;
-    margin-left: 10px;
-}
 
-nav.barra {
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 0 8px 10px;
-    background-color: #fff;
-}
 
-nav.barra span.barra-oc, nav.barra div.ubicacion {
-    padding: 0 40px;
+
+/*--------DESKTOP-----------*/
+@media(min-width: 769px){
+    .burger-menu{
+        display: none;
+    }
+    .logo{
+        width: 120px;
+    }
+
+    .account li a.login, .account li a.register{
+        display: inline;
+    }
+    .account ul{
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+    }
+    .account ul li{
+        font-size: 14px;
+        padding: 0 4px;
+    }
+    .account ul li .register{
+        padding-left:4px;
+        border-left: #000 solid 1px;
+    }
+    .search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+    #in-search{
+        font-size: 14px;
+        border-radius: 15px;
+        width: 150%;
+        padding: 7px;
+    }
+
+    button#btn-search{
+        background-color: #000;
+        color: #fff;
+        padding: 5px 5px;
+        border-radius: 50%;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    nav.navBar {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0 0 8px 10px;
+        background-color: #fff;
+        font-size: 14px;
+    }
+
+    nav.navBar span.navBar-oc, nav.navBar div.location {
+        padding: 0 40px;
+    }
 }
 /*=================================================*/

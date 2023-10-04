@@ -1,45 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Digital Pets | PETSHOP</title>
-    <link rel="shortcut icon" href="\images\LogoDigitalPets.png" type="image/x-icon">
-</head>
+    <%- include('partials/head', {styles: ['normalize', 'styles','header','footer','home']}) %>
 <body>
-  <header>
-    <nav class="top-header">
-        <div class="logo">
-            <img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets">
-        </div>
-        <div class="search">
-            <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
-            <button type="submit" id="btn-search"><i class="fa fa-search"></i></button> 
-        </div>
-        <div class="account">
-            <ul>
-                <li><a href="/login" class="login">Ingresar</a></li>
-                |<li><a href="/register" class="register">Registrarse</a></li> 
-                <li><a href="/productCart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
-            </ul>
-        </div>
-    </nav>
-    <nav class="barra">
-        <div class="ubicacion">
-            <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
-            <span>Santa Fe</span>
-        </div>
-        <span class="barra-oc">Ofertas</span>
-        <span class="barra-oc">Categorias</span>
-    </nav>
-  </header>
-  <main>
+    <%- include ('partials/header') %>
+<main>
     <section class="carousel"> 
             <div class="carousel-images">
                 <img src="/images/publicidad-whiskas.webp" alt="publicidad-whiskas">
@@ -147,7 +111,7 @@
     <section class="suggested-products">
         <h2>Productos destacados</h2>
         <div class="products">
-            <a href="/productDetail">
+            <a href="/product/detail">
                 <article>
                     <img src="/images/producto-whiskasSaborPescado.webp" alt="Alimento-Whiskas">
                     <div class="product-details">
@@ -157,7 +121,7 @@
                     </div>
                 </article>
             </a>
-            <a href="/productDetail">
+            <a href="/product/detail">
                 <article>
                     <img src="/images/Producto-KongoGoldAdultosPack.webp" alt="Alimento-Kongo-Adultos">
                     <div class="product-details">
@@ -167,7 +131,7 @@
                     </div>
                 </article>
             </a>
-            <a href="/productDetail">
+            <a href="/product/detail">
                 <article>
                     <img src="/images/Producto-AlimentoCoonejos.webp" alt="Alimento-Conejos">
                     <div class="product-details">
@@ -177,7 +141,7 @@
                     </div>
                 </article>
             </a>
-            <a href="/productDetail">
+            <a href="/product/detail">
                 <article>
                     <img src="/images/Producto-KongoMedianoYAdulto.webp" alt="Alimento-Kongo-Mediano">
                     <div class="product-details">
@@ -187,7 +151,7 @@
                     </div>
                 </article>
             </a>
-            <a href="/productDetail"><article>
+            <a href="/product/detail"><article>
                 <img src="/images/producto-pipetaPower-20-a-40-Perros.webp" alt="pipetaPower-Perros">
                 <div class="product-details">
                     <p class="category">Perros</p>
@@ -195,7 +159,7 @@
                     <p class="price">$2.500</p>
                 </div>
             </article></a>
-            <a href="/productDetail"><article>
+            <a href="/product/detail"><article>
                 <img src="/images/producto-SabrositosGatoAdulto.webp" alt="Alimento-sabrositos-gato">
                 <div class="product-details">
                     <p class="category">Gatos</p>
@@ -206,28 +170,6 @@
         </div>
     </section>
 </main>
-<footer id="footer">
-    <div class="logo">
-        <img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets">
-    </div>
-    <div class="footer-links">
-        <div class="infomation">
-            <ul>
-                <li><a href="#">Sobre nosotros          +</a></li>
-                <li><a href="#">Información             +</a></li>
-                <li><a href="#">Preguntas frecuentes    +</a></li>
-            </ul>
-        </div>
-        <div class="networks">
-            <h6>Redes</h6>    
-            <ul>
-                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
-    </div>
-  </footer>
+<%- include ('partials/footer') %>
 </body>
 </html>
