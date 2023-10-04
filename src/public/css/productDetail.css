@@ -35,7 +35,7 @@
     transition: all 800ms;
 }
 .image-product {
-    width: 300px;
+    width: 80%;
 }
 .detail {
     width: 100%;
@@ -155,7 +155,9 @@
     .detail-product {
         display: flex;
     }
-    
+    .product {
+        text-align: left;
+    }
     .sub-main-footer {
         width: 30%;
     }
@@ -169,4 +171,8 @@
     .detail {
         width: 60%;
     }
+    .product {
+        margin-bottom: 50px;
+    }
+
 }
