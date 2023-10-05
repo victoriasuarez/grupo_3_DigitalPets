@@ -60,7 +60,7 @@ form input[type="file"]{
 }
 
 form input[type="submit"] {
-    width: 120px;
+    width: 30%;
     height: 40px;
     background-color: #000;
     color: #fff;
@@ -74,7 +74,7 @@ form input[type="submit"]:hover {
     background-color: #333;
 }
 
-button{
+.btn-delete {
     width: 120px;
     height: 40px;
     border: 1px solid #f35f09;
@@ -86,6 +86,6 @@ button{
     background-color: orangered;
     margin-top: 10px;
   }
-button:hover {
+.btn-delete:hover {
     background-color: #f35f09;
 }  
