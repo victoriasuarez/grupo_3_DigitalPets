@@ -4,6 +4,12 @@ const controller = {
     },
     cart(req, res) {
         res.render('products/productCart');
+    },
+    create(req, res) {
+        res.render('products/productCreate');
+    },
+    edit(req, res) {
+        res.render('products/productEdit');
     }
 };
 
