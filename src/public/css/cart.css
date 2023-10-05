@@ -132,21 +132,11 @@ div.btn-fc {
     grid-row-gap: 0px;
 }
 
-.div1 { 
-    grid-area: 1 / 1 / 2 / 2; 
-}
-.div2 { 
-    grid-area: 1 / 2 / 2 / 3; 
-}
-.div3 {
-    display: none;
-}
-.div4 { 
-    grid-area: 1 / 2 / 2 / 3; 
-}
-.div5 { 
-    grid-area: 1 / 3 / 2 / 4; 
-}
+.div1 {grid-area: 1 / 1 / 2 / 2; }
+.div2 {grid-area: 1 / 2 / 2 / 3;}
+.div3 {display: none;}
+.div4 {grid-area: 1 / 2 / 2 / 3;}
+.div5 {grid-area: 1 / 3 / 2 / 4;}
 
 div.div2 p, div.div4 p {
     display: flex;
@@ -197,21 +187,23 @@ div.div5 span{
         justify-content: flex-start;
         padding: 20px 0 20px 20px;
     }
-    
+
     div.barra-desc-prod .prod {
-        margin-left: 10%;
-    } 
+        padding: 0 0 0 13.5%;
+    }
     
     div.barra-desc-prod .desc {
-        margin-left: 11%;
+        display: block;
+        padding: 0 0 0 14%;
     }
     
     div.barra-desc-prod .price {
-        margin-left: 8.5%;
+        display: block;
+        padding: 0 0 0 10.5%;
     }
     
     div.barra-desc-prod .count {
-        margin-left: 56px;
+        padding: 0 0 0 4%;
     }
     
     
@@ -219,8 +211,8 @@ div.div5 span{
     
     .parent {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 950px 350px;
+        grid-template-rows: repeat(3, 225px);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         padding: 0 50px 40px;
@@ -237,123 +229,135 @@ div.div5 span{
         border-top: 1px solid rgb(129, 129, 129);
     }
     
+    /* Cards de productos */
     .div-parent1, .div-parent2, .div-parent3 {
-        margin-left: 25px;
+        padding: 10px;
     }
-    
+
+    /* Cards de envios, medios de pago y detalle de compra */
     .div-parent4, .div-parent5, .div-parent6{
         display: flex;
         justify-content: center;
     }
-    
-    
-    
-    .container, .sidebar, .options, .checkout{
+
+    .div-parent5 div.options{
+        padding: 15px 0;
+    }
+
+    .checkout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+
+    /* Atributos de envios */
+    .sidebar, .options, .checkout{
         margin: 10px 5px;
     }
     
-    div.container {
-        display: flex;
-        justify-content: space-between;
-    }
-    
     div.container img {
-        width: 200px;
+        width: 180px;
     }
     
-    div.sidebar div.envio {
+    div.sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
         padding: 15px 0;
     }
     
-    div.sidebar, div.options {
-        background-color: #bbbbbb;
-        width: 45%;
-        border-radius: 30px;
+    div.sidebar div.envio {
+        text-align: center;
     }
     
-    div.checkout {
+    div.sidebar, div.options, div.checkout {
         background-color: #bbbbbb;
-        width: 225px;
+        width: 90%;
         border-radius: 30px;
-        padding: 10px;
     }
     
     div.option {
         flex-direction: column;
-        padding: 20px 0 10px 0;
+        padding: 10px 0;
+    }
+    
+    div.checkout div.detalle-car p {
+        padding: 2px 0;
     }
     
     div.options .mp {
-        padding: 15px 0;
+        padding: 10px 0;
     }
     
     div.checkout .detalle,div.checkout div.detalle-car{
-        padding: 20px 0;
+        padding: 10px 0;
     }
     
-    .div-parent6 div.btn-fc button {
+    div.btn-fc button {
         border-radius: 20px;
-        width: 60%;
+        width: 30%;
         height: 35px;
-        cursor: pointer;
+        background-color: black;
+        color: white;
     }
     
-    main.main {
+    div.btn-fc {
         padding: 5%;
     }
     
-    main.main h3 {
-        padding: 2%;
-        font-size: 20px;
-    }
-    
-    main.main-login {
-        padding: 10%;
-    }
-    
-    div.p {
-        padding: 2% 0;
-    }
     
     /* Grid de detalle de product*/
     
     .container {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 200px);
         grid-template-rows: 1fr;
-        grid-column-gap: 0px;
+        grid-column-gap: 10px;
         grid-row-gap: 0px;
     }
     
     .div1 { grid-area: 1 / 1 / 2 / 2; }
     .div2 { grid-area: 1 / 2 / 2 / 3; }
-    .div3 { grid-area: 1 / 3 / 2 / 4; }
+    .div3 { 
+        display: block;
+        grid-area: 1 / 3 / 2 / 4; 
+    }
     .div4 { grid-area: 1 / 4 / 2 / 5; }
     .div5 { grid-area: 1 / 5 / 2 / 6; }
     .div6 { grid-area: 1 / 6 / 2 / 7; }
     
-    div.div2 p, div.div3 p, div.div4 p {
-        padding: 85px 0;
+    div.div2 p, div.div4 p {
+        display: flex;
+        flex-direction: column;
     }
     
-    div.div5 p{
-        padding: 75px 0;
+    div.div2, div.div3, div.div4 {
+        padding: 80px 0;
+    }
+    
+    div.div5 span{
+        display: flex;
+        flex-direction: column;
     }
     
     .wrapper{
-        width: 120px;
-        height: 30px;
+        width: 80px;
+        height: 22px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: black;
         border-radius: 40px;
-        margin-right: 3px;
+        margin: 76px 0 0 0;
     }
     .wrapper span{
         width: 100%;
         text-align: center;
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 600;
         cursor: pointer;
         color: white;
