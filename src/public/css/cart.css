@@ -3,31 +3,34 @@
 
 /*--------MOBILE-----------*/
 @media (max-width: 414px) {
-    div.barra-desc-prod {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px;
+
+    .div-parent1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 30px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
     }
     
-    div.barra-desc-prod .prod {
-        margin: 0 0 0 53% ;
-    } 
+
+    .div-parent1 .prod {
+        grid-area: 1 / 2 / 2 / 3;
+    }
     
-    div.barra-desc-prod .desc, div.barra-desc-prod .price  {
+    .div-parent1 .desc, .div-parent1 .price {
         display: none;
     }
     
-    div.barra-desc-prod .count {
-        margin: 0 5% 0 0;
+    .div-parent1 .count {
+        grid-area: 1 / 3 / 2 / 4;
     }
-    
     
     /* Grid de main*/
     
     .parent {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 200px);
+        grid-template-rows: 30px repeat(6, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
     }
@@ -38,23 +41,24 @@
     .div-parent4 { grid-area: 4 / 1 / 5 / 2; }
     .div-parent5 { grid-area: 5 / 1 / 6 / 2; }
     .div-parent6 { grid-area: 6 / 1 / 7 / 2; }
+    .div-parent7 { grid-area: 7 / 1 / 8 / 2; }
     
     .div-parent1 {
         border-top: 1px solid rgb(129, 129, 129);
     }
     
     /* Cards de productos */
-    .div-parent1, .div-parent2, .div-parent3 {
+    .div-parent2, .div-parent3, .div-parent4 {
         padding: 10px;
     }
     
     /* Cards de envios, medios de pago y detalle de compra */
-    .div-parent4, .div-parent5, .div-parent6{
+    .div-parent5, .div-parent6, .div-parent7 {
         display: flex;
         justify-content: center;
     }
     
-    .div-parent5 div.options{
+    .div-parent6 div.options{
         padding: 15px 0;
     }
     
@@ -187,23 +191,25 @@
 /*--------TABLET-----------*/
 @media (min-width: 415px) and (max-width: 768px){
 
-    div.barra-desc-prod {
-        display: flex;
-        justify-content: space-between;
-        position: fixed;
-        padding: 5px;
-    }
-
-    div.barra-desc-prod .prod {
-        padding: 0 0 0 350px;
+    .div-parent1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 30px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
     }
     
-    div.barra-desc-prod .count {
-        padding: 0 0 0 180px;
-    }
 
-    div.barra-desc-prod .desc, div.barra-desc-prod .price  {
+    .div-parent1 .prod {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    
+    .div-parent1 .desc, .div-parent1 .price {
         display: none;
+    }
+    
+    .div-parent1 .count {
+        grid-area: 1 / 3 / 2 / 4;
     }
 
     /* Grid de main*/
@@ -211,7 +217,7 @@
     .parent {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 200px);
+        grid-template-rows: 30px repeat(6, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
     }
@@ -222,23 +228,24 @@
     .div-parent4 { grid-area: 4 / 1 / 5 / 2; }
     .div-parent5 { grid-area: 5 / 1 / 6 / 2; }
     .div-parent6 { grid-area: 6 / 1 / 7 / 2; }
+    .div-parent7 { grid-area: 7 / 1 / 8 / 2; }
     
     .div-parent1 {
         border-top: 1px solid rgb(129, 129, 129);
     }
     
     /* Cards de productos */
-    .div-parent1, .div-parent2, .div-parent3 {
+    .div-parent2, .div-parent3, .div-parent4 {
         padding: 10px;
     }
     
     /* Cards de envios, medios de pago y detalle de compra */
-    .div-parent4, .div-parent5, .div-parent6{
+    .div-parent5, .div-parent6, .div-parent7 {
         display: flex;
         justify-content: center;
     }
     
-    .div-parent5 div.options{
+    .div-parent6 div.options{
         padding: 15px 0;
     }
     
@@ -369,69 +376,69 @@
 
 /*--------DESKTOP-----------*/
 @media(min-width: 769px){
-    div.barra-desc-prod {
-        position: fixed;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        padding: 20px 0 20px 20px;
+    
+    /* columnas de prducto, descripcion, precio, cantidad */
+    .div-parent1 {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 30px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
     }
     
 
-    div.barra-desc-prod .prod {
-        padding: 0 0 0 320px;
+    .div-parent1 .prod {
+        grid-area: 1 / 2 / 2 / 3;
     }
     
-    div.barra-desc-prod .desc {
+    .div-parent1 .desc {
         display: block;
-        padding: 0 0 0 130px;
+        grid-area: 1 / 3 / 2 / 4;
     }
     
-    div.barra-desc-prod .price {
+    .div-parent1 .price {
         display: block;
-        padding: 0 0 0 150px;
+        grid-area: 1 / 4 / 2 / 5;
     }
     
-    div.barra-desc-prod .count {
-        padding: 0 0 0 87px;
+    .div-parent1 .count {
+        grid-area: 1 / 5 / 2 / 6;
     }
-    
-    
+
     /* Grid de main*/
     
     .parent {
         display: grid;
-        grid-template-columns: 950px 350px;
-        grid-template-rows: repeat(3, 225px);
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 20px repeat(3, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        padding: 0 50px 40px;
     }
     
     .div-parent1 { grid-area: 1 / 1 / 2 / 2; }
     .div-parent2 { grid-area: 2 / 1 / 3 / 2; }
     .div-parent3 { grid-area: 3 / 1 / 4 / 2; }
-    .div-parent4 { grid-area: 1 / 2 / 2 / 3; }
+    .div-parent4 { grid-area: 4 / 1 / 5 / 2; }
     .div-parent5 { grid-area: 2 / 2 / 3 / 3; }
     .div-parent6 { grid-area: 3 / 2 / 4 / 3; }
+    .div-parent7 { grid-area: 4 / 2 / 5 / 3; }
     
-    .div-parent1, .div-parent2, .div-parent3 {
+    .div-parent2, .div-parent3, .div-parent4 {
         border-top: 1px solid rgb(129, 129, 129);
     }
     
     /* Cards de productos */
-    .div-parent1, .div-parent2, .div-parent3 {
+    .div-parent2, .div-parent3, .div-parent4 {
         padding: 10px;
     }
 
     /* Cards de envios, medios de pago y detalle de compra */
-    .div-parent4, .div-parent5, .div-parent6{
+    .div-parent5, .div-parent6, .div-parent7{
         display: flex;
         justify-content: center;
     }
 
-    .div-parent5 div.options{
+    .div-parent6 div.options{
         padding: 15px 0;
     }
 
@@ -505,7 +512,7 @@
     
     .container {
         display: grid;
-        grid-template-columns: repeat(5, 200px);
+        grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr;
         grid-column-gap: 10px;
         grid-row-gap: 0px;
@@ -519,7 +526,6 @@
     }
     .div4 { grid-area: 1 / 4 / 2 / 5; }
     .div5 { grid-area: 1 / 5 / 2 / 6; }
-    .div6 { grid-area: 1 / 6 / 2 / 7; }
     
     div.div2 p, div.div4 p {
         display: flex;
@@ -530,11 +536,6 @@
         padding: 80px 0;
     }
     
-    div.div5 span{
-        display: flex;
-        flex-direction: column;
-    }
-    
     .wrapper{
         width: 80px;
         height: 22px;
@@ -543,7 +544,8 @@
         justify-content: center;
         background: black;
         border-radius: 40px;
-        margin: 76px 0 0 0;
+        margin-left: 50px;
+        margin-top: 76px;
     }
     .wrapper span{
         width: 100%;
