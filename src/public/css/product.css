@@ -1,0 +1,91 @@
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form-product{
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background-color: #fff;
+    margin: 40px auto;
+}
+
+.form-group{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+    margin: 5px 0;
+    }
+
+.form-product label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+form select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+    
+form textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}    
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form input[type="submit"] {
+    width: 30%;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.btn-delete {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #f35f09;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0s;
+    background-color: orangered;
+    margin-top: 10px;
+  }
+.btn-delete:hover {
+    background-color: #f35f09;
+}  

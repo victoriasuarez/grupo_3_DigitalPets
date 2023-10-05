@@ -1,46 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/productDetail.css">
-    <title>Detalles - Digital Pets | PETSHOP</title>
-    <link rel="shortcut icon" href="\images\LogoDigitalPets.png" type="image/x-icon">
-</head>
+    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','productDetail']}) %>
 <body>
 
-    <header>
-        <nav class="top-header">
-            <div class="logo">
-                <a href="/"><img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets"></a>
-            </div>
-            <div class="search">
-                <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
-                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button>
-            </div>
-            <div class="account">
-                <ul>
-                    <li><a href="/login" class="login">Ingresar</a></li>
-                    |<li><a href="/register" class="register">Registrarse</a></li>
-                    <li><a href="/productCart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li>
-                </ul>
-            </div>
-        </nav>
-        <nav class="barra">
-            <div class="ubicacion">
-                <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
-                <span>Santa Fe</span>
-            </div>
-            <span class="barra-oc">Ofertas</span>
-            <span class="barra-oc">Categorias</span>
-        </nav>
-
-    </header>
+    <%- include ('../partials/header') %>
     <main>
         <div class="detail-heading">
             <div class="list">
@@ -111,29 +74,7 @@
 
         </div>
     </main>
-    <footer id="footer">
-        <div class="logo">
-            <img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets">
-        </div>
-        <div class="footer-links">
-            <div class="infomation">
-                <ul>
-                    <li><a href="#">Sobre nosotros +</a></li>
-                    <li><a href="#">Información +</a></li>
-                    <li><a href="#">Preguntas frecuentes +</a></li>
-                </ul>
-            </div>
-            <div class="networks">
-                <h6>Redes</h6>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    <%- include ('../partials/footer') %>
 
 
     <script>

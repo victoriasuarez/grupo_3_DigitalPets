@@ -1,12 +1,15 @@
-.main-login h1, .main-register h1{
+.main-login h1,
+.main-register h1 {
     color: #333;
 }
 
-.main-login, .main-register{
+.main-login,
+.main-register {
     padding: 5% 20%;
 }
 
-.form-register , .form-login {
+.form-register,
+.form-login {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -15,7 +18,8 @@
     margin: 0 auto;
 }
 
-.form-login label, .form-register label {
+.form-login label,
+.form-register label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
@@ -46,11 +50,11 @@ form input[type="submit"]:hover {
     background-color: #333;
 }
 
-main a{
+main a {
     font-weight: bold;
 }
 
-div.p{
+div.p {
     padding: 20px 0px;
     line-height: 1.5em;
 }
