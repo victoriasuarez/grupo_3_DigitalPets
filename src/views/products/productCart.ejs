@@ -8,11 +8,10 @@
     <main>
 
         <div class="barra-desc-prod">
-            <span style="color: transparent;">------------------------------------</span>
             <span class="prod">Producto</span>
             <span class="desc">Descripción</span>
-            <span class="price">Precio<span>
-            <span class="count">Cantidad<span>
+            <span class="price">Precio</span>
+            <span class="count">Cantidad</span>
         </div>
 
         <div class="parent">
@@ -96,7 +95,7 @@
             <div class="div-parent4">
                 <div class="sidebar">
                     <div class="envio">
-                        <legend>Envío:</legend>
+                        <p><b>Envío:</b></p>
                     </div>
                     <div class="option">
                         <input type="radio" name="envio" id="retiroSucursal"></input>
@@ -111,38 +110,36 @@
             <div class="div-parent5">
                 <div class="options">
                     <div class="mp">
-                        <legend>Medio de pago:</legend>
+                        <p><b>Medio de pago:</b></p>
                     </div>
                     <div class="option">
-                        <input type="radio" name="envio" id="retiroSucursal"></input>
-                        <label for="retiroSucursal">Transferencia</label>
+                        <input type="radio" name="mp" id="transferencia"></input>
+                        <label for="transferencia">Transferencia</label>
                     </div>
                     <div class="option">
-                        <input type="radio" name="envio" id="envioDomicilio"></input>
-                        <label for="envioDomicilio">Mercado Pago</label>
+                        <input type="radio" name="mp" id="mercadopago"></input>
+                        <label for="mercadopago">Mercado Pago</label>
                     </div>
                     <div class="option">
-                        <input type="radio" name="envio" id="retiroSucursal"></input>
-                        <label for="retiroSucursal">Pago en Sucursal</label>
+                        <input type="radio" name="mp" id="pagosucursal"></input>
+                        <label for="pagosucursal">Pago en Sucursal</label>
                     </div>
                 </div>
             </div>
             <div class="div-parent6">
-                <div class="parent6-complete">
-                    <div class="checkout">
-                        <div class="detalle">
-                            <legend>Detalle de la compra:</legend>
-                        </div>
-                        <div class="detalle-car">
-                            <p>Carrito ______ $10.00</p>
-                            <p>Envío ________ $0.00</p>
-                            <p>Total: _______ $10.00</p>
-                        </div>
+                <div class="checkout">
+                    <div class="detalle">
+                        <p><b>Detalle de la compra:</b></p>
                     </div>
-                    <div class="btn-fc">
-                        <button>Finalizar Compra</button>
+                    <div class="detalle-car">
+                        <p>Carrito ______ $10.00</p>
+                        <p>Envío ________ $0.00</p>
+                        <p>Total: _______ $10.00</p>
                     </div>
                 </div>
+            </div>
+            <div class="btn-fc">
+                <button>Finalizar Compra</button>
             </div>
         </div>
         </div>

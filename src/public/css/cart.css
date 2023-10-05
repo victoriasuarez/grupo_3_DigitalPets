@@ -1,25 +1,22 @@
 
 /*=======================MAIN======================*/
+
 div.barra-desc-prod {
     display: flex;
-    justify-content: flex-start;
-    padding: 20px 0 20px 20px;
+    justify-content: space-between;
+    padding: 5px;
 }
 
 div.barra-desc-prod .prod {
     margin-left: 10%;
 } 
 
-div.barra-desc-prod .desc {
-    margin-left: 11%;
-}
-
-div.barra-desc-prod .price {
-    margin-left: 8.5%;
+div.barra-desc-prod .desc, div.barra-desc-prod .price  {
+    display: none;
 }
 
 div.barra-desc-prod .count {
-    margin-left: 56px;
+    margin-right: 6%;
 }
 
 
@@ -27,140 +24,162 @@ div.barra-desc-prod .count {
 
 .parent {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 200px);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    padding: 0 50px 40px;
 }
 
 .div-parent1 { grid-area: 1 / 1 / 2 / 2; }
 .div-parent2 { grid-area: 2 / 1 / 3 / 2; }
 .div-parent3 { grid-area: 3 / 1 / 4 / 2; }
-.div-parent4 { grid-area: 1 / 2 / 2 / 3; }
-.div-parent5 { grid-area: 2 / 2 / 3 / 3; }
-.div-parent6 { grid-area: 3 / 2 / 4 / 3; }
+.div-parent4 { grid-area: 4 / 1 / 5 / 2; }
+.div-parent5 { grid-area: 5 / 1 / 6 / 2; }
+.div-parent6 { grid-area: 6 / 1 / 7 / 2; }
 
-.div-parent1, .div-parent2, .div-parent3 {
+.div-parent1 {
     border-top: 1px solid rgb(129, 129, 129);
 }
 
+/* Cards de productos */
 .div-parent1, .div-parent2, .div-parent3 {
-    margin-left: 25px;
+    padding: 10px;
 }
 
+/* Cards de envios, medios de pago y detalle de compra */
 .div-parent4, .div-parent5, .div-parent6{
     display: flex;
     justify-content: center;
 }
 
-
-
-.container, .sidebar, .options, .checkout{
-    margin: 10px 5px;
-}
-
-div.container {
-    display: flex;
-    justify-content: space-between;
-}
-
-div.container img {
-    width: 200px;
-}
-
-div.sidebar div.envio {
+.div-parent5 div.options{
     padding: 15px 0;
 }
 
-div.sidebar, div.options {
-    background-color: #bbbbbb;
-    width: 45%;
-    border-radius: 30px;
+.checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 0;
 }
 
-div.checkout {
+
+/* Atributos de envios */
+.sidebar, .options, .checkout{
+    margin: 10px 5px;
+}
+
+/* Img de producto */
+div.container img {
+    width: 180px;
+}
+
+div.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 0;
+}
+
+div.sidebar div.envio {
+    text-align: center;
+}
+
+div.sidebar, div.options, div.checkout {
     background-color: #bbbbbb;
-    width: 225px;
+    width: 90%;
     border-radius: 30px;
-    padding: 10px;
 }
 
 div.option {
     flex-direction: column;
-    padding: 20px 0 10px 0;
+    padding: 10px 0;
+}
+
+div.checkout div.detalle-car p {
+    padding: 2px 0;
 }
 
 div.options .mp {
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 div.checkout .detalle,div.checkout div.detalle-car{
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
-.div-parent6 div.btn-fc button {
+div.btn-fc button {
     border-radius: 20px;
     width: 60%;
     height: 35px;
+    background-color: black;
+    color: white;
 }
 
-main.main {
+div.btn-fc {
     padding: 5%;
-}
-
-main.main h3 {
-    padding: 2%;
-    font-size: 20px;
-}
-
-main.main-login {
-    padding: 10%;
-}
-
-div.p {
-    padding: 2% 0;
 }
 
 /* Grid de detalle de product*/
 
 .container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 0px;
+    grid-column-gap: 19px;
     grid-row-gap: 0px;
 }
 
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 2 / 3; }
-.div3 { grid-area: 1 / 3 / 2 / 4; }
-.div4 { grid-area: 1 / 4 / 2 / 5; }
-.div5 { grid-area: 1 / 5 / 2 / 6; }
-.div6 { grid-area: 1 / 6 / 2 / 7; }
-
-div.div2 p, div.div3 p, div.div4 p {
-    padding: 85px 0;
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+}
+.div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+}
+.div3 {
+    display: none;
+}
+.div4 { 
+    grid-area: 1 / 2 / 2 / 3; 
+}
+.div5 { 
+    grid-area: 1 / 3 / 2 / 4; 
 }
 
-div.div5 p{
-    padding: 75px 0;
+div.div2 p, div.div4 p {
+    display: flex;
+    flex-direction: column;
+}
+
+div.div2 {
+    padding: 80px 0;
+}
+
+div.div4 {
+    padding: 120px 0 0 0;
+}
+
+div.div5 span{
+    display: flex;
+    flex-direction: column;
 }
 
 .wrapper{
-    width: 120px;
-    height: 30px;
+    width: 80px;
+    height: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: black;
     border-radius: 40px;
-    margin-right: 3px;
+    margin: 90px 0 0 0;
 }
 .wrapper span{
     width: 100%;
     text-align: center;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     color: white;
@@ -170,3 +189,176 @@ div.div5 p{
 }
 
 /*=================================================*/
+
+/*--------DESKTOP-----------*/
+@media(min-width: 769px){
+    div.barra-desc-prod {
+        display: flex;
+        justify-content: flex-start;
+        padding: 20px 0 20px 20px;
+    }
+    
+    div.barra-desc-prod .prod {
+        margin-left: 10%;
+    } 
+    
+    div.barra-desc-prod .desc {
+        margin-left: 11%;
+    }
+    
+    div.barra-desc-prod .price {
+        margin-left: 8.5%;
+    }
+    
+    div.barra-desc-prod .count {
+        margin-left: 56px;
+    }
+    
+    
+    /* Grid de main*/
+    
+    .parent {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        padding: 0 50px 40px;
+    }
+    
+    .div-parent1 { grid-area: 1 / 1 / 2 / 2; }
+    .div-parent2 { grid-area: 2 / 1 / 3 / 2; }
+    .div-parent3 { grid-area: 3 / 1 / 4 / 2; }
+    .div-parent4 { grid-area: 1 / 2 / 2 / 3; }
+    .div-parent5 { grid-area: 2 / 2 / 3 / 3; }
+    .div-parent6 { grid-area: 3 / 2 / 4 / 3; }
+    
+    .div-parent1, .div-parent2, .div-parent3 {
+        border-top: 1px solid rgb(129, 129, 129);
+    }
+    
+    .div-parent1, .div-parent2, .div-parent3 {
+        margin-left: 25px;
+    }
+    
+    .div-parent4, .div-parent5, .div-parent6{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    
+    .container, .sidebar, .options, .checkout{
+        margin: 10px 5px;
+    }
+    
+    div.container {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    div.container img {
+        width: 200px;
+    }
+    
+    div.sidebar div.envio {
+        padding: 15px 0;
+    }
+    
+    div.sidebar, div.options {
+        background-color: #bbbbbb;
+        width: 45%;
+        border-radius: 30px;
+    }
+    
+    div.checkout {
+        background-color: #bbbbbb;
+        width: 225px;
+        border-radius: 30px;
+        padding: 10px;
+    }
+    
+    div.option {
+        flex-direction: column;
+        padding: 20px 0 10px 0;
+    }
+    
+    div.options .mp {
+        padding: 15px 0;
+    }
+    
+    div.checkout .detalle,div.checkout div.detalle-car{
+        padding: 20px 0;
+    }
+    
+    .div-parent6 div.btn-fc button {
+        border-radius: 20px;
+        width: 60%;
+        height: 35px;
+        cursor: pointer;
+    }
+    
+    main.main {
+        padding: 5%;
+    }
+    
+    main.main h3 {
+        padding: 2%;
+        font-size: 20px;
+    }
+    
+    main.main-login {
+        padding: 10%;
+    }
+    
+    div.p {
+        padding: 2% 0;
+    }
+    
+    /* Grid de detalle de product*/
+    
+    .container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 1 / 3 / 2 / 4; }
+    .div4 { grid-area: 1 / 4 / 2 / 5; }
+    .div5 { grid-area: 1 / 5 / 2 / 6; }
+    .div6 { grid-area: 1 / 6 / 2 / 7; }
+    
+    div.div2 p, div.div3 p, div.div4 p {
+        padding: 85px 0;
+    }
+    
+    div.div5 p{
+        padding: 75px 0;
+    }
+    
+    .wrapper{
+        width: 120px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+        border-radius: 40px;
+        margin-right: 3px;
+    }
+    .wrapper span{
+        width: 100%;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+    }
+    .wrapper span.num{
+        pointer-events: none; 
+    }
+}
