@@ -6,43 +6,41 @@
     <%- include ('../partials/header') %>
     
     <main class="form-product">
-        <h1>Editando: -nombreProducto-</h1>
-        <form>  
+        <h1>Editando: <%= product.name %></h1>
+        <form action="/products/<%= product.id %>?_method=PUT" method="post"> 
 
             <div class="form-group">
                 <label for="productName">Nombre de producto:</label>
-                <input type="text" id="productName" name="productName" value="" required><br><br>
+                <input type="text" id="productName" name="name" value="<%= product.name %>" required><br><br>
             </div>
 
             <div class="form-group">
-                <label for="productDescription">Descripción del producto:</label>
-                <textarea name="productDescription" id="productDescription" rows="10" value="" required></textarea><br><br>
+                <label for="description">Descripción del producto:</label>
+                <textarea name="description" id="productDescription" rows="10" value="<%= product.description %>" required></textarea><br><br>
             </div>
 
             <div class="form-group">
-                <label for="categorias">Categorías de productos:</label>
+                <label for="petType">Tipo de mascota</label>
                 <select>
                     <option>--Seleccionar--</option>
-                    <option>Perros</option>
-                    <option>Gatos</option>
-                    <option>Aves</option>
-                    <option>Peces</option>
-                    <option>Otros</option>
+                    <% petTypes.forEach(petType => { %>
+                        <option value="<%= petType.value %>" <%= product.petType === petType.value && 'selected' %>><%= petType.label%></option>
+                    <% }) %>
                 </select><br><br>
             </div>        
             
             <div class="form-group">    
                 <label for="productPrice">Precio de venta $</label>
-                <input type="number" id="productPrice" name="productPrice" value="" required><br><br>
+                <input type="number" id="productPrice" name="price" value="<%= product.price %>" required><br><br>
             </div>    
             
             <div class="form-group">    
                 <label for="productImage">Imagen:</label>
-                <input type="file" id="productImage" name="productImage" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="" required><br><br>
-            </div>        
+                <input type="file" id="productImage" name="image" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="<%= product.image %>" required><br><br>
+            </div>  
 
-            <input type="submit" value="Actualizar">
-
+            <button type="submit" class = "store">Guardar producto</button>
+          
         </form>
         <form>
             <button class="btn-delete" type="reset">Eliminar</button>

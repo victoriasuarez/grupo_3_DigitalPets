@@ -1,0 +1,10 @@
+[ {
+    "id": 1,
+    "firstName": "Emanuel",
+    "lastName": "Pernice",
+    "email": "emapernice@gmail.com",
+    "password": "EmaPernice23",
+    "category": "Administrador",
+    "image": "default-image.png"
+  }
+]

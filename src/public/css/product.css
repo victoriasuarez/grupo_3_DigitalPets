@@ -59,7 +59,7 @@ form input[type="file"]{
     border-radius: 3px;
 }
 
-form input[type="submit"] {
+form button.store {
     width: 30%;
     height: 40px;
     background-color: #000;
@@ -70,7 +70,7 @@ form input[type="submit"] {
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
+form button.store:hover {
     background-color: #333;
 }
 
