@@ -8,5 +8,65 @@
     "petType": "Gato",
     "description": "Whiskas® Adulto sabor Pescado es alimento seco 100% completo y balanceado, desarrollado especialmente para gatos adultos mayores a 1 año de edad. La nueva receta de Whiskas Alimento Seco combina la nutrición que tu gato necesita, con el sabor que ama. Desarrollado nutricionalmente con veterinarios para ayudarlo a mantenerse saludable y ronroneando durante toda la vida. Y ahora, con prebióticos que ayudan a una buena digestión. - Con prebioticos que ayudan a proteger su salud intestinal. - Con múltiples fibras que ayudan al funcionamiento gastrointestinal, contribuyendo al bienestar de tu gato. - Con Omega 6 y Zinc que ayudan a tener pelo saludable para tu mascota. - Con minerales controlados que ayudan a mantener un tracto urinario saludable. ¡Probá también Whiskas SOBRECITO! A tu gato le encantará! Whiskas® es un alimento avalado y recomendado por el Centro de Investigación WALTHAM, una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal",
     "image": "producto-whiskasSaborPescado.webp"
+  },
+  {
+    "id": 2,
+    "name": "Sabrositos Gato Mix Adulto 10kg",
+    "price": "10690",
+    "discount": "10",
+    "category": "visited",
+    "petType": "Gato",
+    "description": "Dale a tu gato el balance adecuado en un delicioso alimento de pollo, carne y vegetales que aporta todos los nutrientes que necesita, además de antioxidantes, que lo ayudan a reforzar su sistemas inmune y mantener sus huesos sanos y fuertes, calcio y fósforo, que favorece a un adecuado crecimiento, y la taurina, para un corazón y una vista saludables.",
+    "image":"producto-SabrositosGatoAdulto.webp"
+  },
+  {
+    "id": 3,
+    "name": "Power Pipeta Perro 20 a 40Kg",
+    "price": "1940",
+    "discount": "20",
+    "category": "in-sale",
+    "petType": "Perro",
+    "description": "Power Ultra la pipeta pulguicida, garrapaticida y repelente de mosquitos más poderosa del mercado, debido a su mayor volumen y concentración de principios activos. Se puede aplicar en cualquier momento, aún después de un baño, no hay que esperar mucho, solo hace falta que la mascota esté seca.",
+    "image":"producto-pipetaPower-20-a-40-Perros.webp"
+  },
+  {
+    "id": 4,
+    "name": "Kongo Natural Perro Adulto Mediano Y Grande X 15 Kg",
+    "price": "11599",
+    "discount": "10",
+    "category": "in-sale",
+    "petType": "Perro",
+    "description": "Kongo Natural es un alimento balanceado perros adultos medianos y grandes que proporciona una mejor digestión, protección renal y aporta energía.",
+    "image":"Producto-KongoMedianoYAdulto.webp"
+  },
+  {
+    "id": 5,
+    "name": "Kongo Natural Gold Perro Adulto x 21 Kg",
+    "price": "13000",
+    "discount": "20",
+    "category": "visited",
+    "petType": "Perro",
+    "description": "Kongo Gold Adulto es un producto super premium diseñado exclusivamente para cubrir las necesidades de un crecimiento saludable y un desarrollo sano a lo largo de toda la vida de tu mascota. Formulado con materias primas ingredientes y proteínas seleccionadas de primera calidad que cumplen rigurosas normas de aprobación para formar parte de una formula novedosa y exclusiva que solo kongo gold puede brindar.",
+    "image":"Producto-KongoGoldAdultosPack.webp"
+  },
+  {
+    "id": 6,
+    "name": "Alimento Balanceado para Conejos x 750 Gr",
+    "price": "1290",
+    "discount": "10",
+    "category": "in-sale",
+    "petType": "Conejo",
+    "description": "El Balanceado para Conejo provee una optima nutrición con todas las vitaminas y nutrientes, manteniendo a su roedor vital y feliz.",
+    "image":"Producto-AlimentoConejos.webp"
+  },
+  {
+    "id": 7,
+    "name": "Alimento Peces Tropicales Acuario Escamas Tetra Color 200gr",
+    "price": "23345",
+    "discount": "20",
+    "category": "visited",
+    "petType": "Pez",
+    "description": "Tetra Color Bits es sin dudas uno de los mejores alimentos para peces tropicales de mayor tamaño como Discus y Escalares. Realza el color y esta reforzado con vitaminas. Formulado para tener mayor flotabilidad y ser aprovechado tanto por peces que comen en la superficie, como los que se alimentan en la zona media e inferior del acuario. Para peces pequeños puede ser desmenuzado y asi sera mejor aprovechado.",
+    "image":"Producto-AlimentoPeces.webp"
   }
 ]
