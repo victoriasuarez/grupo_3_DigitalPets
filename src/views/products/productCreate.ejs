@@ -7,7 +7,7 @@
     
     <main class="form-product">
         <h1>Ingresar nuevo producto:</h1>
-        <form action="/products/" method="post"> 
+        <form action="/product" method="post"> 
 
             <div class="form-group">
                 <label for="productName">Nombre de producto:</label>
@@ -20,11 +20,11 @@
             </div>
 
             <div class="form-group">
-                <label for="categorias">Categorías de productos:</label>
+                <label for="petType">Categorías de mascotas:</label>
                 <select>
                     <option>--Seleccionar--</option>
                     <% petTypes.forEach(petType => { %>
-                        <option value="<%= petType.value %>" <%= product.petType === petType.value && 'selected' %>><%= petType.label%></option>
+                        <option value="<%= petType.value %>"><%= petType.label%></option>
                     <% }) %>
                 </select><br><br>
             </div>        

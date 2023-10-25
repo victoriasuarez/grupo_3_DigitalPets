@@ -15,15 +15,16 @@
             </div>
         </div>
         <div class="detail-container">    
+            <% if (locals.product) { %>
             <div class="detail-product">
                 <div>
-                    <img class="image-product" src="/images/producto-whiskasSaborPescado.webp" alt="image-product">
+                    <img class="image-product" src="/images/<%= product.image %>" alt="image-product">
                 </div>
                 <div class="detail">
                     <div class="product">
-                        <h3>Whiskas Sabor Pescado x10kg</h3>
+                        <h3><%= product.name %></h3>
                         <h4>10kg</h4>
-                        <p class="price">$10.000</p>
+                        <p class="price">$<%= product.price %></p>
                     </div>
                     <div class="detail-options">
                         <div class="wrapper">
@@ -35,12 +36,15 @@
                     </div>
                 </div>
             </div>
+          
 
             <div class="detail-description">
                 <h3>Descripción:</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum natus, nulla modi quis quae fugit accusamus vero velit inventore culpa ab necessitatibus expedita deserunt praesentium blanditiis iure voluptas amet animi.</p>
+                <p><%= product.description %></p>
             </div>
-
+            <% } else { %>
+                <h1>Producto no encontrado</h1>
+            <% } %>
             <div class="suggested">
                 <p>Productos Sugeridos</p>
             </div>
@@ -55,7 +59,7 @@
             </div>
             <br>
             <div class="sub-main-footer">
-                <img class="image-footer" src="/images/Producto-AlimentoCoonejos.webp" alt="image-footer">
+                <img class="image-footer" src="/images/Producto-AlimentoConejos.webp" alt="image-footer">
                 <div class="sub-main-descripcion">
                     <p class="category">Otros</p>
                     <p class="name">Alimento para conejos x750gr</p>

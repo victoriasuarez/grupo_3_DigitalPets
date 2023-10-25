@@ -7,7 +7,7 @@
     
     <main class="form-product">
         <h1>Editando: <%= product.name %></h1>
-        <form action="/products/<%= product.id %>?_method=PUT" method="post"> 
+        <form action="/product/<%= product.id %>?_method=PUT" method="post"> 
 
             <div class="form-group">
                 <label for="productName">Nombre de producto:</label>
@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <label for="description">Descripción del producto:</label>
-                <textarea name="description" id="productDescription" rows="10" value="<%= product.description %>" required></textarea><br><br>
+                <textarea name="description" id="productDescription" rows="10" > <%= product.description %></textarea><br><br>
             </div>
 
             <div class="form-group">
@@ -24,7 +24,7 @@
                 <select>
                     <option>--Seleccionar--</option>
                     <% petTypes.forEach(petType => { %>
-                        <option value="<%= petType.value %>" <%= product.petType === petType.value && 'selected' %>><%= petType.label%></option>
+                        <option value="<%= petType.value %>" <%= product.petType === petType.label && 'selected' %>><%= petType.label%></option>
                     <% }) %>
                 </select><br><br>
             </div>        
@@ -42,8 +42,8 @@
             <button type="submit" class = "store">Guardar producto</button>
           
         </form>
-        <form>
-            <button class="btn-delete" type="reset">Eliminar</button>
+        <form action="/product/<%= product.id %>?_method=DELETE" method="post">
+            <button class="btn-delete" type="submit">Eliminar</button>
         </form>
     </main>
 

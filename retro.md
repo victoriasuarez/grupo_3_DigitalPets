@@ -1,4 +1,4 @@
-Retrospectiva 
+## Retrospectiva Sprint 2:
 
 Comenzar a hacer:
 
@@ -48,3 +48,21 @@ Comunicación: Uno de nuestros puntos fuertes es la comunicación efectiva en el
 Apoyo mutuo: Sigamos apoyándonos mutuamente cuando enfrentamos desafíos. Esta actitud de colaboración y buena onda es fundamental para nuestro éxito como equipo.
 
 Celebración de logros: No olvidemos celebrar nuestros logros y éxitos, incluso los pequeños hitos alcanzados en nuestros proyectos. Esto fortalece la moral del equipo y nos motiva a seguir trabajando juntos de manera efectiva.
+
+------------------------------------------------------------------------------------------------
+
+## Retrospectiva Sprint 4:
+
+Dejar de Hacer:
+
+Hemos reconocido que hay prácticas que necesitamos abandonar para optimizar nuestra colaboración. En este sentido, hemos decidido dejar de lado la tendencia de no hablar por varios días, entendiendo que la comunicación regular es esencial para nuestro progreso conjunto. También hemos acordado abandonar la costumbre de dejar tareas importantes para último momento, reconociendo que la planificación y la anticipación son fundamentales para nuestro éxito.
+
+Debemos Mejorar:
+
+Reconocemos la importancia de mejorar en áreas específicas que fortalecerán nuestra colaboración y el aprendizaje mutuo. 
+Proponemos tener encuentros más frecuentes, brindando así la oportunidad de abordar temas difíciles que hemos visto en clases y facilitar debates constructivos.
+Asimismo, aspiramos a compartir nuestras experiencias individuales, aprovechando la valiosa sabiduría de aquellos compañeros con más experiencia en determinados temas.
+
+Continuar Haciendo:
+
+Es alentador observar las prácticas que han sido efectivas y beneficiosas para todos nosotros. Seguiremos apoyándonos mutuamente, manteniendo la paciencia, empatía y comprensión, especialmente con aquellos compañeros que enfrentan mayores desafíos. La búsqueda de soluciones en conjunto será el motor que impulsa nuestro proceso de trabajo y reforzaremos nuestra comunicación abierta y asertiva, así como nuestra capacidad para escucharnos activamente.

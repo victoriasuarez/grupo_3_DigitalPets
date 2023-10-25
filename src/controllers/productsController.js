@@ -28,22 +28,22 @@ const petTypes = [
     {
         id: 1,
         value: 'Dogs',
-        label: 'Perros'
+        label: 'Perro'
     },
     {
         id: 2,
         value: 'Cats',
-        label: 'Gatos'
+        label: 'Gato'
     },
     {
         id: 3,
         value: 'Birds',
-        label: 'Aves'
+        label: 'Ave'
     },
     {
         id: 4,
         value: 'Fishes',
-        label: 'Peces'
+        label: 'Pez'
     },
     {
         id: 5,
@@ -54,19 +54,16 @@ const petTypes = [
 
 const controller = {
 
+	index(req, res) {
+        const products = getProducts();
+		res.render('products/products', {products});
+    },
+
+
 
     detail(req, res) {
         const products = getProducts();
 		const product = products.find(product => product.id == req.params.id);
-		if (!product) {
-			return res.render('error', {
-				message: 'El producto no existe',
-				error: {
-					status: 404
-				},
-				path: req.url
-			});
-		}
         res.render('products/productDetail', {product});
     },
 
