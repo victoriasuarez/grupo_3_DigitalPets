@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','home']}) %>
+<body>
+    <%- include ('../partials/header') %>
+<main>
+       
+    <section class="suggested-products">
+        <h2>Listado de Productos</h2>
+        <% if (locals.product) { %>
+        <div class="products">
+            <% products.forEach(product => { %>
+                                      
+            <a href="/product/detail">
+                <article>
+                    <img src="/images/<%= product.image %>" alt="Alimento-Whiskas">
+                    <div class="product-details">
+                        <p class="category"><%= product.petType %></p>
+                        <p class="product-name"><%= product.name %></p>
+                        <p class="price">$<%= product.price %></p>
+                    </div>
+                </article>
+            </a>
+            <% }) %>
+            
+        </div>
+        <% } else { %>
+            <h1>No hay productos registrados</h1>
+        <% } %>
+    </section>
+</main>
+<%- include ('../partials/footer') %>
+</body>
+</html>

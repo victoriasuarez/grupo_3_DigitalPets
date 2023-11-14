@@ -59,8 +59,8 @@ form input[type="file"]{
     border-radius: 3px;
 }
 
-form input[type="submit"] {
-    width: 120px;
+form button.store {
+    width: 30%;
     height: 40px;
     background-color: #000;
     color: #fff;
@@ -70,11 +70,11 @@ form input[type="submit"] {
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
+form button.store:hover {
     background-color: #333;
 }
 
-button{
+.btn-delete {
     width: 120px;
     height: 40px;
     border: 1px solid #f35f09;
@@ -86,6 +86,6 @@ button{
     background-color: orangered;
     margin-top: 10px;
   }
-button:hover {
+.btn-delete:hover {
     background-color: #f35f09;
 }  
