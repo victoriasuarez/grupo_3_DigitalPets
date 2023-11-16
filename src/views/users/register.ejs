@@ -7,24 +7,27 @@
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
-        <form class="form-register">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br><br>
+        <form class="form-register" enctype="multipart/form-data" method="post" action="/user/register">
+            <label for="firstName">Nombre:</label>
+            <input type="text" id="nombre" name="firstName" required><br><br>
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required><br><br>
+            <label for="lastName">Apellido:</label>
+            <input type="text" id="apellido" name="lastName" required><br><br>
 
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" required><br><br>
 
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required><br><br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="contrasena" name="password" required><br><br>
 
-            <label for="repetir_contrasena">Repetir Contraseña:</label>
-            <input type="password" id="repetir_contrasena" name="repetir_contrasena" required><br><br>
+            <label for="confirPassword">Repetir Contraseña:</label>
+            <input type="password" id="repetir_contrasena" name="confirPassword" required><br><br>
 
-            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+            <label for="dateOfBirth">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="dateOfBirth" required>
+
+            <label for="imagenPerfil">Imagen de Perfil:</label>
+            <input type="file" id="imagenPerfil" name="image"><br><br>
 
             <input type="submit" value="Crear cuenta"><br><br>
 
