@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const methodOverride =  require('method-override');
+const multer = require('multer');
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+const upload = require('../src/config/multerConfig');
 
 const mainRoutes = require('./routes/main');
 const productRoutes = require('./routes/product');
