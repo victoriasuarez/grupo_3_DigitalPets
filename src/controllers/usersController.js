@@ -48,7 +48,7 @@ const controller = {
 
         fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf-8');
 
-        res.redirect('user/login');
+        res.redirect('/user/login');
     }
 };
 

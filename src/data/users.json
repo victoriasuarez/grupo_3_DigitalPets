@@ -12,44 +12,8 @@
     "id": 2,
     "firstName": "Victoria",
     "lastName": "Suárez",
-    "email": "victoriasuarez49@gmail.com",
-    "password": "$2b$10$6SdxzRZZCSp1fcdY2fQIFOGbQNe0jNnTCcVZojBYhMRhnCr7WojUm",
-    "dateOfBirth": "1998-05-18",
-    "image": "images/users/default-image-users.png"
-  },
-  {
-    "id": 3,
-    "firstName": "Victoria",
-    "lastName": "Suárez",
-    "email": "mail@gmail.com",
-    "password": "$2b$10$26Ek3PFGDqs.V4HN45246enQlBAdP5aP79ws0KCWxH3FGmx4awiJ6",
-    "dateOfBirth": "1998-05-18",
-    "image": "images/users/default-image-users.png"
-  },
-  {
-    "id": 4,
-    "firstName": "Victoria",
-    "lastName": "Suárez",
-    "email": "maa@gmail.com",
-    "password": "$2b$10$st4YOKR2UeIxjZq6i4kTo.zVvxFljwUet8csVnyCdYwAdUbYPGSzK",
-    "dateOfBirth": "1998-05-19",
-    "image": "images/users/default-image-users.png"
-  },
-  {
-    "id": 5,
-    "firstName": "Victoria",
-    "lastName": "Suárez",
-    "email": "mii@gmail.com",
-    "password": "$2b$10$tVn9.T7xArcRDGKVpk88yOIUKZdpi5fQmk2/de9E3CUj6W90AczMm",
-    "dateOfBirth": "1998-12-12",
-    "image": "images/users/default-image-users.png"
-  },
-  {
-    "id": 6,
-    "firstName": "Victoria",
-    "lastName": "Suárez",
     "email": "holi@gmail.com",
-    "password": "$2b$10$/LM6WxTnonb1lQAhO3Xz7un8nptphSUUeTVsojFl4afy2KwWtDeqi",
+    "password": "$2b$10$xH91hpjC0GCxtmmT/m.Ft.YzjKuZQhDDemEI0zbuwJmT4e6hJFRxC",
     "dateOfBirth": "1998-12-12",
     "image": "images/users/default-image-users.png"
   }
