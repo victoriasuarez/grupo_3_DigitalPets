@@ -4,9 +4,9 @@
     "firstName": "Emanuel",
     "lastName": "Pernice",
     "email": "emapernice@gmail.com",
-    "password": "EmaPernice23",
-    "category": "Administrador",
-    "image": "/src/public/images/users/default-image-users.png"
+    "password": "$2b$10$xH91hpjC0GCxtmmT/m.Ft.YzjKuZQhDDemEI0zbuwJmT4e6hJFRxC",
+    "dateOfBirth": "1998-12-12",
+    "image": "images/users/default-image-users.png"
   },
   {
     "id": 2,
@@ -15,6 +15,15 @@
     "email": "holi@gmail.com",
     "password": "$2b$10$xH91hpjC0GCxtmmT/m.Ft.YzjKuZQhDDemEI0zbuwJmT4e6hJFRxC",
     "dateOfBirth": "1998-12-12",
+    "image": "images/users/default-image-users.png"
+  },
+  {
+    "id": 3,
+    "firstName": "Victoria",
+    "lastName": "Suárez",
+    "email": "victoriasuarez49@gmail.com",
+    "password": "$2b$10$BeLW1c/xLwHshicEVVl.fO1aLXTPols0EiCDyl5U8QWPSNAiAeURS",
+    "dateOfBirth": "1998-05-29",
     "image": "images/users/default-image-users.png"
   }
 ]
