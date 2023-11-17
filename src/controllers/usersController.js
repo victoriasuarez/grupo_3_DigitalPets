@@ -4,8 +4,18 @@ const path = require('path');
 
 const dataPath = path.join(__dirname, '../data/users.json');
 
+function getUsers() {
+    return JSON.parse(fs.readFileSync(usersDataFilePath, 'utf-8'));
+}
+
 const controller = {
     login(req, res) {
+        const users= getUsers();
+        const user = users.find((user) => user.email ===req.body.email);
+        if(!user) {
+            return res.render('login')
+        } /// **
+        
         res.render('users/login');
     },
     showRegisterForm(req,res) {

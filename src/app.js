@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const methodOverride =  require('method-override');
 const multer = require('multer');
+const session = require('express-session');
+const cookieParser = require('cookie-parser')
 
 const app = express();
 
@@ -9,6 +11,8 @@ app.use(express.static(path.resolve(__dirname, 'public')))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method')); 
+app.use(session({ secret: "SECRET" }));
+app.use(cookieParser())
 
 
 app.set('view engine', 'ejs');
