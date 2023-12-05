@@ -13,6 +13,23 @@ app.use(express.json());
 app.use(methodOverride('_method')); 
 app.use(session({ secret: "SECRET" , resave: false, saveUninitialized: false})); //resave y saveUninitialized están deprecados
 app.use(cookieParser())
+app.use((req, res, next) => {
+    const rememberUser = req.cookies.rememberUser;
+
+    if (rememberUser) {
+        const users = getUsers();
+    
+        const user = users.find((user) => user.email === rememberUser);
+    
+        if (user) {
+            req.session.user = {
+                email: user.email,
+            };
+        }
+    }
+
+    next();
+});
 
 
 app.set('view engine', 'ejs');

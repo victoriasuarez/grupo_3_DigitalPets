@@ -10,25 +10,24 @@ function getUsers() {
 
 const controller = {
     login(req, res) {
-        console.log('Entró en la función login');  
-        const { email, password } = req.body;
-        console.log('Email y Password:', email, password);  
+        console.log('Entró en la función login');
+        const { email, password, remember } = req.body;
+        console.log('Email y Password:', email, password);
 
         const users = getUsers();
         const user = users.find((user) => user.email === email);
 
-        console.log('Usuario encontrado:', user); 
+        console.log('Usuario encontrado:', user);
 
-        if (!user || !bcrypt.compareSync(password, user.password)) {
-            return res.redirect('/user/login'); 
+        if (user && bcrypt.compareSync(password, user.password)) {
+            if (remember) {
+                res.cookie('rememberUser', user.email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // la cookie expira en 30 días
+            }
+            res.redirect('/');
+
+        } else {
+            throw new Error('Credenciales incorrectas' );
         }
-
-        req.session.user = {
-            id: user.id,
-            email: user.email,
-        };
-
-        res.redirect('/');
     },
     showLoginForm(req, res) {
         res.render('users/login');
