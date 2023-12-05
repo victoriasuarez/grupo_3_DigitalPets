@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(methodOverride('_method')); 
 app.use(session({ secret: "SECRET" , resave: false, saveUninitialized: false})); //resave y saveUninitialized están deprecados
 app.use(cookieParser())
+
 app.use((req, res, next) => {
     const rememberUser = req.cookies.rememberUser;
 
@@ -31,6 +32,13 @@ app.use((req, res, next) => {
     next();
 });
 
+function isLoggedMiddleware(req, res, next) {
+    if (!req.session.user) {
+        return res.redirect('/user/login');
+    }
+    next();
+}
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +51,7 @@ const usersRoutes = require('./routes/users');
 
 app.use('/', mainRoutes);
 app.use('/product', productRoutes);
-app.use('/user', usersRoutes);
+app.use('/user', isLoggedMiddleware, usersRoutes);
 
 
 const port = 3030;
