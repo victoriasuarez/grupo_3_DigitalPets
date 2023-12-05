@@ -5,17 +5,32 @@ const path = require('path');
 const dataPath = path.join(__dirname, '../data/users.json');
 
 function getUsers() {
-    return JSON.parse(fs.readFileSync(usersDataFilePath, 'utf-8'));
+    return JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 }
 
 const controller = {
     login(req, res) {
-        const users= getUsers();
-        const user = users.find((user) => user.email ===req.body.email);
-        if(!user) {
-            return res.render('login')
-        } /// **
-        
+        console.log('Entró en la función login');  
+        const { email, password } = req.body;
+        console.log('Email y Password:', email, password);  
+
+        const users = getUsers();
+        const user = users.find((user) => user.email === email);
+
+        console.log('Usuario encontrado:', user); 
+
+        if (!user || !bcrypt.compareSync(password, user.password)) {
+            return res.redirect('/user/login'); 
+        }
+
+        req.session.user = {
+            id: user.id,
+            email: user.email,
+        };
+
+        res.redirect('/');
+    },
+    showLoginForm(req, res) {
         res.render('users/login');
     },
     showRegisterForm(req,res) {
