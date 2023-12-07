@@ -67,7 +67,8 @@ const controller = {
     },
 
     cart(req, res) {
-        res.render('products/productCart');
+        const isLoggedIn = req.isAuthenticated();
+        res.render('products/productCart', { isLoggedIn });
     },
 
     create(req, res) {
