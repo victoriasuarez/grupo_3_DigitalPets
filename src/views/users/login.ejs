@@ -6,6 +6,12 @@
 
     <main class="main-login">
         <h1>Bienvenido</h1>
+        <% if (errorMessage.length > 0) { %>
+            <div class="error-message">
+                <p><%= errorMessage[0] %></p>
+                <span class="close-btn" onclick="closeErrorMessage()">X</span>
+            </div>
+        <% } %>
         <form class="form-login" method="post" action="/user/login">
             <label for="email">E-mail</label>
             <input type="text" id="email" name="email" required>

@@ -10,20 +10,20 @@ function getUsers() {
 
 const controller = {
     login(req, res) {
-        let isLoggedIn;  // Declara isLoggedIn al principio
+        let isLoggedIn;
 
         const { email, password, remember } = req.body;
         const users = getUsers();
         const user = users.find((user) => user.email === email);
 
         if (user && bcrypt.compareSync(password, user.password)) {
-            isLoggedIn = true;  // Asigna un valor más adelante si es necesario
+            isLoggedIn = true;
             if (remember) {
                 res.cookie('rememberUser', user.email, { maxAge: 30 * 24 * 60 * 60 * 1000 });
             }
             return res.render('home', { isLoggedIn, user: req.session.user });
         } else {
-            isLoggedIn = false;  // Asigna un valor más adelante si es necesario
+            isLoggedIn = false; 
             req.flash('error', 'Credenciales incorrectas');
             return res.redirect('/user/login');
         }
