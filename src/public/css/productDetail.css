@@ -21,7 +21,7 @@
 }
 .detail-container {
     max-width: 1200px;
-    width: 100vw;
+    width: 100%;
     padding: 15px;
     margin: auto;
     display: flex;
