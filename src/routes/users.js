@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/login', usersController.showLoginForm);
 router.get('/register', usersController.showRegisterForm);
 router.post('/register', upload.single('image') ,usersController.register);
+router.post('/login', usersController.login)
 
 // rutas con login
 router.get('/private', isLoggedMiddleware, (req, res) => {
@@ -17,6 +18,5 @@ router.get('/private', isLoggedMiddleware, (req, res) => {
 // Para cuando apliquemos el middleware con su profile en el controller 
 // router.get('/profile', isLoggedMiddleware, usersController.showProfile)
 
-router.post('/login', usersController.login)
 
 module.exports = router;

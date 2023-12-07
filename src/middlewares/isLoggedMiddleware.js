@@ -1,8 +1,22 @@
 function isLoggedMiddleware(req, res, next) {
-    if (!req.session || !req.session.user) {
-        return res.redirect('/user/login');
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    const currentPath = req.originalUrl;
+
+    const publicRoutes = ['/login', '/register'];
+    if (publicRoutes.includes(currentPath)) {
+      return next();
     }
-    next();
-}
+
+    const privateRoutes = ['/private'];
+    if (privateRoutes.includes(currentPath)) {
+      return res.redirect('/login');
+    }
+
+    return res.redirect('/profile'); 
+  }
+};
+
 
 module.exports = isLoggedMiddleware;

@@ -56,7 +56,8 @@ const controller = {
 
 	index(req, res) {
         const products = getProducts();
-		res.render('products/products', {products});
+        const isLoggedIn = req.isAuthenticated();
+        res.render('products/products', { products, isLoggedIn });
     },
 
 

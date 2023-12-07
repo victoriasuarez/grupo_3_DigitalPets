@@ -10,6 +10,7 @@ function getUsers() {
 
 const controller = {
     login(req, res) {
+        const isLoggedIn = req.isAuthenticated();
         console.log('Entró en la función login');
         const { email, password, remember } = req.body;
         console.log('Email y Password:', email, password);
@@ -23,17 +24,19 @@ const controller = {
             if (remember) {
                 res.cookie('rememberUser', user.email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // la cookie expira en 30 días
             }
-            res.redirect('/');
 
         } else {
-            throw new Error('Credenciales incorrectas' );
+            throw new Error('Credenciales incorrectas');
         }
+        res.render('home', { isLoggedIn: true, user: req.session.user });
     },
     showLoginForm(req, res) {
-        res.render('users/login');
+        const isLoggedIn = req.isAuthenticated();
+        res.render('users/login', { isLoggedIn });
     },
     showRegisterForm(req,res) {
-        res.render("users/register")
+        const isLoggedIn = req.isAuthenticated();
+        res.render('users/register', { isLoggedIn });
     },
     register(req, res) {
         console.log('Datos del formulario:', req.body);
@@ -72,7 +75,8 @@ const controller = {
 
         fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf-8');
 
-        res.redirect('/user/login');
+        const isLoggedIn = req.isAuthenticated();
+        res.render('users/login', { isLoggedIn });
     }
 };
 
