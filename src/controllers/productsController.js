@@ -59,13 +59,11 @@ const controller = {
         const isLoggedIn = req.isAuthenticated();
         res.render('products/products', { products, isLoggedIn });
     },
-
-
-
     detail(req, res) {
         const products = getProducts();
-		const product = products.find(product => product.id == req.params.id);
-        res.render('products/productDetail', { product, isLoggedIn: req.isAuthenticated()});
+        const product = products.find(product => product.id == req.params.id);
+        const isLoggedIn = req.isAuthenticated();
+        res.render('products/productDetail', { product, isLoggedIn });
     },
 
     cart(req, res) {

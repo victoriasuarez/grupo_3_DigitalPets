@@ -11,7 +11,6 @@ const upload = require("../src/config/multerConfig");
 const mainRoutes = require("./routes/main");
 const productRoutes = require("./routes/product");
 const usersRoutes = require("./routes/users");
-const isLoggedMiddleware = require('./middlewares/isLoggedMiddleware');
 const flash = require("express-flash");
 
 const app = express();
@@ -85,8 +84,6 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
-app.use(isLoggedMiddleware);
 app.use("/", mainRoutes);
 app.use("/product", productRoutes);
 app.use("/user", usersRoutes);

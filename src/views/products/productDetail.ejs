@@ -3,7 +3,7 @@
     <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','productDetail']}) %>
 <body>
 
-    <%- include ('../partials/header') %>
+    <%- include('../partials/header', { isLoggedIn, includeHeader: true }) %>
     <main>
         <div class="detail-heading">
             <div class="list">
