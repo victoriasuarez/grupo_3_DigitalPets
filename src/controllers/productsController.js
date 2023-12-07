@@ -65,7 +65,7 @@ const controller = {
     detail(req, res) {
         const products = getProducts();
 		const product = products.find(product => product.id == req.params.id);
-        res.render('products/productDetail', {product});
+        res.render('products/productDetail', { product, isLoggedIn: req.isAuthenticated()});
     },
 
     cart(req, res) {
