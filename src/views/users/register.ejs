@@ -7,6 +7,12 @@
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
+        <% if (errorMessage && errorMessage.length > 0) { %>
+            <div class="error-message">
+                <p><%= errorMessage[0] %></p>
+                <span class="close-btn" onclick="closeErrorMessage()">X</span>
+            </div>
+        <% } %>
         <form class="form-register" enctype="multipart/form-data" method="post" action="/user/register">
             <label for="firstName">Nombre:</label>
             <input type="text" id="nombre" name="firstName" required><br><br>
@@ -20,8 +26,8 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="contrasena" name="password" required><br><br>
 
-            <label for="confirPassword">Repetir Contraseña:</label>
-            <input type="password" id="repetir_contrasena" name="confirPassword" required><br><br>
+            <label for="confirmPassword">Repetir Contraseña:</label>
+            <input type="password" id="repetir_contrasena" name="confirmPassword" required><br><br>
 
             <label for="dateOfBirth">Fecha de Nacimiento:</label>
             <input type="date" id="fecha_nacimiento" name="dateOfBirth" required>
@@ -31,11 +37,16 @@
 
             <input type="submit" value="Crear cuenta"><br><br>
 
-            ¿Ya tienes cuenta? <a href="/login">Ingresa Aquí</a>
+            ¿Ya tienes cuenta? <a href="/user/login">Ingresa Aquí</a>
 
         </form>
 
     </main>
+    <script>
+        function closeErrorMessage() {
+            document.querySelector('.error-message').style.display = 'none';
+        }
+    </script>
 
     <%- include ('../partials/footer') %>
 </body>

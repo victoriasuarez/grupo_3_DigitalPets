@@ -34,5 +34,14 @@
     "password": "$2b$10$f3wXpMUCHpaoTq5i9q5PLeTfjEJS/gjmmOcfGoylXaCnK12ZRqC0C",
     "dateOfBirth": "1998-05-29",
     "image": "images/users/default-image-users.png"
+  },
+  {
+    "id": 5,
+    "firstName": "Victoria",
+    "lastName": "Suárez",
+    "email": "mainmail@maill.com",
+    "password": "$2b$10$PDwnk/tyAD.W3xWiUoqWsuR0gTqKVOPLvBhnkZb4jjc6KItCHd6yq",
+    "dateOfBirth": "1998-05-29",
+    "image": "images/users/default-image-users.png"
   }
 ]
