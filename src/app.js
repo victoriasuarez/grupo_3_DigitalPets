@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -22,21 +23,21 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  const rememberUser = req.cookies.rememberUser;
+// app.use((req, res, next) => {
+//   const rememberUser = req.cookies.rememberUser;
 
-  if (rememberUser) {
-    const users = getUsers();
-    const user = users.find((user) => user.email === rememberUser);
+//   if (rememberUser) {
+//     const users = getUsers();
+//     const user = users.find((user) => user.email === rememberUser);
 
-    if (user) {
-      req.session.user = {
-        email: user.email,
-      };
-    }
-  }
-  next();
-});
+//     if (user) {
+//       req.session.user = {
+//         email: user.email,
+//       };
+//     }
+//   }
+//   next();
+// });
 
 passport.use(
   new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
