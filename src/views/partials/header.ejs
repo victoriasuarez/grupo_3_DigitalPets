@@ -12,9 +12,17 @@
         </div>
         <div class="account">
             <ul>
-                <li><a href="/user/login" class="login">Ingresar</a></li>
-                <li><a href="/user/register" class="register">Registrarse</a></li> 
-                <li><a href="/product/cart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+                <% if (isLoggedIn) { %>
+                    <!-- Si el usuario está autenticado -->
+                    <li><a href="/profile" class="profile">Perfil</a></li>
+                    <li><a href="/logout" class="logout">Cerrar sesión</a></li>
+                    <li><a href="/product/cart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+                <% } else { %>
+                    <!-- Si el usuario NO está autenticado -->
+                    <li><a href="/user/login" class="login">Ingresar</a></li>
+                    <li><a href="/user/register" class="register">Registrarse</a></li> 
+                    <li><a href="/product/cart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+                <% } %>
             </ul>
         </div>
     </nav>

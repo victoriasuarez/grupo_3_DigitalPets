@@ -4,53 +4,44 @@
     "firstName": "Emanuel",
     "lastName": "Pernice",
     "email": "emapernice@gmail.com",
-    "password": "EmaPernice23",
-    "category": "Administrador",
-    "image": "/src/public/images/users/default-image-users.png"
+    "password": "$2b$10$xH91hpjC0GCxtmmT/m.Ft.YzjKuZQhDDemEI0zbuwJmT4e6hJFRxC",
+    "dateOfBirth": "1998-12-12",
+    "image": "images/users/default-image-users.png"
   },
   {
     "id": 2,
     "firstName": "Victoria",
     "lastName": "Suárez",
-    "email": "victoriasuarez49@gmail.com",
-    "password": "$2b$10$6SdxzRZZCSp1fcdY2fQIFOGbQNe0jNnTCcVZojBYhMRhnCr7WojUm",
-    "dateOfBirth": "1998-05-18",
+    "email": "holi@gmail.com",
+    "password": "$2b$10$xH91hpjC0GCxtmmT/m.Ft.YzjKuZQhDDemEI0zbuwJmT4e6hJFRxC",
+    "dateOfBirth": "1998-12-12",
     "image": "images/users/default-image-users.png"
   },
   {
     "id": 3,
     "firstName": "Victoria",
     "lastName": "Suárez",
-    "email": "mail@gmail.com",
-    "password": "$2b$10$26Ek3PFGDqs.V4HN45246enQlBAdP5aP79ws0KCWxH3FGmx4awiJ6",
-    "dateOfBirth": "1998-05-18",
+    "email": "victoriasuarez49@gmail.com",
+    "password": "$2b$10$BeLW1c/xLwHshicEVVl.fO1aLXTPols0EiCDyl5U8QWPSNAiAeURS",
+    "dateOfBirth": "1998-05-29",
     "image": "images/users/default-image-users.png"
   },
   {
     "id": 4,
     "firstName": "Victoria",
     "lastName": "Suárez",
-    "email": "maa@gmail.com",
-    "password": "$2b$10$st4YOKR2UeIxjZq6i4kTo.zVvxFljwUet8csVnyCdYwAdUbYPGSzK",
-    "dateOfBirth": "1998-05-19",
+    "email": "mail@mail.com",
+    "password": "$2b$10$f3wXpMUCHpaoTq5i9q5PLeTfjEJS/gjmmOcfGoylXaCnK12ZRqC0C",
+    "dateOfBirth": "1998-05-29",
     "image": "images/users/default-image-users.png"
   },
   {
     "id": 5,
     "firstName": "Victoria",
     "lastName": "Suárez",
-    "email": "mii@gmail.com",
-    "password": "$2b$10$tVn9.T7xArcRDGKVpk88yOIUKZdpi5fQmk2/de9E3CUj6W90AczMm",
-    "dateOfBirth": "1998-12-12",
-    "image": "images/users/default-image-users.png"
-  },
-  {
-    "id": 6,
-    "firstName": "Victoria",
-    "lastName": "Suárez",
-    "email": "holi@gmail.com",
-    "password": "$2b$10$/LM6WxTnonb1lQAhO3Xz7un8nptphSUUeTVsojFl4afy2KwWtDeqi",
-    "dateOfBirth": "1998-12-12",
+    "email": "mainmail@maill.com",
+    "password": "$2b$10$PDwnk/tyAD.W3xWiUoqWsuR0gTqKVOPLvBhnkZb4jjc6KItCHd6yq",
+    "dateOfBirth": "1998-05-29",
     "image": "images/users/default-image-users.png"
   }
 ]
