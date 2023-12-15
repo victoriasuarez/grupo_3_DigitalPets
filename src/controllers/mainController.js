@@ -13,10 +13,11 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	index: (req, res) => {
 		// Do the magic
+		const isLoggedIn = req.user ? true : false;
 		const products = getProducts();
 		const visited = products.filter(product => product.category === 'visited');
 		const inSale = products.filter(product => product.category === 'in-sale');
-		res.render('home', { visited, inSale });
+		res.render('home', { isLoggedIn, visited, inSale });
 	},
 	search: (req, res) => {
 		// Do the magic

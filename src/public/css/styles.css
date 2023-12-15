@@ -18,3 +18,24 @@ a {
 ul li {
     list-style-type: none;
 }
+
+/* Mensaje de error en pantallas de login y register */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.error-message p {
+    margin: 0;
+    display: inline-block;
+}
+
+.error-message .close-btn {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+}

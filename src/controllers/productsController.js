@@ -56,19 +56,19 @@ const controller = {
 
 	index(req, res) {
         const products = getProducts();
-		res.render('products/products', {products});
+        const isLoggedIn = req.isAuthenticated();
+        res.render('products/products', { products, isLoggedIn });
     },
-
-
-
     detail(req, res) {
         const products = getProducts();
-		const product = products.find(product => product.id == req.params.id);
-        res.render('products/productDetail', {product});
+        const product = products.find(product => product.id == req.params.id);
+        const isLoggedIn = req.isAuthenticated();
+        res.render('products/productDetail', { product, isLoggedIn });
     },
 
     cart(req, res) {
-        res.render('products/productCart');
+        const isLoggedIn = req.isAuthenticated();
+        res.render('products/productCart', { isLoggedIn });
     },
 
     create(req, res) {

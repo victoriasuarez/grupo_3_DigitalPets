@@ -6,18 +6,28 @@
 
     <main class="main-login">
         <h1>Bienvenido</h1>
-        <form class="form-login">
+        <% if (errorMessage.length > 0) { %>
+            <div class="error-message">
+                <p><%= errorMessage[0] %></p>
+                <span class="close-btn" onclick="closeErrorMessage()">X</span>
+            </div>
+        <% } %>
+        <form class="form-login" method="post" action="/user/login">
             <label for="email">E-mail</label>
             <input type="text" id="email" name="email" required>
             
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required>
+
+            <label>
+                <input type="checkbox" name="remember"> Recordarme
+            </label>
             
             <input type="submit" value="Iniciar Sesión">
         </form>
         <div class="p">
             <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-            <p>¿No tienes cuenta? <a href="/register">Regístrate</a></p>
+            <p>¿No tienes cuenta? <a href="/user/register">Regístrate</a></p>
         </div>
     </main>
     <%- include ('../partials/footer') %>
