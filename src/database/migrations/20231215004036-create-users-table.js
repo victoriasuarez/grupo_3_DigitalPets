@@ -26,16 +26,17 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      birthOfDate: {
+      birthDate: {
         type: Sequelize.DATEONLY,
         allowNull: false
       },
       image: {
         type: Sequelize.TEXT,
-        defaultValue: 'default-image.png'
+        defaultValue: 'default-image-users.png'
       },
       roles_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: {
             tableName: 'roles'

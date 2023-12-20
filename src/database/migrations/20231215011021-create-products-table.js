@@ -33,7 +33,7 @@ module.exports = {
       },
       petTypes_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tableName: 'petTypes'
@@ -43,7 +43,7 @@ module.exports = {
       },
       brands_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tableName: 'brands'
@@ -53,7 +53,7 @@ module.exports = {
       },
       petAges_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: {
             tableName: 'petAges'

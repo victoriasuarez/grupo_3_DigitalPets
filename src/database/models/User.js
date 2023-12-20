@@ -32,27 +32,28 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    birthOfDate: {
+    birthDate: {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
     image: {
       type: DataTypes.TEXT,
-      defaultValue: 'default-image.png'
+      defaultValue: 'default-image-users.png'
     },
     roles_id: {
       type: DataTypes.INTEGER,
-      // defaultValue: 2
+      allowNull: false,
+      defaultValue: 2
     }
   }, {
     sequelize,
     modelName: 'User',
     tableName: 'users',
-    // hooks: {
-    //   beforeCreate: (user, options) => {
-    //     user.password = bcrypt.hashSync(user.password, 10);
-    //   }
-    // }
+    hooks: {
+      beforeCreate: (user, options) => {
+        user.password = bcrypt.hashSync(user.password, 10);
+      }
+    }
   });
   return User;
 };
