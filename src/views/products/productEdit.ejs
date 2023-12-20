@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','product']}) %>
+<body>
+
+    <%- include ('../partials/header') %>
+    
+    <main class="form-product">
+        <h1>Editando: <%= product.name %></h1>
+        <form action="/product/<%= product.id %>?_method=PUT" method="post"> 
+
+            <div class="form-group">
+                <label for="productName">Nombre de producto:</label>
+                <input type="text" id="productName" name="name" value="<%= product.name %>" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción del producto:</label>
+                <textarea name="description" id="productDescription" rows="10" > <%= product.description %></textarea><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="petType">Tipo de mascota</label>
+                <select>
+                    <option>--Seleccionar--</option>
+                    <% petTypes.forEach(petType => { %>
+                        <option value="<%= petType.value %>" <%= product.petType === petType.label && 'selected' %>><%= petType.label%></option>
+                    <% }) %>
+                </select><br><br>
+            </div>        
+            
+            <div class="form-group">    
+                <label for="productPrice">Precio de venta $</label>
+                <input type="number" id="productPrice" name="price" value="<%= product.price %>" required><br><br>
+            </div>    
+            
+            <div class="form-group">    
+                <label for="productImage">Imagen:</label>
+                <input type="file" id="productImage" name="image" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="<%= product.image %>" required><br><br>
+            </div>  
+
+            <button type="submit" class = "store">Guardar producto</button>
+          
+        </form>
+        <form action="/product/<%= product.id %>?_method=DELETE" method="post">
+            <button class="btn-delete" type="submit">Eliminar</button>
+        </form>
+    </main>
+
+    <%- include ('../partials/footer') %>
+
+</body>
+</html>
