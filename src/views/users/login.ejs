@@ -12,7 +12,7 @@
                 <span class="close-btn" onclick="closeErrorMessage()">X</span>
             </div>
         <% } %>
-        <form class="form-login" method="post" action="/user/login">
+        <form class="form-login" method="post" action="/users/login">
             <label for="email">E-mail</label>
             <input type="text" id="email" name="email" required>
             
@@ -27,7 +27,7 @@
         </form>
         <div class="p">
             <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-            <p>¿No tienes cuenta? <a href="/user/register">Regístrate</a></p>
+            <p>¿No tienes cuenta? <a href="/users/register">Regístrate</a></p>
         </div>
     </main>
     <%- include ('../partials/footer') %>
