@@ -7,13 +7,13 @@
        
     <section class="suggested-products">
         <h2>Listado de Productos</h2>
-        <% if (locals.product) { %>
+        <% if (locals.products) { %>
         <div class="products">
             <% products.forEach(product => { %>
                                       
-            <a href="/product/detail">
+            <a href="/product/<%=product.id%>/detail">
                 <article>
-                    <img src="/images/<%= product.image %>" alt="Alimento-Whiskas">
+                    <img src="/images/<%= product.image %>" alt="<%=product.name%>">
                     <div class="product-details">
                         <p class="category"><%= product.petType %></p>
                         <p class="product-name"><%= product.name %></p>
