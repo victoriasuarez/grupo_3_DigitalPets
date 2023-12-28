@@ -52,5 +52,23 @@
     "password": "$2b$10$yg6kuqbV6EvhIF0NBAq48u.JVNIbauuMxy.Yrsyk2/lSsI1yBe9cy",
     "dateOfBirth": "1997-08-22",
     "image": "images/users/default-image-users.png"
+  },
+  {
+    "id": 7,
+    "firstName": "Victoria",
+    "lastName": "Suárez",
+    "email": "holi20@mail.com",
+    "password": "$2b$10$64lBZTCt7kHa0kWsOyXujeK95/2rh0HmErqGrwUMiJdh7d4D.1lYW",
+    "dateOfBirth": "1998-05-29",
+    "image": "images/users/default-image-users.png"
+  },
+  {
+    "id": 8,
+    "firstName": "dsfgdf",
+    "lastName": "dfgdf",
+    "email": "dfg@asd.com",
+    "password": "$2b$10$r4sAvhLJy2e4VV2RX.Hj6.eqhr1.z1jZufgfevArZTFD9ns4WRife",
+    "dateOfBirth": "1998-02-19",
+    "image": "images/users/default-image-users.png"
   }
 ]
