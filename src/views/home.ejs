@@ -145,7 +145,26 @@
                     </article>
                 </a>
                 <% }) %>
-                
+            </div>
+            <% }%>
+    </section>
+    <section class="food-products">
+        <% if (locals.food) { %>
+            <h2>Alimentos</h2>
+            <div class="products">
+                <% food.forEach(product => { %>
+                                          
+                <a href="/products/<%=product.id%>/detail">
+                    <article>
+                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
+                        <div class="product-details">
+                            <p class="category"><%= product.petType %></p>
+                            <p class="product-name"><%= product.name %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </article>
+                </a>
+                <% }) %>                
             </div>
             <% }%>
     </section>
