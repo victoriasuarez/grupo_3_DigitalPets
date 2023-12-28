@@ -13,7 +13,7 @@
                 <span class="close-btn" onclick="closeErrorMessage()">X</span>
             </div>
         <% } %>
-        <form class="form-register" enctype="multipart/form-data" method="post" action="/user/register">
+        <form class="form-register" enctype="multipart/form-data" method="post" action="/users/register">
             <label for="firstName">Nombre:</label>
             <input type="text" id="nombre" name="firstName" required><br><br>
 
@@ -37,7 +37,7 @@
 
             <input type="submit" value="Crear cuenta"><br><br>
 
-            ¿Ya tienes cuenta? <a href="/user/login">Ingresa Aquí</a>
+            ¿Ya tienes cuenta? <a href="/users/login">Ingresa Aquí</a>
 
         </form>
 

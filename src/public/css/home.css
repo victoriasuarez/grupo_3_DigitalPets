@@ -77,14 +77,14 @@ section.categories{
     height: 150px;
 }
 
-.featured-brands, .suggested-products{
+.featured-brands, .suggested-products, .in-sale-products, .visited-products{
     margin-top:100px 0px;
 }
-.featured-brands h2, .suggested-products h2{
+.featured-brands h2, .suggested-products h2, .in-sale-products h2, .visited-products h2{
     display: block;
     background-color:#000;
     color: #fff;
-    margin: 0px 50px;
+    margin: 80px 50px 0px 50px;
     padding: 10px 0px;
 }
 div.brands{
@@ -93,7 +93,7 @@ div.brands{
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;  
-    margin: 20px 50px; 
+    margin: 20px 0px; 
 } 
 div.brands article img{
     height: 80px;
@@ -110,23 +110,23 @@ div.products{
 }
 div.products article{
     width: 280px;
-    height: 400;
+    height: 400px;
     border: #333 solid 1px;
     border-radius: 10px;
+    padding: 10px;
 }
 div.products article img{
-    width: 95%;
-    margin: 5px;
+    width: 260px;
+    height: 260px;
 }
 div.products article .product-details{
     border-top: #eee solid 1px;
-    padding: 15px 0px;
     font-size: 16px;
     line-height: 24px;
 }
 .category{
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     color: #666;
 }
 .product-details .price{

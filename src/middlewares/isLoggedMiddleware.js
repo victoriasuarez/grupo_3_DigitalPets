@@ -4,7 +4,7 @@ function isLoggedMiddleware(req, res, next) {
   } else {
     const currentPath = req.originalUrl;
 
-    const publicRoutes = ['/user/login', '/user/register', '/'];
+    const publicRoutes = ['/users/login', '/users/register', '/'];
     if (publicRoutes.includes(currentPath)) {
       return next();
     }
@@ -14,7 +14,7 @@ function isLoggedMiddleware(req, res, next) {
     //   return res.redirect('/login');
     // }
 
-    return res.redirect('/user/login');
+    return res.redirect('/users/login');
   }
 };
 

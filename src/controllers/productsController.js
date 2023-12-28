@@ -65,15 +65,16 @@ const controller = {
         res.render('products/products', { products, isLoggedIn });
     },
     detail(req, res) {
-        const products = getProducts();
+        let products = getProducts();
         const product = products.find(product => product.id == req.params.id);
         const isLoggedIn = req.isAuthenticated();
         res.render('products/productDetail', { product, isLoggedIn });
-    }, 
+    },
     cart(req,res) {
         const isLoggedIn = req.isAuthenticated();
         const cartProducts = req.session.cart || []; // Obtener productos del carrito desde la sesión
-        res.render('products/productCart', { cartProducts, isLoggedIn });    
+        products = products.sort(() => 0.5 - Math.random());
+        res.render('products/productDetail', { product, products, isLoggedIn });   
     },
 
     addToCart(req, res) {

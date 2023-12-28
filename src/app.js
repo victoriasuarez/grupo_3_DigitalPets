@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -9,7 +10,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require('bcrypt');
 const upload = require("../src/config/multerConfig");
 const mainRoutes = require("./routes/main");
-const productRoutes = require("./routes/product");
+const productsRoutes = require("./routes/products");
 const usersRoutes = require("./routes/users");
 const flash = require("express-flash");
 
@@ -22,21 +23,21 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  const rememberUser = req.cookies.rememberUser;
+// app.use((req, res, next) => {
+//   const rememberUser = req.cookies.rememberUser;
 
-  if (rememberUser) {
-    const users = getUsers();
-    const user = users.find((user) => user.email === rememberUser);
+//   if (rememberUser) {
+//     const users = getUsers();
+//     const user = users.find((user) => user.email === rememberUser);
 
-    if (user) {
-      req.session.user = {
-        email: user.email,
-      };
-    }
-  }
-  next();
-});
+//     if (user) {
+//       req.session.user = {
+//         email: user.email,
+//       };
+//     }
+//   }
+//   next();
+// });
 
 passport.use(
   new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
@@ -85,8 +86,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use("/", mainRoutes);
-app.use("/product", productRoutes);
-app.use("/user", usersRoutes);
+app.use("/products", productsRoutes);
+app.use("/users", usersRoutes);
 
 const port = 3030;
 app.listen(port, () => {
