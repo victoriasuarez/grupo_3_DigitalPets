@@ -15,9 +15,10 @@ const controller = {
 		// Do the magic
 		const isLoggedIn = req.user ? true : false;
 		const products = getProducts();
-		const visited = products.filter(product => product.category === 'visited');
-		const inSale = products.filter(product => product.category === 'in-sale');
-		res.render('home', { isLoggedIn, visited, inSale });
+		const visited = products.filter(product => product.category.find((category) => category === 'visited') != undefined);
+		const inSale = products.filter(product => product.category.find((category) => category === 'in-sale') != undefined);
+		const food = products.filter(product => product.category.find((category) => category === 'food') != undefined);
+		res.render('home', { isLoggedIn, visited, inSale,food });
 	},
 	search: (req, res) => {
 		// Do the magic

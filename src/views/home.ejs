@@ -108,66 +108,65 @@
             </article>
         </div>
     </section>
-    <section class="suggested-products">
-        <h2>Productos destacados</h2>
-        <div class="products">
-            <a href="/product/1/detail">
-                <article>
-                    <img src="/images/producto-whiskasSaborPescado.webp" alt="Alimento-Whiskas">
-                    <div class="product-details">
-                        <p class="category">Gatos</p>
-                        <p class="product-name">Whiskas Sabor Pescado x10kg</p>
-                        <p class="price">$3.000</p>
-                    </div>
-                </article>
-            </a>
-            <a href="/product/5/detail">
-                <article>
-                    <img src="/images/Producto-KongoGoldAdultosPack.webp" alt="Alimento-Kongo-Adultos">
-                    <div class="product-details">
-                        <p class="category">Perros</p>
-                        <p class="product-name">Kongo Gold Adultos x15kg</p>
-                        <p class="price">$13.000</p>
-                    </div>
-                </article>
-            </a>
-            <a href="/product/6/detail">
-                <article>
-                    <img src="/images/Producto-AlimentoConejos.webp" alt="Alimento-Conejos">
-                    <div class="product-details">
-                        <p class="category">Otros</p>
-                        <p class="product-name">Alimento para conejos x750gr</p>
-                        <p class="price">$1.290</p>
-                    </div>
-                </article>
-            </a>
-            <a href="/product/4/detail">
-                <article>
-                    <img src="/images/Producto-KongoMedianoYAdulto.webp" alt="Alimento-Kongo-Mediano">
-                    <div class="product-details">
-                        <p class="category">Perros</p>
-                        <p class="product-name">Kongo - Mediano Y Adulto x10kg</p>
-                        <p class="price">$11.599</p>
-                    </div>
-                </article>
-            </a>
-            <a href="/product/3/detail"><article>
-                <img src="/images/producto-pipetaPower-20-a-40-Perros.webp" alt="pipetaPower-Perros">
-                <div class="product-details">
-                    <p class="category">Perros</p>
-                    <p class="product-name">Pipeta Power-Perros de 20 a 40kg</p>
-                    <p class="price">$1.940</p>
-                </div>
-            </article></a>
-            <a href="/product/2/detail"><article>
-                <img src="/images/producto-SabrositosGatoAdulto.webp" alt="Alimento-sabrositos-gato">
-                <div class="product-details">
-                    <p class="category">Gatos</p>
-                    <p class="product-name">Mix Sabrositos para gato x10kg</p>
-                    <p class="price">$10.690</p>
-                </div>
-            </article></a>
-        </div>
+    <section class="in-sale-products">
+        <% if (locals.inSale) { %>
+            <h2>Productos en oferta</h2>
+            <div class="products">
+                <% inSale.forEach(product => { %>
+                                          
+                <a href="/products/<%=product.id%>/detail">
+                    <article>
+                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
+                        <div class="product-details">
+                            <p class="category"><%= product.petType %></p>
+                            <p class="product-name"><%= product.name %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </article>
+                </a>
+                <% }) %>                
+            </div>
+            <% }%>
+    </section>
+    <section class="visited-products">
+         <% if (locals.visited) { %>
+            <h2>Productos Visitados</h2>
+            <div class="products">
+                <% visited.forEach(product => { %>
+                                          
+                <a href="/products/<%=product.id%>/detail">
+                    <article>
+                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
+                        <div class="product-details">
+                            <p class="category"><%= product.petType %></p>
+                            <p class="product-name"><%= product.name %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </article>
+                </a>
+                <% }) %>
+            </div>
+            <% }%>
+    </section>
+    <section class="food-products">
+        <% if (locals.food) { %>
+            <h2>Alimentos</h2>
+            <div class="products">
+                <% food.forEach(product => { %>
+                                          
+                <a href="/products/<%=product.id%>/detail">
+                    <article>
+                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
+                        <div class="product-details">
+                            <p class="category"><%= product.petType %></p>
+                            <p class="product-name"><%= product.name %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </article>
+                </a>
+                <% }) %>                
+            </div>
+            <% }%>
     </section>
 </main>
 <%- include ('partials/footer') %>

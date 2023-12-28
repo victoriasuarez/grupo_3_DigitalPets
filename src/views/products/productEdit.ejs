@@ -7,7 +7,7 @@
     
     <main class="form-product">
         <h1>Editando: <%= product.name %></h1>
-        <form action="/product/<%= product.id %>?_method=PUT" method="post"> 
+        <form action="/products/<%= product.id %>?_method=PUT" method="post"> 
 
             <div class="form-group">
                 <label for="productName">Nombre de producto:</label>
@@ -42,7 +42,7 @@
             <button type="submit" class = "store">Guardar producto</button>
           
         </form>
-        <form action="/product/<%= product.id %>?_method=DELETE" method="post">
+        <form action="/products/<%= product.id %>?_method=DELETE" method="post">
             <button class="btn-delete" type="submit">Eliminar</button>
         </form>
     </main>

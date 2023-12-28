@@ -7,7 +7,8 @@ const router = express.Router();
 // rutas públicas
 router.get('/', productsController.index);
 router.get('/:id/detail', productsController.detail);
-router.get('/cart', productsController.cart);
+router.get('/cart', productsController.cart)
+router.post('/cart', productsController.addToCart);
 
 
 // rutas con login
