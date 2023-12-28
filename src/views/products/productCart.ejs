@@ -16,22 +16,23 @@
                 <span class="count">Cantidad</span>
             </div>
 
+        <% for (const product of cartProducts) { %>
             <div class="div-parent2">
                 <div class="container">
                     <div class="div1">
-                        <img src="/images/Producto-AlimentoConejos.webp" alt="Producto 1">
+                        <img src="/images/<%= product.name %>" alt="<%= product.name %>">
                     </div>
                     <div class="div2">
 
-                        <p>Comida para conejo</p>
+                        <p><%= product.name %></p>
                     </div>
                     <div class="div3">
 
-                        <p>Alimento balanceado diario para conejos</p>
+                        <p><%= product.description %></p>
                     </div>
                     <div class="div4">
 
-                        <p class="product-price">$10.00</p>
+                        <p class="product-price">$<%= product.price.toFixed(2) %></p>
                     </div>
                     <div class="div5">
                         <div class="wrapper">
@@ -46,7 +47,7 @@
             <div class="div-parent3">
                 <div class="container">
                     <div class="div1">
-                        <img src="/images/Producto-AlimentoConejos.webp" alt="Producto 1">
+                        <img src="/images/<%= product.name %>" alt="<%= product.name %>">
                     </div>
                     <div class="div2">
                         <p>Comida para conejo</p>
@@ -71,7 +72,7 @@
             <div class="div-parent4">
                 <div class="container">
                     <div class="div1">
-                        <img src="/images/Producto-AlimentoConejos.webp" alt="Producto 1">
+                        <img src="/images/<%= product.image %>" alt="<%= product.name %>">
                     </div>
                     <div class="div2">
                         <p>Comida para conejo</p>
@@ -91,7 +92,7 @@
                     </div>
                 </div>
             </div>
-
+        <% } %>
             <div class="div-parent5">
                 <div class="sidebar">
                     <div class="envio">
@@ -147,19 +148,29 @@
     <%- include ('../partials/footer') %>
 
     <script>
-        const add = document.querySelector(".add"),
-        out = document.querySelector(".out"),
-        num = document.querySelector(".num");
-        let a = 1;
-        add.addEventListener("click", ()=>{
-          a++;
-          num.innerText = a;
-        });
-        out.addEventListener("click", ()=>{
-          if (a > 1) {
-            a--;
-            num.innerText = a;
-          }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Asigna los botones de incremento y decremento a las variables correspondientes
+            const addButtons = document.querySelectorAll(".add");
+            const outButtons = document.querySelectorAll(".out");
+            const numElements = document.querySelectorAll(".num");
+
+            addButtons.forEach((addButton, index) => {
+                addButton.addEventListener("click", () => {
+                    let quantity = parseInt(numElements[index].innerText);
+                    quantity++;
+                    numElements[index].innerText = quantity;
+                });
+            });
+
+            outButtons.forEach((outButton, index) => {
+                outButton.addEventListener("click", () => {
+                    let quantity = parseInt(numElements[index].innerText);
+                    if (quantity > 1) {
+                        quantity--;
+                        numElements[index].innerText = quantity;
+                    }
+                });
+            });
         });
       </script>
 </body>
