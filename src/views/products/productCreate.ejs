@@ -7,7 +7,7 @@
     
     <main class="form-product">
         <h1>Ingresar nuevo producto:</h1>
-        <form action="/products" method="post"> 
+        <form action="/products/create" method="post"> 
 
             <div class="form-group">
                 <label for="productName">Nombre de producto:</label>
@@ -39,7 +39,7 @@
                 <input type="file" id="productImage" name="image" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="" required><br><br>
             </div>        
 
-            <input type="submit" value="Crear Producto"><br><br>
+            <button type="submit">Crear Producto</button>
 
         </form>
     </main>
