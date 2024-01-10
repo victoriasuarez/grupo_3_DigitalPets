@@ -1,6 +1,5 @@
 const express = require('express');
 const productsController = require('../controllers/productsController');
-const isLoggedMiddleware = require('../middlewares/isLoggedMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 

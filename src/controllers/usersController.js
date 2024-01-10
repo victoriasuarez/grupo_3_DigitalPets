@@ -123,7 +123,7 @@ const controller = {
 
 		if (resultValidation.errors.length > 0) {
 			return res.render('users/register', {
-				errors: resultValidation.mapped(),
+				errorMessage: resultValidation.mapped(),
 				oldData: req.body
 			});
 		}

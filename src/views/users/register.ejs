@@ -7,9 +7,9 @@
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
-        <% if (errorMessage && errorMessage.length > 0) { %>
+        <% if (locals.errorMessage && errorMessage.fullName) { %>
             <div class="error-message">
-                <p><%= errorMessage[0] %></p>
+                <%= errorMessage.fullName.msg %> 
                 <span class="close-btn" onclick="closeErrorMessage()">X</span>
             </div>
         <% } %>
