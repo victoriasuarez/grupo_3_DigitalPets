@@ -55,8 +55,7 @@ window.addEventListener('load', function () {
   function validarProducto() {
     var productName = document.getElementById('productName').value;
     var productDescription = document.getElementById('productDescription').value;
-    var productPrice = document.getElementById('productPrice').value;
-    var productImage = document.getElementById('productImage').value;
+     var productImage = document.getElementById('productImage').value;
     // nombre de producto
     if (productName.length < 5) {
       alert('El nombre del producto debe tener al menos 5 caracteres.');
