@@ -61,20 +61,20 @@ const controller = {
 
     index(req, res) {
         const products = getProducts();
-        const isLoggedIn = req.isAuthenticated();
-        res.render('products/products', { products, isLoggedIn });
+        // const isLoggedIn = req.isAuthenticated();
+        res.render('products/products', { products });
     },
     detail(req, res) {
         let products = getProducts();
         const product = products.find(product => product.id == req.params.id);
-        const isLoggedIn = req.isAuthenticated();
+        // const isLoggedIn = req.isAuthenticated();
         products = products.sort(() => 0.5 - Math.random());
-        res.render('products/productDetail', { product, products, isLoggedIn });  
+        res.render('products/productDetail', { product, products });  
     },
     cart(req, res) {
-        const isLoggedIn = req.isAuthenticated();
+        // const isLoggedIn = req.isAuthenticated();
         const cartProducts = req.session.cart || []; // Obtener productos del carrito desde la sesión
-        res.render('products/productCart', { cartProducts, isLoggedIn }); 
+        res.render('products/productCart', { cartProducts }); 
     },
 
     addToCart(req, res) {
@@ -135,7 +135,7 @@ const controller = {
         }
         products.push(productToCreate);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect('/');
+        res.redirect('../');
     },
 
     edit(req, res) {

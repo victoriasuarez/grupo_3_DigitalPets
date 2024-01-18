@@ -7,7 +7,12 @@
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
-  
+        <% if (errorMessage && errorMessage.length > 0) { %>
+            <div class="error-message">
+                <p><%= errorMessage[0] %></p>
+                <span class="close-btn" onclick="closeErrorMessage()">X</span>
+            </div>
+        <% } %>
         <form class="form-register" enctype="multipart/form-data" method="post" action="/users/register">
             <label for="firstName">Nombre:</label>
             <input type="text" id="nombre" name="firstName" required><br><br>
