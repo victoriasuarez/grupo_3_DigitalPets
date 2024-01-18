@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','account']}) %>
+
+<body>
+    <%- include ('../partials/header') %>
+    <main class="main-profile">
+        <h1>Perfil de Usuario</h1>
+        <% if (user) { %>
+            <p>Nombre: <%= user.firstName %> <%= user.lastName %></p>
+            <p>Email: <%= user.email %></p>
+            <% if (user.image) { %>
+                <img src="/<%= user.image %>" alt="Imagen de perfil">
+				<% } %>
+        <% } else { %>
+            <p>No se pudo cargar el perfil.</p>
+        <% } %>
+    </main>
+
+    <%- include ('../partials/footer') %>
+</body>
+
+</html>
