@@ -21,26 +21,26 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      categories_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: {
-            tableName: 'categories'
-          },
-          key: 'id'
-        }
-      },
-      petTypes_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: {
-            tableName: 'petTypes'
-          },
-          key: 'id'
-        }
-      },
+      // categories_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: true,
+      //   references: {
+      //     model: {
+      //       tableName: 'categories'
+      //     },
+      //     key: 'id'
+      //   }
+      // },
+      // petTypes_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: true,
+      //   references: {
+      //     model: {
+      //       tableName: 'petTypes'
+      //     },
+      //     key: 'id'
+      //   }
+      // },
       brands_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -68,14 +68,16 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       image: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         defaultValue: 'default-image.png'
       },
       weight: {
         type: Sequelize.INTEGER,
+        allowNull: true
       },
       color: {
         type: Sequelize.TEXT,
+        allowNull: true
       }
     });
   },

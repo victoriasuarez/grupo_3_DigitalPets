@@ -9,6 +9,9 @@ module.exports = {
       },
       {
         name: 'Visitado'
+      },
+      {
+        name: 'Alimento'
       }
     ], {});
   },

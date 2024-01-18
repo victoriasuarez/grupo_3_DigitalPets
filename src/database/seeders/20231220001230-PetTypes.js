@@ -5,19 +5,24 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('petTypes', [
       {
-        name: 'Perros'
+        name: 'Perros',
+        image: 'categoria-perros.jpg'
       },
       {
-        name: 'Gatos'
+        name: 'Gatos',
+        image: 'categoria-gatos.jpg'
       },
       {
-        name: 'Aves'
+        name: 'Aves',
+        image: 'categoria-aves.jpg'
       },
       {
-        name: 'Peces'
+        name: 'Peces',
+        image: 'categoria-peces.jpg'
       },
       {
-        name: 'Otros'
+        name: 'Otros',
+        image: 'categoria-otros.jpg'
       }
     ], {});
   },

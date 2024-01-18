@@ -10,7 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Product.belongsToMany(models.Category, {
+        through: 'CategoryProduct',
+        foreignKey: 'productId',
+      });
+      Product.belongsToMany(models.PetType, {
+        through: 'PetTypeProduct',
+        foreignKey: 'productId',
+      });
     }
   }
   Product.init({
@@ -26,21 +33,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    categories_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    petTypes_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    // categories_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true,
+    // },
+    // petTypes_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true
+    // },
     brands_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     petAges_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     description: {
       type: DataTypes.TEXT,
@@ -49,14 +56,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT
     },
     image: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       defaultValue: './public/images/default-image.png'
     },
     weight: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     color: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull: true,
     }
   }, {
     sequelize,
