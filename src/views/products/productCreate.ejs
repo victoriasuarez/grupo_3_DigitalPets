@@ -1,50 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','product']}) %>
-<body>
+<%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','product']}) %>
 
-    <%- include ('../partials/header') %>
-    
-    <main class="form-product">
-        <h1>Ingresar nuevo producto:</h1>
-        <form action="/products/create" method="post"> 
+    <body>
 
-            <div class="form-group">
-                <label for="productName">Nombre de producto:</label>
-                <input type="text" id="productName" name="name" value="" required><br><br>
-            </div>
+        <%- include ('../partials/header') %>
 
-            <div class="form-group">
-                <label for="productDescription">Descripción del producto:</label>
-                <textarea name="description" id="productDescription" rows="10" value="" required></textarea><br><br>
-            </div>
+            <main class="form-product">
+                <h1>Ingresar nuevo producto:</h1>
+                <form action="/products/create" method="post">
 
-            <div class="form-group">
-                <label for="petType">Categorías de mascotas:</label>
-                <select>
-                    <option>--Seleccionar--</option>
-                    <% petTypes.forEach(petType => { %>
-                        <option value="<%= petType.value %>"><%= petType.label%></option>
-                    <% }) %>
-                </select><br><br>
-            </div>        
-            
-            <div class="form-group">    
-                <label for="productPrice">Precio de venta $</label>
-                <input type="number" id="productPrice" name="price" value="" required><br><br>
-            </div>    
-            
-            <div class="form-group">    
-                <label for="productImage">Imagen:</label>
-                <input type="file" id="productImage" name="image" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="" required><br><br>
-            </div>        
+                    <div class="form-group">
+                        <label for="productName">Nombre de producto:</label>
+                        <input type="text" id="productName" name="name" value="" required><br><br>
+                    </div>
 
-            <button type="submit">Crear Producto</button>
+                    <div class="form-group">
+                        <label for="productDescription">Descripción del producto:</label>
+                        <textarea name="description" id="productDescription" rows="10" value=""
+                            required></textarea><br><br>
+                    </div>
 
-        </form>
-    </main>
+                    <div class="form-group">
+                        <label for="petType">Categorías de mascotas:</label>
+                        <select>
+                            <option>--Seleccionar--</option>
+                            <% petTypes.forEach(petType=> { %>
+                                <option value="<%= petType.value %>">
+                                    <%= petType.label%>
+                                </option>
+                                <% }) %>
+                        </select><br><br>
+                    </div>
 
-    <%- include ('../partials/footer') %>
+                    <div class="form-group">
+                        <label for="productCategory">Categorías:</label>
+                        <select name="category" id="productCategory">
+                            <option>--Seleccionar--</option>
+                            <% categories.forEach(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.value %>
+                                </option>
+                                <% }) %>
+                        </select><br><br>
 
-</body>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Precio de venta $</label>
+                        <input type="number" id="productPrice" name="price" value="" required><br><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productDiscount">Descuento:</label>
+                        <input type="number" id="productDiscount" name="discount" value="" min="0" max="100"><br><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImage">Imagen:</label>
+                        <input type="file" id="productImage" name="image" alt="Imagen del producto"
+                            accept=".jpeg, .jpg, .pdf,.png" value="" required><br><br>
+                    </div>
+
+                    <button type="submit">Crear Producto</button>
+
+                </form>
+            </main>
+            <script src="/src/validaciones.js"></script>
+
+            <%- include ('../partials/footer') %>
+
+    </body>
+
 </html>

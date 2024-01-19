@@ -7,9 +7,9 @@
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
-        <% if (locals.errorMessage && errorMessage.fullName) { %>
+        <% if (errorMessage && errorMessage.length > 0) { %>
             <div class="error-message">
-                <%= errorMessage.fullName.msg %> 
+                <p><%= errorMessage[0] %></p>
                 <span class="close-btn" onclick="closeErrorMessage()">X</span>
             </div>
         <% } %>
@@ -42,12 +42,9 @@
         </form>
 
     </main>
-    <script>
-        function closeErrorMessage() {
-            document.querySelector('.error-message').style.display = 'none';
-        }
-    </script>
 
+       <script src="/src/validaciones.js"></script> 
+ 
     <%- include ('../partials/footer') %>
 </body>
 
