@@ -23,12 +23,27 @@
                             </div>
                             <div class="detail">
                                 <div class="product">
-                                    <h3>
-                                        <%= product.name %>
-                                    </h3>
-                                    <h4>10kg</h4>
-                                    <p class="price">$<%= product.price %>
+                                    <h2>
+                                        <%= locals.product && product.name %>
+                                    </h2>
+                                    <p class="product-detail-price small">
+                                        <span>$<%= locals.product && product.price %></span>
+                                        /
+                                        <b><%= locals.product && product.discount %>% OFF</b>
                                     </p>
+                                    <p class="product-detail-price">
+                                        $ <%= locals.product && (product.price - (product.price * product.discount / 100)) %>
+                                    </p>
+                                    <ul class="actions-list">
+                                        <li>
+                                            <i class="fas fa-credit-card"></i>
+                                            <p>Pagá en 3 cuotas sin interes</p>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-store"></i>
+                                            <p>Retiro gratis en locales del vendedor</p>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div class="detail-options">
                                     <div class="wrapper">

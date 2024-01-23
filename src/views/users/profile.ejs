@@ -10,9 +10,7 @@
         <% if (user) { %>
             <p>Nombre: <%= user.firstName %> <%= user.lastName %></p>
             <p>Email: <%= user.email %></p>
-            <% if (user.image) { %>
-                <img src="/<%= user.image %>" alt="Imagen de perfil">
-				<% } %>
+            <img src="/images/users/<%= user.image %>" alt="Imagen de perfil">
         <% } else { %>
             <p>No se pudo cargar el perfil.</p>
         <% } %>

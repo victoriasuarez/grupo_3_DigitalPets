@@ -2,8 +2,8 @@
   {
     "id": 1,
     "name": "Whiskas Sabor Pescado x10kg",
-    "price": "3500",
-    "discount": "20",
+    "price": "3000",
+    "discount": 5,
     "category": [
       "visited",
       "in-sale",
