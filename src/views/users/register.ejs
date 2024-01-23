@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','account']}) %>
+<%- include('../partials/head', {styles: ['normalize','header','footer','account']}) %>
 
 <body>
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
-        <% if (errorMessage && errorMessage.length > 0) { %>
-            <div class="error-message">
-                <p><%= errorMessage[0] %></p>
-                <span class="close-btn" onclick="closeErrorMessage()">X</span>
-            </div>
-        <% } %>
+       
         <form class="form-register" enctype="multipart/form-data" method="post" action="/users/register">
-            <label for="firstName">Nombre:</label>
-            <input type="text" id="nombre" name="firstName" required><br><br>
-
-            <label for="lastName">Apellido:</label>
-            <input type="text" id="apellido" name="lastName" required><br><br>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="password">Contraseña:</label>
-            <input type="password" id="contrasena" name="password" required><br><br>
-
-            <label for="confirmPassword">Repetir Contraseña:</label>
-            <input type="password" id="repetir_contrasena" name="confirmPassword" required><br><br>
-
-            <label for="dateOfBirth">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="birthDate" required>
-
-            <label for="imagenPerfil">Imagen de Perfil:</label>
-            <input type="file" id="imagenPerfil" name="image"><br><br>
+            <section>
+                <label for="firstName">Nombre:</label>
+                <input type="text" id="firstName" name="firstName" >
+                <p class="error-message" id="error-firstName"></p><br><br>
+            </section>
+            <section>
+                <label for="lastName">Apellido:</label>
+                <input type="text" id="lastName" name="lastName" >
+                <p class="error-message" id="error-lastName"></p><br><br>
+            </section>
+            <section>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" >
+                <p class="error-message" id="error-email"></p><br><br>
+            </section>
+            <section>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" >
+                <p class="error-message" id="error-password"></p><br><br>
+            </section>
+            <section>
+                <label for="confirmPassword">Repetir Contraseña:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" >
+                <p class="error-message" id="error-confirmPassword"></p><br><br>
+            </section>
+            <section>
+                <label for="birthDate">Fecha de Nacimiento:</label>
+                <input type="date" id="birthDate" name="birthDate" >
+                <p class="error-message" id="error-birthDate"></p>
+            </section>
+            <section>
+                <label for="image">Imagen de Perfil:</label>
+                <input type="file" id="image" name="image">
+                <p class="error-message" id="error-image"></p><br><br>
+            </section>
             
             <input type="submit" value="Crear cuenta"><br><br>
 
+            
             ¿Ya tienes cuenta? <a href="/users/login">Ingresa Aquí</a>
 
         </form>
 
     </main>
 
-       <script src="/src/validaciones.js"></script> 
+       <script src="/js/ValidateRegister.js"></script> 
  
     <%- include ('../partials/footer') %>
 </body>

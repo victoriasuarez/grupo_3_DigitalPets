@@ -1,3 +1,25 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+
 .main-login h1,
 .main-register h1 {
     color: #333;
@@ -57,4 +79,14 @@ main a {
 div.p {
     padding: 20px 0px;
     line-height: 1.5em;
+}
+
+
+.is-valid{
+    color:#198754;
+    border: solid 1px #198754; 
+}
+.is-invalid{
+    color:#842029;
+    border: solid 1px #842029; 
 }

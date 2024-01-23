@@ -69,16 +69,11 @@ const controller = {
         // res.render("users/register");
     },
     async register(req, res) {
-        console.log(req.body);
         try {
-            console.log(req.body);
             const resultValidation = validationResult(req);
-
             if (resultValidation.errors.length > 0) {
-                console.log(resultValidation);
-                console.log(resultValidation.errors);
                 return res.render('users/register', {
-                    errorMessage: resultValidation.mapped(),
+                    errors: resultValidation.mapped(),
                     oldData: req.body
                 });
             }
