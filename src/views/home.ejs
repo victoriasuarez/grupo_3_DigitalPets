@@ -7,7 +7,7 @@
     <section class="carousel"> 
             <div class="carousel-images">
                 <img src="/images/publicidad-whiskas.webp" alt="publicidad-whiskas">
-                <img src="/images/publicidad-purina.webp" alt="publicidad-purina">
+                <img src="/images/Publicidad-purina.webp" alt="publicidad-purina">
                 <img src="/images/publicidad-ejemplo.jpg" alt="publicidad-ejemplo">
             </div>
             <div class="carousel-buttons">
@@ -20,44 +20,7 @@
                 <span></span>
             </div>
     </section> 
-    <script>
-        let index = 0;
-        const images = document.querySelectorAll('.carousel-images img');
-        const indicators = document.querySelectorAll('.carousel-indicators span');
-
-        function updateCarousel() {
-            images.forEach((img, i) => {
-                img.classList.toggle('active', i === index);
-            });
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-        }
-
-        document.querySelector('.carousel-buttons .prev').addEventListener('click', () => {
-            index = (index - 1 + images.length) % images.length;
-            updateCarousel();   
-        });
-
-        document.querySelector('.carousel-buttons .next').addEventListener('click', () => {
-            index = (index + 1) % images.length;
-            updateCarousel();
-        });
-
-        indicators.forEach((indicator, i) => {
-            indicator.addEventListener('click', () => {
-                index = i;
-                updateCarousel();
-            });
-        });
-
-        setInterval(() => {
-            index = (index + 1) % images.length;
-            updateCarousel();
-        }, 6000);
-
-        updateCarousel();
-    </script>
+    
     <section class="categories">
         <article>
             <div>
@@ -170,5 +133,43 @@
     </section>
 </main>
 <%- include ('partials/footer') %>
+<script>
+    let index = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const indicators = document.querySelectorAll('.carousel-indicators span');
+
+    function updateCarousel() {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+    }
+
+    document.querySelector('.carousel-buttons .prev').addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        updateCarousel();   
+    });
+
+    document.querySelector('.carousel-buttons .next').addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        updateCarousel();
+    });
+
+    indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+            index = i;
+            updateCarousel();
+        });
+    });
+
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        updateCarousel();
+    }, 6000);
+
+    updateCarousel();
+</script>
 </body>
 </html>

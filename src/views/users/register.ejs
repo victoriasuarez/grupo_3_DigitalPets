@@ -7,33 +7,55 @@
     <%- include ('../partials/header') %>
     <main class="main-register">
         <h1>Registrate</h1>
-        <% if (errorMessage && errorMessage.length > 0) { %>
-            <div class="error-message">
-                <p><%= errorMessage[0] %></p>
-                <span class="close-btn" onclick="closeErrorMessage()">X</span>
-            </div>
-        <% } %>
+        
         <form class="form-register" enctype="multipart/form-data" method="post" action="/users/register">
             <label for="firstName">Nombre:</label>
-            <input type="text" id="nombre" name="firstName" required><br><br>
+            <input type="text" id="nombre" name="firstName" value="<%= locals.oldData?.firstName && oldData?.firstName%>">
+            <% if(locals.errors?.firstName) { %>
+                <p class="error-message"><%= errors.firstName.msg %></p> 
+            <% } %>
+            <br><br>
 
             <label for="lastName">Apellido:</label>
-            <input type="text" id="apellido" name="lastName" required><br><br>
+            <input type="text" id="apellido" name="lastName" value="<%= locals.oldData?.lastName && oldData?.lastName%>">
+            <% if(locals.errors?.lastName) { %>
+                <p class="error-message"><%= errors.lastName.msg %></p> 
+            <% } %>
+            <br><br>
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <input type="email" id="email" name="email" value="<%= locals.oldData?.email && oldData?.email%>">
+            <% if(locals.errors?.email) { %>
+                <p class="error-message"><%= errors.email.msg %></p> 
+            <% } %>
+            <br><br>
 
             <label for="password">Contraseña:</label>
-            <input type="password" id="contrasena" name="password" required><br><br>
+            <input type="password" id="contrasena" name="password">
+            <% if(locals.errors?.password) { %>
+                <p class="error-message"><%= errors.password.msg %></p> 
+            <% } %>
+            <br><br>
 
             <label for="confirmPassword">Repetir Contraseña:</label>
-            <input type="password" id="repetir_contrasena" name="confirmPassword" required><br><br>
+            <input type="password" id="repetir_contrasena" name="confirmPassword">
+            <% if(locals.errors?.confirmPassword) { %>
+                <p class="error-message"><%= errors.confirmPassword.msg %></p> 
+            <% } %>
+            <br><br>
 
             <label for="dateOfBirth">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="birthDate" required>
+            <input type="date" id="fecha_nacimiento" name="birthDate" value="<%= locals.oldData?.birthDate && oldData?.birthDate%>">
+            <% if(locals.errors?.birthDate) { %>
+                <p class="error-message"><%= errors.birthDate.msg %></p> 
+            <% } %>
 
             <label for="imagenPerfil">Imagen de Perfil:</label>
-            <input type="file" id="imagenPerfil" name="image"><br><br>
+            <input type="file" id="imagenPerfil" name="image">
+            <% if(locals.errors?.image) { %>
+                <p class="error-message"><%= errors.image.msg %></p> 
+            <% } %>
+            <br><br>
             
             <input type="submit" value="Crear cuenta"><br><br>
 
