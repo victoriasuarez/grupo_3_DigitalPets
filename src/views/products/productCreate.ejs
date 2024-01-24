@@ -8,40 +8,24 @@
 
             <main class="form-product">
                 <h1>Ingresar nuevo producto:</h1>
-                <form action="/products/create" method="post">
+                <form action="/products/create" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="productName">Nombre de producto:</label>
-                        <input type="text" id="productName" name="name" value="" required><br><br>
+                        <input type="text" id="productName" name="name" value=""><br><br>
                     </div>
 
                     <div class="form-group">
                         <label for="productDescription">Descripción del producto:</label>
-                        <textarea name="description" id="productDescription" rows="10" value=""
-                            required></textarea><br><br>
+                        <textarea name="description" id="productDescription" rows="10" value=""></textarea><br><br>
                     </div>
-
-                    <!-- <div class="form-group">
-                        <label for="petType">Categorías de mascotas:</label>
-                        <select>
-                            <option>--Seleccionar--</option>
-                             <% petTypes.forEach(petType=> { %>
-                                <option value="<%= petType.value %>">
-                                    <%= petType.label%>
-                                </option>
-                                <% }) %>
-                        </select><br><br>
-
-                    </div>  -->
-
+                    
                     <div class="form-group">
                         <label for="petType">Categorías de mascotas:</label><br>
-
-                        <% petTypes.forEach(petType=> { %>
-                            <input type="checkbox" name="petTypes" value="<%= petType.value %>">
-                            <%= petType.label %><br>
-                                <% }) %>
-
+                        <% for(let i=0; i<petTypes.length;i++){ %>
+                            <input type="checkbox" name="petTypes" value="<%= petTypes.id %>">
+                            <%= petTypes[i].name %><br>
+                                <% } %>
                     </div><br><br>
 
                     <div class="form-group">
@@ -49,25 +33,53 @@
 
                         <% categories.forEach(category=> { %>
                             <input type="checkbox" name="categories" value="<%= category.id %>">
-                            <%= category.label %><br>
+                            <%= category.name %><br>
                                 <% }) %>
 
                     </div><br><br>
 
                     <div class="form-group">
+                        <label for="brand">Marca:</label><br>
+                        <select name="brand" id="brand">
+                            <option value="">Seleccionar</option>
+                            <%brands.forEach(brand=> {%>
+                                <option value="<%= brand.id %>">
+                                    <%= brand.name%>
+                                </option>
+                                <% }) %>>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="petAge">Edad:</label><br>
+                        <select name="petAge" id="petAge">
+                            <option value="">Seleccionar</option>
+                            <%petAges.forEach(petAge=> {%>
+                                <option value="<%= petAge.id %>">
+                                    <%= petAge.name%>
+                                </option>
+                                <% }) %>>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="productPrice">Precio de venta $</label>
-                        <input type="number" id="productPrice" name="price" value="" required><br><br>
+                        <input type="number" id="productPrice" name="price" value=""><br><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productStock">Stock:</label>
+                        <input type="number" id="productStock" name="stock"><br><br>
                     </div>
 
                     <div class="form-group">
                         <label for="productDiscount">Descuento:</label>
-                        <input type="number" id="productDiscount" name="discount" value="" required><br><br>
+                        <input type="number" id="productDiscount" name="discount" value=""><br><br>
                     </div>
 
                     <div class="form-group">
                         <label for="productImage">Imagen:</label>
-                        <input type="file" id="productImage" name="image" alt="Imagen del producto"
-                            accept=".jpeg, .jpg, .pdf,.png" value="" required><br><br>
+                        <input type="file" id="productImage" name="producto-img" alt="Imagen del producto"
+                            value=""><br><br>
                     </div>
 
                     <button type="submit">Crear Producto</button>

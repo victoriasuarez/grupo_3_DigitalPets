@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: './public/images/default-image.png'
+      defaultValue: 'default-image.png'
     },
     weight: {
       type: DataTypes.INTEGER,

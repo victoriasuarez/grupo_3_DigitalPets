@@ -17,9 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Category.init({
-    name: DataTypes.STRING,
-    allowNull: false
-  }, {
+  name:{
+      type: DataTypes.STRING,
+      allowNull: false
+  }}, {
     sequelize,
     modelName: 'Category',
     tableName: 'categories',
