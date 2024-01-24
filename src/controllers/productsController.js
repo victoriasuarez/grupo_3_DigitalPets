@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
+const { validationResult } = require('express-validator');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 
 function getProducts() {
@@ -128,7 +129,7 @@ const controller = {
         }
     },
 
-    create: function (req, res) {
+    create: (req, res) => {
         let brandsInDB = db.Brand.findAll();
         let petTypesInDB = db.PetType.findAll();
         let categoriesInDB = db.Category.findAll();
@@ -137,60 +138,81 @@ const controller = {
         Promise
             .all([brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB])
             .then(([brands, petTypes, categories, petAges]) => {
-                return res.render('products/productCreate', { brands, petTypes,categories,petAges })
+                return res.render('products/productCreate', { brands, petTypes, categories, petAges })
             })
             .catch(error => res.send(error))
     },
-    //     console.log(petTypes);
-    //     res.render('products/productCreate', { categories, petTypes });
-
     store: (req, res) => {
-
-        // const products = getProducts();
-        // const productToCreate = {
-        //     id: products[products.length - 1].id + 1,
-        //     image: 'default-image.png',
-        //     ...req.body
-        // }
-        // products.push(productToCreate);
-        // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        console.log(req.file.filename);
         db.Product.create({
-        name: req.body.name,
-        price: req.body.price,
-        stock: req.body.stock,
-        brands_id: req.body.brand,
-        
-        petAges_id: req.body.petAge,
-        description: req.body.description,
-        discount: req.body.discount,
+            name: req.body.name,
+            price: req.body.price,
+            stock: req.body.stock,
+            brands_id: req.body.brand,
 
-        image: req.file.filename
-        // weight: 
-        // color: 
-    });
+            petAges_id: req.body.petAge,
+            description: req.body.description,
+            discount: req.body.discount,
 
+            image: req.file.filename
+            // weight: 
+            // color: 
+        });
+        const categories = req.body.categories;
+        const category = db.CategoryProduct;
+        category.create
 
-res.redirect('/');
+        res.redirect('/');
     },
 
-edit(req, res) {
-    const products = getProducts();
-    const product = products.find(product => product.id == req.params.id);
-    res.render('products/productEdit', { product, categories, petTypes });
-},
+    edit(req, res) {
+        const productInDB = db.Product.findByPk(req.params.id);
+        const brandsInDB = db.Brand.findAll();
+        const petTypesInDB = db.PetType.findAll();
+        const categoriesInDB = db.Category.findAll();
+        const petAgesInDB = db.PetAge.findAll();
+        Promise
+            .all([productInDB, brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB])
+            .then(([product, brands, petTypes, categories, petAges]) => {
+                return res.render('products/productEdit', { product, brands, petTypes, categories, petAges })
+            })
+            .catch(error => res.send(error))
+        // const products = getProducts();
+        // const product = products.find(product => product.id == req.params.id);
+        // res.render('products/productEdit', { product, categories, petTypes });
+    },
 
-update: (req, res) => {
-
-    const products = getProducts();
-    const indexProduct = products.findIndex(product => product.id == req.params.id);
-    products[indexProduct] = {
-        ...products[indexProduct],
-        ...req.body
-    };
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    res.redirect('/');
-},
+    update: (req, res) => {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            try {
+                db.Product.update({
+                    name: req.body.name,
+                    price: req.body.price,
+                    stock: req.body.stock,
+                    brands_id: req.body.brand,
+                    petAges_id: req.body.petAge,
+                    description: req.body.description,
+                    discount: req.body.discount,
+                    image: req.file.filename
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                });
+                res.redirect('/');
+            } catch (error) {
+                return res.render('products/productsEdit', {
+                    errors: errors.mapped(),
+                    oldData: req.body
+                })
+            }
+        } else {
+            return res.render('products/productEdit', {
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
+        }
+    },
 
     destroy: (req, res) => {
 

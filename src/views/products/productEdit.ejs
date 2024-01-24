@@ -1,81 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','product']}) %>
-<body>
+<%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','product']}) %>
 
-    <%- include ('../partials/header') %>
-    
-    <main class="form-product">
-        <h1>Editando: <%= product.name %></h1>
-        <form action="/products/<%= product.id %>?_method=PUT" method="post"> 
+    <body>
 
-            <div class="form-group">
-                <label for="productName">Nombre de producto:</label>
-                <input type="text" id="productName" name="name" value="<%= product.name %>" required><br><br>
-            </div>
+        <%- include ('../partials/header') %>
 
-            <div class="form-group">
-                <label for="description">Descripción del producto:</label>
-                <textarea name="description" id="productDescription" rows="10" > <%= product.description %></textarea><br><br>
-            </div>
+            <main class="form-product">
+                <h1>Editando: <%= product.name %>
+                </h1>
+                <form action="/products/<%= product.id %>?_method=PUT" method="post" enctype="multipart/form-data">
 
-            <div class="form-group">
-                <label for="petType">Tipo de mascota</label>
-                <select>
-                    <option>--Seleccionar--</option>
-                    <% petTypes.forEach(petType => { %>
-                        <option value="<%= petType.value %>" <%= product.petType === petType.label && 'selected' %>><%= petType.label%></option>
-                    <% }) %>
-                </select><br><br>
-            </div>        
+                    <div class="form-group">
+                        <label for="productName">Nombre de producto:</label>
+                        <input type="text" id="productName" name="name" value="<%= product.name %>" required><br><br>
+                    </div>
 
-            <div class="form-group">
-                <label for="productCategory">Categorías:</label><br>
-            
-                <% categories.forEach(category => { %>
-                    <input type="checkbox" name="categories" value="<%= category.id %>"
-                        <% if (product.category.includes(category.value)) { %> checked <% } %>>
-                    <%= category.label %><br>
-                <% }) %>
-            
-            </div><br><br>
-            <div class="form-group">    
-                <label for="productPrice">Precio de venta $</label>
-                <input type="number" id="productPrice" name="price" value="<%= product.price %>" required><br><br>
-            </div>    
+                    <div class="form-group">
+                        <label for="description">Descripción del producto:</label>
+                        <textarea name="description" id="productDescription"
+                            rows="10"> <%= product.description %></textarea><br><br>
+                    </div>
 
-            <div class="form-group">
-                <label for="productDiscount">Descuento:</label>
-                <input type="number" id="productDiscount" name="discount" value="<%= product.discount %>" min="0" max="100"><br><br>
-            </div>
+                    <div class="form-group">
+                        <label for="petType">Tipo de mascota</label>
+                        <select>
+                            <option>--Seleccionar--</option>
+                            <% petTypes.forEach(petType=> { %>
+                                <option value="<%= petType.value %>" <%=product.petType===petType.label && 'selected' %>
+                                    ><%= petType.label%>
+                                </option>
+                                <% }) %>
+                        </select><br><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="petType">Categorías de mascotas:</label><br>
+                        <% petTypes.forEach(petType=> { %>
+                            <label for="<%= petType.id %>">
+                                <input type="checkbox" id="<%= petType.id %>" name="petTypes" value="<%= petType.id %>"
+                                    <% if (product.petType_id) { %> checked <% } %> >
+                                    <%= petType.name %>
+                            </label>
+                            <% }) %>
+                    </div><br><br>
 
-            <!-- <div class="form-group">    
+
+                    <div class="form-group">
+                        <label for="productCategory">Categorías:</label><br>
+                        <% categories.forEach(category=> { %>
+                            <label for="<%= category.id %>">
+                                <input type="checkbox" id="<%= category.id %>" name="categories"
+                                    value="<%= category.id %>" <% if (product.category.include(category.id)) { %>
+                                checked <% } %> >
+                                    <%= category.name %>
+                            </label>
+                            <% }) %>
+
+                                <!-- <% categories.forEach(category=> { %>
+                            <input type="checkbox" name="categories" value="<%= category.id %>" <% if
+                                (product.category.includes(category.value)) { %> checked <% } %>>
+                                <%= category.label %><br>
+                                    <% }) %> -->
+
+                    </div><br><br>
+                    <div class="form-group">
+                        <label for="productPrice">Precio de venta $</label>
+                        <input type="number" id="productPrice" name="price" value="<%= product.price %>"
+                            required><br><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productDiscount">Descuento:</label>
+                        <input type="number" id="productDiscount" name="discount" value="<%= product.discount %>"
+                            min="0" max="100"><br><br>
+                    </div>
+
+                    <!-- <div class="form-group">    
                 <label for="productImage">Imagen:</label>
                 <input type="file" id="productImage" name="image" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="<%= product.image %>" required><br><br>
             </div>   -->
 
-            <div class="form-group">
-                <label for="productImage">Imagen actual:</label>
-                <img src="/images/<%= product.image %>" alt="Imagen actual del producto" width="100">
-            </div><br><br>
-            
-            <div class="form-group">    
-                <label for="newProductImage">Nueva imagen:</label>
-                <input type="file" id="newProductImage" name="newImage" accept=".jpeg, .jpg, .pdf, .png">
-                <small>Selecciona una nueva imagen si deseas cambiarla.</small>
-            </div><br><br>
+                    <div class="form-group">
+                        <label for="productImage">Imagen actual:</label>
+                        <img src="/images/<%= product.image %>" alt="Imagen actual del producto" width="100">
+                    </div><br><br>
 
-            <button type="submit" class = "store">Guardar producto</button>
-          
-        </form>
-        <form action="/products/<%= product.id %>?_method=DELETE" method="post">
-            <button class="btn-delete" type="submit">Eliminar</button>
-        </form>
-    </main>
-    <script src="/src/validaciones.js"></script> 
-    
-    <%- include ('../partials/footer') %>
+                    <div class="form-group">
+                        <label for="newProductImage">Nueva imagen:</label>
+                        <input type="file" id="newProductImage" name="newImage" accept=".jpeg, .jpg, .pdf, .png">
+                        <small>Selecciona una nueva imagen si deseas cambiarla.</small>
+                    </div><br><br>
+
+                    <button type="submit" class="store">Guardar producto</button>
+
+                </form>
+                <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+                    <button class="btn-delete" type="submit">Eliminar</button>
+                </form>
+            </main>
+            <script src="/src/validaciones.js"></script>
+
+            <%- include ('../partials/footer') %>
 
 
-</body>
+    </body>
+
 </html>

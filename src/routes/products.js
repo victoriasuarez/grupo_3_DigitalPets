@@ -14,10 +14,10 @@ router.post('/cart', productsController.addToCart);
 
 
 // rutas con login
-router.get('/create', authMiddleware,productsController.create);
+router.get('/create',productsController.create);
 router.post('/create', upload.single('producto-img'), productsController.store);
-router.get('/:id/edit', authMiddleware, productsController.edit);
-router.put('/:id', authMiddleware, productsController.update);
+router.get('/:id/edit', productsController.edit);
+router.put('/:id/edit', productsController.update);
 router.delete('/:id', authMiddleware, productsController.destroy); 
 
 

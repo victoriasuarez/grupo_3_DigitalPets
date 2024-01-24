@@ -23,7 +23,7 @@
                     <div class="form-group">
                         <label for="petType">Categorías de mascotas:</label><br>
                         <% for(let i=0; i<petTypes.length;i++){ %>
-                            <input type="checkbox" name="petTypes" value="<%= petTypes.id %>">
+                            <input type="checkbox" name="petTypes" value="<%= petTypes[i].id %>">
                             <%= petTypes[i].name %><br>
                                 <% } %>
                     </div><br><br>
