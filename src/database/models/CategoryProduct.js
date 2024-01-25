@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   CategoryProduct.init(
     {
-      categories_id: {
+      categoryId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      products_id: {
+      productId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'CategoryProduct',
-        tableName: 'categoriesProducts',
-        timestamps: false
+      tableName: 'categoriesProducts',
+      timestamps: false
     }
   );
   return CategoryProduct;

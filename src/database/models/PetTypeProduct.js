@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   PetTypeProduct.init(
     {
-        petTypes_id: {
+      petTypeId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      products_id: {
+      productId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'PetTypeProduct',
-        tableName: 'petTypesProducts',
-        timestamps: false
+      tableName: 'petTypesProducts',
+      timestamps: false
     }
   );
   return PetTypeProduct;

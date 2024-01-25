@@ -5,32 +5,32 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('petTypesProducts', [
       {
-        petTypes_id: 2,
-        products_id: 1
+        petTypeId: 2,
+        productId: 1
       },
       {
-        petTypes_id: 2,
-        products_id: 2
+        petTypeId: 2,
+        productId: 2
       },
       {
-        petTypes_id: 1,
-        products_id: 3
+        petTypeId: 1,
+        productId: 3
       },
       {
-        petTypes_id: 1,
-        products_id: 4
+        petTypeId: 1,
+        productId: 4
       },
       {
-        petTypes_id: 1,
-        products_id: 5
+        petTypeId: 1,
+        productId: 5
       },
       {
-        petTypes_id: 5,
-        products_id: 6
+        petTypeId: 5,
+        productId: 6
       },
       {
-        petTypes_id: 4,
-        products_id: 7
+        petTypeId: 4,
+        productId: 7
       },
     ], {});
   },

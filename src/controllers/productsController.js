@@ -2,33 +2,34 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
-const productsFilePath = path.join(__dirname, '../data/products.json');
+// const { error } = require('console');
+// const productsFilePath = path.join(__dirname, '../data/products.json');
 
-function getProducts() {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    return products;
-}
+// function getProducts() {
+//     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//     return products;
+// }
 
-function getProductById(productId) {
-    const products = getProducts();
-    return products.find(product => product.id == productId);
-}
+// function getProductById(productId) {
+//     const products = getProducts();
+//     return products.find(product => product.id == productId);
+// }
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+// const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const categories = [
-    {
-        id: 1,
-        value: 'in-sale',
-        label: 'En oferta'
-    },
-    {
-        id: 2,
-        value: 'visited',
-        label: 'Últimos agregados'
-    }
+// const categories = [
+//     {
+//         id: 1,
+//         value: 'in-sale',
+//         label: 'En oferta'
+//     },
+//     {
+//         id: 2,
+//         value: 'visited',
+//         label: 'Últimos agregados'
+//     }
 
-];
+// ];
 
 // const petTypes = [
 //     {
@@ -142,27 +143,69 @@ const controller = {
             })
             .catch(error => res.send(error))
     },
-    store: (req, res) => {
-        db.Product.create({
-            name: req.body.name,
-            price: req.body.price,
-            stock: req.body.stock,
-            brands_id: req.body.brand,
+    // store:(req, res) => {
+    //     db.Product.create({
+    //         name: req.body.name,
+    //         price: req.body.price,
+    //         stock: req.body.stock,
+    //         brands_id: req.body.brand,
+    //         petAges_id: req.body.petAge,
+    //         description: req.body.description,
+    //         discount: req.body.discount,
+    //         image: req.file?.filename
+    //         // weight:
+    //         // color:
+    //     }).then((product) => {
+    //         let categoriesBody = req.body.categories;
+    //         return categoriesBody.map((category) => {
+    //             return {
+    //                 products_id: product.id,
+    //                 categories_id: category
+    //             }
+    //         });
+    //     }).then((categoriesProducts)=>{
+    //         db.CategoryProduct.bulkCreate(categoriesProducts)
+    //             .then(()=>res.redirect('/'))
+    //             .catch((error)=>{res.status(500).send(error)});
+    //         }).catch((error)=>{res.status(500).send(error)});
+    // },
+    store: async (req, res) => {
+        const t = await db.sequelize.transaction();
+        try {
+            const product = await db.Product.create({
+                name: req.body.name,
+                price: req.body.price,
+                stock: req.body.stock,
+                brands_id: req.body.brand,
+                petAges_id: req.body.petAge,
+                description: req.body.description,
+                discount: req.body.discount,
+                image: req.file?.filename,
+                // weight:
+                // color: 
+            }
+                , { transaction: t }
+            );
 
-            petAges_id: req.body.petAge,
-            description: req.body.description,
-            discount: req.body.discount,
+            let categoriesBody = req.body.categories;
+            let categoriesProducts = categoriesBody.map((category) => {
+                return {
+                    productId: product.id,
+                    categoryId: category
+                }
+            });
 
-            image: req.file.filename
-            // weight: 
-            // color: 
-        });
-        const categories = req.body.categories;
-        const category = db.CategoryProduct;
-        category.create
-
-        res.redirect('/');
+            await db.CategoryProduct.bulkCreate(categoriesProducts
+                , { transaction: t }
+            );
+            await t.commit();
+            res.redirect('/');
+        } catch (error) {
+            await t.rollback();
+            res.status(500).send(error);
+        }
     },
+
 
     edit(req, res) {
         const productInDB = db.Product.findByPk(req.params.id);

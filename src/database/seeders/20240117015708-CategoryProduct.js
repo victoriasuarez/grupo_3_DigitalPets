@@ -5,64 +5,64 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('categoriesProducts', [
       {
-        categories_id: 1,
-        products_id: 1
+        categoryId: 1,
+        productId: 1
       },
       {
-        categories_id: 2,
-        products_id: 1
+        categoryId: 2,
+        productId: 1
       },
       {
-        categories_id: 3,
-        products_id: 1
+        categoryId: 3,
+        productId: 1
       },
       {
-        categories_id: 2,
-        products_id: 2
+        categoryId: 2,
+        productId: 2
       },
       {
-        categories_id: 3,
-        products_id: 2
+        categoryId: 3,
+        productId: 2
       },
       {
-        categories_id: 1,
-        products_id: 3
+        categoryId: 1,
+        productId: 3
       },
       {
-        categories_id: 1,
-        products_id: 4
+        categoryId: 1,
+        productId: 4
       },
       {
-        categories_id: 3,
-        products_id: 4
+        categoryId: 3,
+        productId: 4
       },
       {
-        categories_id: 2,
-        products_id: 5
+        categoryId: 2,
+        productId: 5
       },
       {
-        categories_id: 3,
-        products_id: 5
+        categoryId: 3,
+        productId: 5
       },
       {
-        categories_id: 1,
-        products_id: 6
+        categoryId: 1,
+        productId: 6
       },
       {
-        categories_id: 3,
-        products_id: 6
+        categoryId: 3,
+        productId: 6
       },
       {
-        categories_id: 1,
-        products_id: 7
+        categoryId: 1,
+        productId: 7
       },
       {
-        categories_id: 2,
-        products_id: 7
+        categoryId: 2,
+        productId: 7
       },
       {
-        categories_id: 3,
-        products_id: 7
+        categoryId: 3,
+        productId: 7
       }
     ], {});
   },

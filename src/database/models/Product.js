@@ -11,12 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Product.belongsToMany(models.Category, {
+        as: 'categories',
         through: 'CategoryProduct',
         foreignKey: 'productId',
+        otherKey: 'categoryId'
       });
       Product.belongsToMany(models.PetType, {
+        as: 'petTypes',
         through: 'PetTypeProduct',
         foreignKey: 'productId',
+        otherKey: 'petTypeId'
       });
     }
   }
@@ -71,7 +75,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Product',
     tableName: 'products',
-    timestamps: false
   });
   return Product;
 };

@@ -7,7 +7,7 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER,
         },
-        petTypes_id: {
+        petTypeId: {
           type: Sequelize.INTEGER,
           references: {
             model: 'petTypes',
@@ -16,7 +16,7 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
         },
-        products_id: {
+        productId: {
           type: Sequelize.INTEGER,
           references: {
             model: 'products',
