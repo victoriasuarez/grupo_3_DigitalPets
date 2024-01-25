@@ -23,73 +23,65 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="petType">Tipo de mascota</label>
-                        <select>
-                            <option>--Seleccionar--</option>
-                            <% petTypes.forEach(petType=> { %>
-                                <option value="<%= petType.value %>" <%=product.petType===petType.label && 'selected' %>
-                                    ><%= petType.label%>
-                                </option>
-                                <% }) %>
-                        </select><br><br>
-                    </div>
-                    <div class="form-group">
                         <label for="petType">Categorías de mascotas:</label><br>
-                        <% petTypes.forEach(petType=> { %>
-                            <label for="<%= petType.id %>">
-                                <input type="checkbox" id="<%= petType.id %>" name="petTypes" value="<%= petType.id %>"
-                                    <% if (product.petType_id) { %> checked <% } %> >
-                                    <%= petType.name %>
-                            </label>
-                            <% }) %>
+                        <% for(let i=0; i<petTypes.length;i++){ %>
+                            <input type="checkbox" name="petTypes" value="<%= petTypes[i].id %>">
+                            <%= petTypes[i].name %><br>
+                                <% } %>
                     </div><br><br>
-
 
                     <div class="form-group">
                         <label for="productCategory">Categorías:</label><br>
                         <% categories.forEach(category=> { %>
-                            <label for="<%= category.id %>">
-                                <input type="checkbox" id="<%= category.id %>" name="categories"
-                                    value="<%= category.id %>" <% if (product.category.include(category.id)) { %>
-                                checked <% } %> >
-                                    <%= category.name %>
-                            </label>
-                            <% }) %>
-
-                                <!-- <% categories.forEach(category=> { %>
-                            <input type="checkbox" name="categories" value="<%= category.id %>" <% if
-                                (product.category.includes(category.value)) { %> checked <% } %>>
-                                <%= category.label %><br>
-                                    <% }) %> -->
+                            <input type="checkbox" name="categories" value="<%= category.id %>">
+                            <%= category.name %><br>
+                                <% }) %>
 
                     </div><br><br>
+
+                    <div class="form-group">
+                        <label for="brand">Marca:</label><br>
+                        <select name="brand" id="brand">
+                            <option value="">Seleccionar</option>
+                            <%brands.forEach(brand=> {%>
+                                <option value="<%= brand.id %>">
+                                    <%= brand.name%>
+                                </option>
+                                <% }) %>>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="petAge">Edad:</label><br>
+                        <select name="petAge" id="petAge">
+                            <option value="">Seleccionar</option>
+                            <%petAges.forEach(petAge=> {%>
+                                <option value="<%= petAge.id %>">
+                                    <%= petAge.name%>
+                                </option>
+                                <% }) %>>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="productPrice">Precio de venta $</label>
-                        <input type="number" id="productPrice" name="price" value="<%= product.price %>"
-                            required><br><br>
+                        <input type="number" id="productPrice" name="price" value=""><br><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productStock">Stock:</label>
+                        <input type="number" id="productStock" name="stock"><br><br>
                     </div>
 
                     <div class="form-group">
                         <label for="productDiscount">Descuento:</label>
-                        <input type="number" id="productDiscount" name="discount" value="<%= product.discount %>"
-                            min="0" max="100"><br><br>
+                        <input type="number" id="productDiscount" name="discount" value=""><br><br>
                     </div>
 
-                    <!-- <div class="form-group">    
-                <label for="productImage">Imagen:</label>
-                <input type="file" id="productImage" name="image" alt="Imagen del producto" accept=".jpeg, .jpg, .pdf,.png" value="<%= product.image %>" required><br><br>
-            </div>   -->
-
                     <div class="form-group">
-                        <label for="productImage">Imagen actual:</label>
-                        <img src="/images/<%= product.image %>" alt="Imagen actual del producto" width="100">
-                    </div><br><br>
-
-                    <div class="form-group">
-                        <label for="newProductImage">Nueva imagen:</label>
-                        <input type="file" id="newProductImage" name="newImage" accept=".jpeg, .jpg, .pdf, .png">
-                        <small>Selecciona una nueva imagen si deseas cambiarla.</small>
-                    </div><br><br>
+                        <label for="productImage">Imagen:</label>
+                        <input type="file" id="productImage" name="producto-img" alt="Imagen del producto"
+                            value=""><br><br>
+                    </div>
 
                     <button type="submit" class="store">Guardar producto</button>
 

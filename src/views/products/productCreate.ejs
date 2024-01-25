@@ -19,7 +19,7 @@
                         <label for="productDescription">Descripción del producto:</label>
                         <textarea name="description" id="productDescription" rows="10" value=""></textarea><br><br>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="petType">Categorías de mascotas:</label><br>
                         <% for(let i=0; i<petTypes.length;i++){ %>
@@ -30,7 +30,6 @@
 
                     <div class="form-group">
                         <label for="productCategory">Categorías:</label><br>
-
                         <% categories.forEach(category=> { %>
                             <input type="checkbox" name="categories" value="<%= category.id %>">
                             <%= category.name %><br>

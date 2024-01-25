@@ -143,33 +143,6 @@ const controller = {
             })
             .catch(error => res.send(error))
     },
-    // store:(req, res) => {
-    //     db.Product.create({
-    //         name: req.body.name,
-    //         price: req.body.price,
-    //         stock: req.body.stock,
-    //         brands_id: req.body.brand,
-    //         petAges_id: req.body.petAge,
-    //         description: req.body.description,
-    //         discount: req.body.discount,
-    //         image: req.file?.filename
-    //         // weight:
-    //         // color:
-    //     }).then((product) => {
-    //         let categoriesBody = req.body.categories;
-    //         return categoriesBody.map((category) => {
-    //             return {
-    //                 products_id: product.id,
-    //                 categories_id: category
-    //             }
-    //         });
-    //     }).then((categoriesProducts)=>{
-    //         db.CategoryProduct.bulkCreate(categoriesProducts)
-    //             .then(()=>res.redirect('/'))
-    //             .catch((error)=>{res.status(500).send(error)});
-    //         }).catch((error)=>{res.status(500).send(error)});
-    // },
-
     store: async (req, res) => {
         try {
             const result = await db.sequelize.transaction(async (t) => {
@@ -193,14 +166,24 @@ const controller = {
                         productId: product.id
                     }
                 });
-
                 const createdCategories = await db.CategoryProduct.bulkCreate(categoriesProducts, { transaction: t });
-
                 // Si alguna de las relaciones de categoría de producto no se creó correctamente, lanzamos un error
                 if (createdCategories.some(categoryProduct => !categoryProduct)) {
                     throw new Error('Error al crear CategoryProduct');
                 }
-
+                
+                let petTypesBody = req.body.petTypes;
+                let petTypesProducts = petTypesBody.map((petType) => {
+                    return {
+                        petTypeId: petType,
+                        productId: product.id
+                    }
+                });
+                const createdPetTypes = await db.PetTypeProduct.bulkCreate(petTypesProducts, { transaction: t });
+                // Si alguna de las relaciones de Tipo de mascota no se creó correctamente, lanzamos un error
+                if (createdPetTypes.some(petTypeProduct => !petTypeProduct)) {
+                    throw new Error('Error al crear PetTypeProduct');
+                }
                 return product;
             });
 
