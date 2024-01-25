@@ -169,42 +169,47 @@ const controller = {
     //             .catch((error)=>{res.status(500).send(error)});
     //         }).catch((error)=>{res.status(500).send(error)});
     // },
-    store: async (req, res) => {
-        const t = await db.sequelize.transaction();
-        try {
-            const product = await db.Product.create({
-                name: req.body.name,
-                price: req.body.price,
-                stock: req.body.stock,
-                brands_id: req.body.brand,
-                petAges_id: req.body.petAge,
-                description: req.body.description,
-                discount: req.body.discount,
-                image: req.file?.filename,
-                // weight:
-                // color: 
-            }
-                , { transaction: t }
-            );
 
-            let categoriesBody = req.body.categories;
-            let categoriesProducts = categoriesBody.map((category) => {
-                return {
-                    productId: product.id,
-                    categoryId: category
+    store: async (req, res) => {
+        try {
+            const result = await db.sequelize.transaction(async (t) => {
+                const product = await db.Product.create({
+                    name: req.body.name,
+                    price: req.body.price,
+                    stock: req.body.stock,
+                    brands_id: req.body.brand,
+                    petAges_id: req.body.petAge,
+                    description: req.body.description,
+                    discount: req.body.discount,
+                    image: req.file?.filename
+                    //weight: 
+                    //color: 
+                }, { transaction: t });
+
+                let categoriesBody = req.body.categories;
+                let categoriesProducts = categoriesBody.map((category) => {
+                    return {
+                        categoryId: category,
+                        productId: product.id
+                    }
+                });
+
+                const createdCategories = await db.CategoryProduct.bulkCreate(categoriesProducts, { transaction: t });
+
+                // Si alguna de las relaciones de categoría de producto no se creó correctamente, lanzamos un error
+                if (createdCategories.some(categoryProduct => !categoryProduct)) {
+                    throw new Error('Error al crear CategoryProduct');
                 }
+
+                return product;
             });
 
-            await db.CategoryProduct.bulkCreate(categoriesProducts
-                , { transaction: t }
-            );
-            await t.commit();
             res.redirect('/');
         } catch (error) {
-            await t.rollback();
             res.status(500).send(error);
         }
     },
+        
 
 
     edit(req, res) {
