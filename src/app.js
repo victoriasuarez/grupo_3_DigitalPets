@@ -12,6 +12,10 @@ const upload = require("../src/config/multerConfig");
 const mainRoutes = require("./routes/main");
 const productsRoutes = require("./routes/products");
 const usersRoutes = require("./routes/users");
+//API Routes
+const apiProductsRouter = require('./routes/api/products')
+const apiUsersRouter = require('./routes/api/users')
+
 const flash = require("express-flash");
 const app = express();
 
@@ -91,6 +95,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/", mainRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
+
+//API Routes
+app.use('/api/products',apiProductsRouter);
+app.use('/api/users',apiUsersRouter);
+
 
 const port = 3030;
 app.listen(port, () => {

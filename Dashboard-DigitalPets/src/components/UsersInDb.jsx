@@ -11,7 +11,7 @@ class UsersInDb extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://127.0.0.1:3001/api/users')
+        fetch('http://127.0.0.1:3030/api/users')
             .then(res => res.json())
             .then(users => {
                 this.setState({ usersList: users.data });
@@ -35,7 +35,7 @@ class UsersInDb extends React.Component {
                     <div className={`card-body ${this.state.titleMouseOver ? 'bg-secondary' : ''}`}>
                         <div className="row">
                             {this.state.usersList.map((user, index) =>
-                                <User name={user.name} key={index} />
+                                <User name={user.firstName} key={index} />
                             )}
                         </div>
                     </div>
