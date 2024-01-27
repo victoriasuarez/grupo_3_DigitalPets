@@ -39,3 +39,22 @@ ul li {
     float: right;
     font-weight: bold;
 }
+
+/* Mensaje de error en pantallas de register front */
+.error-msg {
+    display: none;
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.error-imagenPerfil.error-msg {
+    background-color: #e0e0e0;
+    color: #666;
+    border-color: #bbb;
+}

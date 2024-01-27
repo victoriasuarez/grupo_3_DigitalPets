@@ -11,6 +11,7 @@
         <form class="form-register" enctype="multipart/form-data" method="post" action="/users/register">
             <label for="firstName">Nombre:</label>
             <input type="text" id="nombre" name="firstName" value="<%= locals.oldData?.firstName && oldData?.firstName%>">
+            <p id="nombreError" class="error-msg"></p>
             <% if(locals.errors?.firstName) { %>
                 <p class="error-message"><%= errors.firstName.msg %></p> 
             <% } %>
@@ -18,6 +19,7 @@
 
             <label for="lastName">Apellido:</label>
             <input type="text" id="apellido" name="lastName" value="<%= locals.oldData?.lastName && oldData?.lastName%>">
+            <p id="apellidoError" class="error-msg"></p>
             <% if(locals.errors?.lastName) { %>
                 <p class="error-message"><%= errors.lastName.msg %></p> 
             <% } %>
@@ -25,6 +27,7 @@
 
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" value="<%= locals.oldData?.email && oldData?.email%>">
+            <p id="emailError" class="error-msg"></p>
             <% if(locals.errors?.email) { %>
                 <p class="error-message"><%= errors.email.msg %></p> 
             <% } %>
@@ -32,6 +35,7 @@
 
             <label for="password">Contraseña:</label>
             <input type="password" id="contrasena" name="password">
+            <p id="contrasenaError" class="error-msg"></p>
             <% if(locals.errors?.password) { %>
                 <p class="error-message"><%= errors.password.msg %></p> 
             <% } %>
@@ -39,6 +43,7 @@
 
             <label for="confirmPassword">Repetir Contraseña:</label>
             <input type="password" id="repetir_contrasena" name="confirmPassword">
+            <p id="confirmPasswordError" class="error-msg"></p>
             <% if(locals.errors?.confirmPassword) { %>
                 <p class="error-message"><%= errors.confirmPassword.msg %></p> 
             <% } %>
@@ -46,12 +51,14 @@
 
             <label for="dateOfBirth">Fecha de Nacimiento:</label>
             <input type="date" id="fecha_nacimiento" name="birthDate" value="<%= locals.oldData?.birthDate && oldData?.birthDate%>">
+            <p id="birthDateError" class="error-msg"></p>
             <% if(locals.errors?.birthDate) { %>
                 <p class="error-message"><%= errors.birthDate.msg %></p> 
             <% } %>
 
             <label for="imagenPerfil">Imagen de Perfil:</label>
             <input type="file" id="imagenPerfil" name="image">
+            <p id="imagenPerfilError" class="error-msg error-imagenPerfil""></p>
             <% if(locals.errors?.image) { %>
                 <p class="error-message"><%= errors.image.msg %></p> 
             <% } %>
@@ -66,7 +73,7 @@
 
     </main>
 
-       <script src="/js/ValidateRegister.js"></script> 
+       <script src="/js/validaciones.js"></script>
  
     <%- include ('../partials/footer') %>
 </body>
