@@ -88,3 +88,34 @@ Este Sprint ha sido un desafío para el grupo, ya que nos enfrentamos a diversas
 
 ## Continuar Haciendo:
  Es crucial mantener y fortalecer nuestro apoyo mutuo, manteniendo la paciencia, empatía y comprensión entre los miembros del equipo. La iniciativa de preguntarnos regularmente sobre el bienestar tanto en el ámbito académico como personal demuestra el compañerismo que compartimos. Frases como "estamos todos en el mismo equipo" y "estamos aquí para aprender juntos" reflejan la unidad y el compromiso del grupo. Estos valores deben mantenerse y fomentarse, ya que contribuyen significativamente a nuestro éxito colectivo.
+
+ ------------------------------------------------------------------------------------------------
+
+## RETROSPECTIVA SPRINT 7:
+Dejar de Hacer:
+En este Sprint, identificamos la necesidad de dejar de posponer nuestras reuniones y ser más proactivos en la iniciativa de juntarnos y discutir los temas relevantes. La falta de reuniones frecuentes puede afectar la comunicación y la eficiencia del equipo.
+
+## Debemos Mejorar:
+
+Buscamos mejorar la frecuencia y dinamismo de nuestros encuentros para fomentar la colaboración y la toma de decisiones eficientes.
+Reconocemos la importancia de abordar conversaciones difíciles para fortalecer el equipo y resolver posibles conflictos. La habilidad para enfrentar y resolver desafíos contribuirá al crecimiento conjunto.
+
+## Continuar Haciendo:
+Mantener y fortalecer el apoyo mutuo es crucial. La paciencia, empatía y comprensión entre los miembros del equipo son fundamentales para mantener un ambiente colaborativo.
+La iniciativa de preguntarnos regularmente sobre el bienestar académico y personal demuestra el compañerismo y la preocupación por el equipo.
+
+------------------------------------------------------------------------------------------------
+
+## RETROSPECTIVA SPRINT 8:
+
+## Dejar de Hacer:
+Hemos superado la tendencia a no comunicarnos regularmente. Las aplicaciones prácticas, han facilitado el diálogo y avanzar con el proyecto.
+
+## Debemos Mejorar:
+Podemos mejorar aún más la organización de encuentros fuera de la cursada para discutir inquietudes, miedos y temas personales que puedan obstaculizar el avance del proyecto.
+
+## Continuar Haciendo:
+Demostramos ser un equipo unido capaz de afrontar desafíos con determinación y fortaleza. A pesar de las dificultades, los miembros han mostrado voluntad para avanzar y cumplir con las entregas. La colaboración entre miembros con diferentes niveles de conocimientos ha sido fundamental para el éxito del equipo.
+
+
+Al finalizar, podemos reflexionar que cada reunión, cada desafío, y cada lección aprendida ha valido la pena. Hoy, podemos con orgullo presentar Digital Pets que cumple con todos los conceptos y habilidades adquiridas a lo largo del curso de Programación Full Stack de Digital House 💪
