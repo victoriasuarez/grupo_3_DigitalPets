@@ -21,7 +21,7 @@ function Product() {
     return (
         <>
             {/*<!-- PRODUCTS LIST -->*/}
-            <h1 className="h3 mb-2 text-gray-800 ">All the products in the Database</h1>
+            <h1 className="h3 mb-2 text-gray-800 ">Productos registrados en la Base de Datos</h1>
 
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
@@ -38,8 +38,8 @@ function Product() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {products.map((Product, index) =>
-                                    <ProductList  {...Product} key={index} />
+                                {products.map((product, index) =>
+                                    <ProductList  {...product} key={index} />
                                 )}
                             </tbody>
                         </table>

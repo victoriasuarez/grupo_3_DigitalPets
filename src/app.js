@@ -19,6 +19,21 @@ const apiUsersRouter = require('./routes/api/users')
 const flash = require("express-flash");
 const app = express();
 
+const cors = require("cors");
+var corsOptions = {
+  origin: "*"
+};
+
+app.use(cors(corsOptions));
+let allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header("Access-Control-Allow-Methods", "OPTIONS, POST, GET, PUT, DELETE");
+  res.header('Access-Control-Allow-Headers', "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With")
+  next();
+}
+app.use(allowCrossDomain);
+
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
@@ -97,9 +112,12 @@ app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
 
 //API Routes
-app.use('/api/products',apiProductsRouter);
-app.use('/api/users',apiUsersRouter);
+app.use('/api/products', apiProductsRouter);
+app.use('/api/users', apiUsersRouter);
 
+app.use((req, res, next) => { 
+  res.status(404).render('error404');
+});
 
 const port = 3030;
 app.listen(port, () => {
