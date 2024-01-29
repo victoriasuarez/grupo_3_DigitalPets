@@ -5,7 +5,7 @@ function ProductList(props) {
     <tr>
       <td>{props.id}</td>
       <td>{props.name}</td>
-      <td>{props.price}</td>
+      <td>${props.price}</td>
       <td>{props.stock}</td>
       <td>{props.discount}</td>
     </tr>

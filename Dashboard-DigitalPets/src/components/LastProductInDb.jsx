@@ -1,4 +1,18 @@
-function LastProductInDb() {
+import React from "react";
+
+function LastProductnDb() {
+    const [product, setProduct] = React.useState([
+        
+    ]);
+    React.useEffect(() => {
+        fetch(`http://localhost:3030/api/products/last-product`)
+            .then(res => res.json())
+            .then(response => {
+                setProduct(response.data);
+            })
+            .catch(err => { console.log(err); });
+    },[]);
+
     return (
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
@@ -7,14 +21,14 @@ function LastProductInDb() {
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '40rem' }} src="/images/mandalorian.jpg" alt=" Star Wars - Mandalorian " />
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '40rem' }} src={`/images/${product.image}`} alt={product.name} />
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa citationem ratione aperiam voluptatum non corporis ratione aperiam voluptatum quae dolorem culpa ratione aperiam voluptatum?</p>
-                    <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View product detail</a>
+                    <p>{product.description}</p>
+                    <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalles del producto</a>
                 </div>
             </div>
         </div>
     );
 }
 
-export default LastProductInDb;
+export default LastProductnDb;

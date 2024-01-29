@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchProducts() {
     const [products, setProducts] = React.useState([
-        
+
     ]);
     const [keyword, setKeyword] = React.useState('');
 
@@ -31,7 +31,7 @@ function SearchProducts() {
                 setProducts(data.Search);
             })
             .catch(err => { console.log(err); });
-    });
+    }, [keyword]);
 
     return (
         <div className="container-fluid">
@@ -50,34 +50,29 @@ function SearchProducts() {
                             </form>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row products">
                         <div className="col-12">
                             <h2>Productos para la palabra: {keyword}</h2>
                         </div>
                         {/* Listado de productos */}
                         {
                             products.length > 0 && products.map((product, i) => {
-                                const pathImage = '/public/images/'+product.image;
+
                                 return (
-                                    <div className="col-sm-6 col-md-3 my-4" key={i}>
-                                        <div className="card shadow mb-4">
-                                            <div className="card-header py-3">
-                                                <h5 className="m-0 font-weight-bold text-gray-800">{product.name}</h5>
-                                            </div>
-                                            <div className="card-body">
-                                                <div className="text-center">
-                                                    <img
-                                                        className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-                                                        
-                                                        src={pathImage}
-                                                        alt={product.name}
-                                                        style={{ width: '90%', height: '400px', objectFit: 'cover' }}
-                                                    />
-                                                </div>
-                                                <p>{product.price}</p>
-                                            </div>
+                                    <div className="conteiner" key={i}>
+                                        
+                                            <article>
+                                                <h5 className="product-name">{product.name} </h5>
+                                                <img src={`/images/${product.image}`} alt="<%=product.name%>"/>
+                                                    <div className="product-details">
+                                                        <p className="price">${product.price}</p>
+                                                        <p className="stock">Stock: {product.stock}</p>
+                                                    </div>
+
+                                            </article>
+                                            
                                         </div>
-                                    </div>
+                                
                                 );
                             })
                         }
