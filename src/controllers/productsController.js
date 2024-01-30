@@ -6,14 +6,14 @@ const { validationResult } = require('express-validator');
 const controller = {
 
     index: async (req, res) => {
-		let products = await db.Product.findAll({ include: ['brand', 'petAge'] });
-		res.render('products/products', { products,  user: req.session.userLogged });
-	},
+        let products = await db.Product.findAll({ include: ['brand', 'petAge'] });
+        res.render('products/products', { products, user: req.session.userLogged });
+    },
 
     detail: async (req, res) => {
         let product = await db.Product.findByPk(req.params.id);
         let products = await db.Product.findAll({ include: ['petTypes'] });
-		res.render('products/productDetail', { product, products });
+        res.render('products/productDetail', { product, products });
     },
 
     cart(req, res) {
@@ -98,41 +98,42 @@ const controller = {
                         //color: 
                     }, { transaction: t });
 
-                let categoriesBody = Array.isArray(req.body.categories) ? req.body.categories : [req.body.categories];;
-                let categoriesProducts = categoriesBody.map((category) => {
-                    return {
-                        categoryId: category,
-                        productId: product.id
+                    let categoriesBody = Array.isArray(req.body.categories) ? req.body.categories : [req.body.categories];;
+                    let categoriesProducts = categoriesBody.map((category) => {
+                        return {
+                            categoryId: category,
+                            productId: product.id
+                        }
+                    });
+                    const createdCategories = await db.CategoryProduct.bulkCreate(categoriesProducts, { transaction: t });
+                    // Si alguna de las relaciones de categoría de producto no se creó correctamente, lanzamos un error
+                    if (createdCategories.some(categoryProduct => !categoryProduct)) {
+                        throw new Error('Error al crear CategoryProduct');
                     }
-                });
-                const createdCategories = await db.CategoryProduct.bulkCreate(categoriesProducts, { transaction: t });
-                // Si alguna de las relaciones de categoría de producto no se creó correctamente, lanzamos un error
-                if (createdCategories.some(categoryProduct => !categoryProduct)) {
-                    throw new Error('Error al crear CategoryProduct');
-                }
-                
-                let petTypesBody = Array.isArray(req.body.petTypes) ? req.body.petTypes : [req.body.petTypes];
-                let petTypesProducts = petTypesBody.map((petType) => {
-                    return {
-                        petTypeId: petType,
-                        productId: product.id
-                    }
-                });
-                const createdPetTypes = await db.PetTypeProduct.bulkCreate(petTypesProducts, { transaction: t });
-                // Si alguna de las relaciones de Tipo de mascota no se creó correctamente, lanzamos un error
-                if (createdPetTypes.some(petTypeProduct => !petTypeProduct)) {
-                    throw new Error('Error al crear PetTypeProduct');
-                }
-                return product;
-            });
 
-            res.redirect('/');
-        } catch (error) {
-            console.log(`Este fue el error: ${error}`);
-            res.status(500).send(error);
+                    let petTypesBody = Array.isArray(req.body.petTypes) ? req.body.petTypes : [req.body.petTypes];
+                    let petTypesProducts = petTypesBody.map((petType) => {
+                        return {
+                            petTypeId: petType,
+                            productId: product.id
+                        }
+                    });
+                    const createdPetTypes = await db.PetTypeProduct.bulkCreate(petTypesProducts, { transaction: t });
+                    // Si alguna de las relaciones de Tipo de mascota no se creó correctamente, lanzamos un error
+                    if (createdPetTypes.some(petTypeProduct => !petTypeProduct)) {
+                        throw new Error('Error al crear PetTypeProduct');
+                    }
+                    return product;
+                });
+
+                res.redirect('/');
+            } catch (error) {
+                console.log(`Este fue el error: ${error}`);
+                res.status(500).send(error);
+            }
         }
     },
-        
+
 
 
     edit(req, res) {
@@ -142,15 +143,15 @@ const controller = {
         const categoriesInDB = db.Category.findAll();
         const petAgesInDB = db.PetAge.findAll();
         let categoriesProductsInDB = db.CategoryProduct.findAll({
-			where: {
-				productId: req.params.id
-			}
-		});
+            where: {
+                productId: req.params.id
+            }
+        });
         let petTypesProductsInDB = db.PetTypeProduct.findAll({
-			where: {
-				productId: req.params.id
-			}
-		});
+            where: {
+                productId: req.params.id
+            }
+        });
         Promise
             .all([productInDB, brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB, categoriesProductsInDB, petTypesProductsInDB])
             .then(([product, brands, petTypes, categories, petAges, categoriesProducts, petTypesProducts]) => {
@@ -174,7 +175,8 @@ const controller = {
                     image: req.file?.filename
                     //weight: 
                     //color: 
-                }, { where: { id: req.params.id }
+                }, {
+                    where: { id: req.params.id }
                 });
                 return res.redirect('/products');
 
@@ -189,7 +191,7 @@ const controller = {
                 errors: errors.mapped(),
                 oldData: req.body,
             });
-        }          
+        }
     },
 
     destroy: async (req, res) => {
@@ -201,7 +203,7 @@ const controller = {
         } catch (error) {
             return res.status(500).send(error);
         }
-	}
+    }
 
 };
 
