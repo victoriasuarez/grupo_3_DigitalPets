@@ -34,14 +34,16 @@
 
     <section class="featured-brands">
         <h2>Encontralo por marca</h2>
-        <div class="brands">
-            <% brands.forEach(brand => { %>
-                <% if(brand.image !== null) { %>
-                    <article>
-                        <a href="#"><img src="/images/<%= brand.image %>" alt="Image"></a>
-                    </article>
-                <% } %>
-            <% }) %>
+        <div class="brands scroller" data-speed="fast">
+            <div class="tag-list scroller__inner">
+                <% brands.forEach(brand => { %>
+                    <% if(brand.image !== null) { %>
+                        <article>
+                            <a href="#"><img src="/images/<%= brand.image %>" alt="Image"></a>
+                        </article>
+                        <% } %>
+                        <% }) %>
+                    </div>
         </div>
     </section>
 
