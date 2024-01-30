@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','home']}) %>
+    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','productList']}) %>
 <body>
     <%- include ('../partials/header') %>
 <main>
        
-    <section class="suggested-products">
-        <h2>Listado de Productos</h2>
+    <section class="list-products">
+        <h2>Productos</h2>
+        <% if (user && user.roles_id === 1) { %>
+            <a class="create" href="/products/create">Crear producto</a>
+        <% } %>
         <% if (locals.products) { %>
         <div class="products">
             <% products.forEach(product => { %>
                                       
-            <a href="/products/<%=product.id%>/detail">
+            
                 <article>
-                    <img src="/images/<%= product.image %>" alt="<%=product.name%>">
-                    <div class="product-details">
-                        <p class="category"><%= product.petType %></p>
-                        <p class="product-name"><%= product.name %></p>
-                        <p class="price">$<%= product.price %></p>
+                    <div>
+                        <img src="/images/<%= product.image %>" alt="image">
                     </div>
+                    <div class="product-details">
+                        <p>Producto: <span><%= product.name %></span></p>
+                        <p>Marca: <span><%= product.brand && product.brand.name ? product.brand.name : 'No especificada' %></span></p>
+                        <p>Edad: <span><%= product.petAge && product.petAge.name ? product.petAge.name : 'No especificada' %></span></p>
+                        <p>Precio de venta $ <span><%= product.price %></span></p>
+                        <p>Stock: <span><%= product.stock %></span></p>
+                        <p>Descuento: <span><%= product.discount %>%</span></p>
+                    </div>
+                    <% if (user && user.roles_id === 1) { %>
+                        <div class="product-edit">
+                            <a href="/products/<%=product.id%>/edit">Editar</a>
+                        </div>
+                    <% } %>
                 </article>
-            </a>
+            
             <% }) %>
             
         </div>
@@ -28,6 +41,7 @@
             <h1>No hay productos registrados</h1>
         <% } %>
     </section>
+
 </main>
 <%- include ('../partials/footer') %>
 </body>

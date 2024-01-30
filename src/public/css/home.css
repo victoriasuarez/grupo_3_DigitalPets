@@ -134,6 +134,10 @@ div.products article .product-details{
     font-weight: 900;
     margin: 10px 0px; 
 }
+.product-details span{
+    font-size: 20px;
+    color: #39b54a; 
+}
 /*-----------------------------------------*/
 div.products article{
     transition: all 0.2s ease-in;

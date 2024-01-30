@@ -1,24 +1,20 @@
 const fs = require('fs');
 const path = require('path');
-
+const db = require('../database/models');
 const productsFilePath = path.join(__dirname, '../data/products.json');
-
-function getProducts() {
-	const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	return products;
-}
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
-	index: (req, res) => {
-		// Do the magic
-		// const isLoggedIn = req.user ? true : false;
-		const products = getProducts();
-		const visited = products.filter(product => product.category.find((category) => category === 'visited') != undefined);
-		const inSale = products.filter(product => product.category.find((category) => category === 'in-sale') != undefined);
-		const food = products.filter(product => product.category.find((category) => category === 'food') != undefined);
-		res.render('home', {  visited, inSale,food });
+	index: async (req, res) => {
+		try {
+			const petTypes = await db.PetType.findAll();
+			const brands = await db.Brand.findAll();
+            const products = await db.Product.findAll({ include: ['categories', 'petTypes'] });
+			res.render('home', {  petTypes, brands, products });
+        } catch (error) {
+            res.status(500).send(error);
+        }
 	},
 	search: (req, res) => {
 		// Do the magic

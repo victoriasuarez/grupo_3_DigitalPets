@@ -12,76 +12,120 @@
 
                     <div class="form-group">
                         <label for="productName">Nombre de producto:</label>
-                        <input type="text" id="productName" name="name" value=""><br><br>
+                        <input type="text" id="productName" name="name" value="<%= locals.oldData?.name && oldData?.name%>">
+                        <br><br>
                     </div>
+                    <% if(locals.errors?.name) { %>
+                        <p class="error-message"><%= errors.name.msg %></p> 
+                    <% } %>
 
                     <div class="form-group">
                         <label for="productDescription">Descripción del producto:</label>
-                        <textarea name="description" id="productDescription" rows="10" value=""></textarea><br><br>
+                        <textarea name="description" id="productDescription" rows="10" placeholder="Ingrese una descripción del producto"><%= locals.oldData && oldData.description ? oldData.description.trim() : '' %></textarea>
+                        <br><br>
                     </div>
+                    <% if(locals.errors?.description) { %>
+                        <p class="error-message"><%= errors.description.msg %></p> 
+                    <% } %>
 
                     <div class="form-group">
                         <label for="petType">Categorías de mascotas:</label><br>
-                        <% for(let i=0; i<petTypes.length;i++){ %>
-                            <input type="checkbox" name="petTypes" value="<%= petTypes[i].id %>">
-                            <%= petTypes[i].name %><br>
-                                <% } %>
-                    </div><br><br>
+                        <% if(locals.petTypes) { %>
+                            <% for(let i=0; i< petTypes.length;i++){ %>
+                                <input type="checkbox" name="petTypes" value="<%= petTypes[i].id %>">
+                                <%= petTypes[i].name %><br>
+                            <% } %>
+                        <% } %>
+                        <br><br>                  
+                    </div> 
+                    <% if(locals.errors?.petTypes) { %>
+                        <p class="error-message"><%= errors.petTypes.msg %></p> 
+                    <% } %>   
 
                     <div class="form-group">
                         <label for="productCategory">Categorías:</label><br>
-                        <% categories.forEach(category=> { %>
-                            <input type="checkbox" name="categories" value="<%= category.id %>">
-                            <%= category.name %><br>
-                                <% }) %>
-
-                    </div><br><br>
-
+                        <% if(locals.categories) { %>
+                            <% categories.forEach(category=> { %>
+                                <input type="checkbox" name="categories" value="<%= category.id %>">
+                                <%= category.name %><br>
+                            <% }) %>
+                        <% } %> 
+                        <br><br>     
+                    </div>
+                    <% if(locals.errors?.categories) { %>
+                        <p class="error-message"><%= errors.categories.msg %></p> 
+                    <% } %>   
+                    
                     <div class="form-group">
                         <label for="brand">Marca:</label><br>
                         <select name="brand" id="brand">
                             <option value="">Seleccionar</option>
-                            <%brands.forEach(brand=> {%>
-                                <option value="<%= brand.id %>">
-                                    <%= brand.name%>
-                                </option>
+                            <% if(locals.brands) { %>
+                                <%brands.forEach(brand=> {%>
+                                    <option value="<%= brand.id %>">
+                                        <%= brand.name%>
+                                    </option>
                                 <% }) %>>
+                            <% } %>    
                         </select>
+                        <br><br> 
                     </div>
+                    <% if(locals.errors?.brand) { %>
+                        <p class="error-message"><%= errors.brand.msg %></p> 
+                    <% } %>   
+
                     <div class="form-group">
                         <label for="petAge">Edad:</label><br>
                         <select name="petAge" id="petAge">
                             <option value="">Seleccionar</option>
-                            <%petAges.forEach(petAge=> {%>
-                                <option value="<%= petAge.id %>">
-                                    <%= petAge.name%>
-                                </option>
+                            <% if(locals.petAges) { %>
+                                <% petAges.forEach(petAge=> {%>
+                                    <option value="<%= petAge.id %>">
+                                        <%= petAge.name%>
+                                    </option>
                                 <% }) %>>
-                        </select>
+                            <% } %>     
+                        </select> 
+                        <br><br> 
                     </div>
+                    <% if(locals.errors?.petAge) { %>
+                        <p class="error-message"><%= errors.petAge.msg %></p> 
+                    <% } %>  
 
                     <div class="form-group">
                         <label for="productPrice">Precio de venta $</label>
-                        <input type="number" id="productPrice" name="price" value=""><br><br>
+                        <input type="number" id="productPrice" name="price" value="<%= locals.oldData?.price && oldData?.price%>"> 
+                        <br><br> 
                     </div>
+                    <% if(locals.errors?.price) { %>
+                        <p class="error-message"><%= errors.price.msg %></p> 
+                    <% } %>  
 
                     <div class="form-group">
                         <label for="productStock">Stock:</label>
-                        <input type="number" id="productStock" name="stock"><br><br>
+                        <input type="number" id="productStock" name="stock" value="<%= locals.oldData?.stock && oldData?.stock%>"> 
+                        <br><br> 
                     </div>
+                    <% if(locals.errors?.stock) { %>
+                        <p class="error-message"><%= errors.stock.msg %></p> 
+                    <% } %>  
 
                     <div class="form-group">
                         <label for="productDiscount">Descuento:</label>
-                        <input type="number" id="productDiscount" name="discount" value=""><br><br>
+                        <input type="number" id="productDiscount" name="discount" value="<%= locals.oldData?.discount && oldData?.discount%>">  
+                        <br><br> 
                     </div>
+                    <% if(locals.errors?.discount) { %>
+                        <p class="error-message"><%= errors.discount.msg %></p> 
+                    <% } %> 
 
                     <div class="form-group">
-                        <label for="productImage">Imagen:</label>
-                        <input type="file" id="productImage" name="producto-img" alt="Imagen del producto"
-                            value=""><br><br>
+                        <label for="productImage">Imagen de Perfil:</label>
+                        <input type="file" id="productImage" name="producto-img" alt="Imagen del producto">
+                        <br><br>
                     </div>
 
-                    <button type="submit">Crear Producto</button>
+                    <button class="btn-create" type="submit">Crear Producto</button>
 
                 </form>
             </main>

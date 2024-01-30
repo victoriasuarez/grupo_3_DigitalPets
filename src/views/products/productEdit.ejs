@@ -9,11 +9,12 @@
             <main class="form-product">
                 <h1>Editando: <%= product.name %>
                 </h1>
-                <form action="/products/<%= product.id %>?_method=PUT" method="post" enctype="multipart/form-data">
-
+                <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+   
                     <div class="form-group">
                         <label for="productName">Nombre de producto:</label>
-                        <input type="text" id="productName" name="name" value="<%= product.name %>" required><br><br>
+                        <input type="text" id="productName" name="name" value="<%= product.name %>">
+                        <br><br>
                     </div>
 
                     <div class="form-group">
@@ -22,21 +23,23 @@
                             rows="10"> <%= product.description %></textarea><br><br>
                     </div>
 
+                    
                     <div class="form-group">
-                        <label for="petType">Categorías de mascotas:</label><br>
-                        <% for(let i=0; i<petTypes.length;i++){ %>
-                            <input type="checkbox" name="petTypes" value="<%= petTypes[i].id %>">
-                            <%= petTypes[i].name %><br>
-                                <% } %>
+                        <label for="productCategory">Categorías de mascotas:</label><br>
+                        <% categories.forEach(category=> { %>
+                            <% const isChecked=categoriesProducts.some((valor)=> valor.categoryId === category.id); %>
+                            <input type="checkbox" name="categories" value="<%= category.id %>" <%=isChecked ? 'checked' : '' %>>
+                            <%= category.name %><br>
+                    <% }) %>
                     </div><br><br>
-
+                    
                     <div class="form-group">
                         <label for="productCategory">Categorías:</label><br>
-                        <% categories.forEach(category=> { %>
-                            <input type="checkbox" name="categories" value="<%= category.id %>">
-                            <%= category.name %><br>
-                                <% }) %>
-
+                        <% petTypes.forEach( petType => { %>
+                            <% const isChecked=petTypesProducts.some((valor)=> valor.petTypeId === petType.id); %>
+                            <input type="checkbox" name="petTypes" value="<%= petType.id %>" <%=isChecked ? 'checked' : '' %>>
+                            <%= petType.name %><br>
+                        <% }) %>
                     </div><br><br>
 
                     <div class="form-group">
@@ -44,9 +47,10 @@
                         <select name="brand" id="brand">
                             <option value="">Seleccionar</option>
                             <%brands.forEach(brand=> {%>
-                                <option value="<%= brand.id %>">
+                                <option value="<%= brand.id %>" <%= product.brands_id === brand.id && 'selected' %>>
                                     <%= brand.name%>
                                 </option>
+                                
                                 <% }) %>>
                         </select>
                     </div>
@@ -55,7 +59,7 @@
                         <select name="petAge" id="petAge">
                             <option value="">Seleccionar</option>
                             <%petAges.forEach(petAge=> {%>
-                                <option value="<%= petAge.id %>">
+                                <option value="<%= petAge.id %>" <%= product.petAges_id === petAge.id && 'selected' %>>    
                                     <%= petAge.name%>
                                 </option>
                                 <% }) %>>
@@ -64,26 +68,31 @@
 
                     <div class="form-group">
                         <label for="productPrice">Precio de venta $</label>
-                        <input type="number" id="productPrice" name="price" value=""><br><br>
+                        <input type="number" id="productPrice" name="price" value="<%= product.price %>"><br><br>
                     </div>
 
                     <div class="form-group">
                         <label for="productStock">Stock:</label>
-                        <input type="number" id="productStock" name="stock"><br><br>
+                        <input type="number" id="productStock" name="stock" value="<%= product.stock %>"><br><br>
                     </div>
 
                     <div class="form-group">
                         <label for="productDiscount">Descuento:</label>
-                        <input type="number" id="productDiscount" name="discount" value=""><br><br>
+                        <input type="number" id="productDiscount" name="discount" value="<%= product.discount %>"><br><br>
                     </div>
 
                     <div class="form-group">
+                        <label for="productImage">Imagen actual:</label>
+                        <img src="/images/<%= product.image %>" alt="Imagen actual del producto" width="200px">
+                    </div><br><br>
+
+                    <div class="form-group">
                         <label for="productImage">Imagen:</label>
-                        <input type="file" id="productImage" name="producto-img" alt="Imagen del producto"
-                            value=""><br><br>
+                        <input type="file" id="productImage" name="producto-img" alt="Imagen del producto">
+                        <br><br>
                     </div>
 
-                    <button type="submit" class="store">Guardar producto</button>
+                    <button type="submit" class="store">Actualizar</button>
 
                 </form>
                 <form action="/products/<%= product.id %>?_method=DELETE" method="post">

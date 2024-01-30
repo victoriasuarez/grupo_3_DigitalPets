@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','productDetail']}) %>
-
     <body>
-
         <%- include('../partials/header') %>
             <main>
                 <div class="detail-heading">
@@ -65,7 +63,7 @@
                         </div>
                         <% } else { %>
                             <h1>Producto no encontrado</h1>
-                            <% } %>
+                        <% } %>
                 </div>
 
                 <div class="suggested">
@@ -78,53 +76,19 @@
                                 <article>
                                     <img src="/images/<%= product.image %>" alt="<%=product.name%>">
                                     <div class="product-details">
-                                        <p class="category">
-                                            <%= product.petType %>
-                                        </p>
-                                        <p class="product-name">
-                                            <%= product.name %>
-                                        </p>
-                                        <p class="price">$<%= product.price %>
-                                        </p>
+                                        <p class="category"><%= products[i].petTypes[0].name %></p>
+                                        <p class="product-name"><%= product.name %></p>
+                                        <p class="price">$<%= product.price %></p>
                                     </div>
                                 </article>
                             </a>
-                            <% } %>
+                        <% } %>
                 </div>
                 <% } else { %>
                     <h1>No hay productos registrados</h1>
-                    <% } %>
-                        <!-- <div class="sub-main-footer">
-                                <img class="image-footer" src="/images/producto-SabrositosGatoAdulto.webp" alt="image-footer">
-                            </div>
-                <div class="sub-main-descripcion">
-                    <p class="category">Perros</p>
-                    <p class="name">Kongo Gold Adultos x15kg</p>
-                    <p class="price">$13.500</p>
-                </div>
-            </div>
-            <br>
-            <div class="sub-main-footer">
-                <img class="image-footer" src="/images/Producto-AlimentoConejos.webp" alt="image-footer">
-                <div class="sub-main-descripcion">
-                    <p class="category">Otros</p>
-                    <p class="name">Alimento para conejos x750gr</p>
-                    <p class="price">$2.000</p>
-                </div>
-            </div>
-            <br>
-            <div class="sub-main-footer">
-                <img class="image-footer" src="/images/Producto-KongoMedianoYAdulto.webp" alt="image-footer">
-                <div class="sub-main-descripcion">
-                    <p class="category">Perros</p>
-                    <p class="name">Kongo - Mediano Y Adulto x10kg</p>
-                    <p class="price">$10.000</p>
-                </div>
-            </div>       -->
-
+                <% } %>
         </main>
         <%- include ('../partials/footer') %>
-
 
         <script>
                     const add = document.querySelector(".add"),
@@ -143,5 +107,4 @@
                     });
         </script>
     </body>
-
 </html>
