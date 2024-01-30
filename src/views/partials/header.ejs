@@ -1,73 +1,84 @@
 <%- include('./head', {styles: ['normalize','header','menu']}) %>
-<header id="header-main">
-    <nav class="top-header">
-        <div class="burger-menu"> 
-            <button id="burger-button"><i class="fas fa-bars"></i></button>
-        </div>
-        <div class="logo">
-            <a href="/"><img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets"></a>
-        </div>
-        <div class="search">
-            <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
-            <button type="submit" id="btn-search"><i class="fa fa-search"></i></button> 
-        </div>
-        <div class="account">
-            <ul>
-                <% if (locals.isLogged) { %>
-                    <!-- Si el usuario está autenticado -->
-                    <li><a href="/users/profile" class="profile">Perfil</a></li>
-                    <li><a href="/users/logout" class="logout">Cerrar sesión</a></li>
-                <% } else { %>
-                    <!-- Si el usuario NO está autenticado -->
-                    <li><a href="/users/login" class="login">Ingresar</a></li>
-                    <li><a href="/users/register" class="register">Registrarse</a></li> 
-                <% } %>
-                <li><a href="/products/cart" class="product-cart"><i class="fas fa-shopping-cart"></i></a></li> 
-            </ul>
-        </div>
-    </nav>
-    <nav class="navBar">
-        <div class="location">
-            <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
-            <span>Santa Fe</span>
-        </div>
-        <span class="navBar-oc">Ofertas</span>
-        <span class="navBar-oc">Categorias</span>
-    </nav>
-    <div id="side-menu">
-        <div class="search2">
-                <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
-                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button> 
-        </div>
-        <div class="links">
-           <div class="information">
-             <ul>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="#">Información</a></li>
-                <li><a href="#">Preguntas frecuentes</a></li>
-            </ul>
+    <header id="header-main">
+        <nav class="top-header">
+            <div class="burger-menu">
+                <button id="burger-button"><i class="fas fa-bars"></i></button>
             </div>
-        </div>
-        <div class="account2">
-            <ul>
-                <li><a href="/users/login" class="login">Ingresar</a></li>
-                <li><a href="/users/register" class="register">Registrarse</a></li> 
-            </ul>
-        </div>
-        <div class="links-networks">
-            <div class="networks2">
-                <h6>Redes</h6>    
+            <div class="logo">
+                <a href="/"><img src="/images/LogoDigitalPets2.png" alt="Logo de DigitalPets"></a>
+            </div>
+            <div class="search">
+                <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
+                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="account">
                 <ul>
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <% if (locals.isLogged) { %>
+                        <!-- Si el usuario está autenticado -->
+                        <li><a href="/users/profile" class="profile">Perfil</a></li>
+                        <li><a href="/users/logout" class="logout">Cerrar sesión</a></li>
+                        <% } else { %>
+                            <!-- Si el usuario NO está autenticado -->
+                            <li><a href="/users/login" class="login">Ingresar</a></li>
+                            <li><a href="/users/register" class="register">Registrarse</a></li>
+                            <% } %>
+                                <li><a href="/products/cart" class="product-cart"><i
+                                            class="fas fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
+        </nav>
+        <nav class="navBar">
+            <div class="location">
+                <i class="fas fa-map-marker-alt" style="color: #000000;"></i>
+                <span>Santa Fe</span>
+            </div>
+            <span class="navBar-oc">Ofertas</span>
+            <span class="navBar-oc">Categorias</span>
+        </nav>
+        <div id="side-menu">
+            <div class="search2">
+                <input type="search" name="search-products" id="in-search" placeholder="Buscar productos, marcas, etc.">
+                <button type="submit" id="btn-search"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="links">
+                <div>
+                    <ul>
+                        <li>
+                            <a href="/products/">Ver todos los productos</a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="information">
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Información</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="account2">
+                <ul>
+                    <li><a href="/users/login" class="login">Ingresar</a></li>
+                    <li><a href="/users/register" class="register">Registrarse</a></li>
+                </ul>
+            </div>
+            <div class="links-networks">
+                <div class="networks2">
+                    <h6>Redes</h6>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div id="overlay"></div>
-    <script src="/js/header.js"></script>
-    
-</header>
+
+        <div id="overlay"></div>
+        <script src="/js/header.js"></script>
+
+    </header>
