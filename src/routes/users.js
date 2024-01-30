@@ -13,7 +13,7 @@ router.post('/login', usersController.login)
 
 router.get('/profile', authMiddleware, usersController.showProfile);
 
-router.get('/logout', usersController.logout);
+router.get('/logout',authMiddleware, usersController.logout);
 
 
 module.exports = router;

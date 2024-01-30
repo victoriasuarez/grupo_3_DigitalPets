@@ -57,15 +57,7 @@ function Product() {
                                     <th style={{cursor: 'pointer'}} onClick={() => sortProducts('discount')}>Descuento</th>
                                 </tr>
                             </thead>
-                            {/* <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Stock</th>
-                                    <th>Descuento</th>
-                                </tr>
-                            </thead> */}
+                            
                             <tbody>
                                 {products.map((product, index) =>
                                     <ProductList  {...product} key={index} />

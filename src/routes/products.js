@@ -16,9 +16,9 @@ router.post('/cart', productsController.addToCart);
 
 
 // rutas con login
-router.get('/create',productsController.create);
+router.get('/create',authMiddleware, checkAdminRole,productsController.create);
 router.post('/create', upload.single('producto-img'), productValidation, result, productsController.store);
-router.get('/:id/edit', productsController.edit);
+router.get('/:id/edit',authMiddleware, checkAdminRole, productsController.edit);
 router.put('/:id', upload.single('producto-img'), productsController.update);
 router.delete('/:id', authMiddleware, checkAdminRole, productsController.destroy); 
 

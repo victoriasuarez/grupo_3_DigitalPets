@@ -2531,7 +2531,7 @@ textarea.form-control.is-invalid {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 50%;
+    border-radius: 10px;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -2680,7 +2680,7 @@ fieldset:disabled a.btn {
     background-color: #000;
     color: #fff;
     padding: 5px 5px;
-    border-radius: 50%;
+    border-radius: 10px;
     font-size: 14px;
     margin-left: 10px;
 }
@@ -2699,16 +2699,16 @@ fieldset:disabled a.btn {
 .btn-info.disabled,
 .btn-info:disabled {
     color: #fff;
-    background-color: #36b9cc;
-    border-color: #36b9cc
+    background-color: #434849;
+    border-color: #878989
 }
 
 .btn-info:not(:disabled):not(.disabled).active,
 .btn-info:not(:disabled):not(.disabled):active,
 .show>.btn-info.dropdown-toggle {
     color: #fff;
-    background-color: #2a96a5;
-    border-color: #278c9b
+    background-color: #1c1e1e;
+    border-color: #2f3030
 }
 
 .btn-info:not(:disabled):not(.disabled).active:focus,
@@ -2757,14 +2757,14 @@ fieldset:disabled a.btn {
 
 .btn-danger {
     color: #fff;
-    background-color: #e74a3b;
-    border-color: #e74a3b
+    background-color: #211413;
+    border-color: #1b0e0d
 }
 
 .btn-danger:hover {
     color: #fff;
-    background-color: #e02d1b;
-    border-color: #d52a1a
+    background-color: #3a2d2b;
+    border-color: #6b6564
 }
 
 .btn-danger.focus,
@@ -2775,16 +2775,16 @@ fieldset:disabled a.btn {
 .btn-danger.disabled,
 .btn-danger:disabled {
     color: #fff;
-    background-color: #e74a3b;
-    border-color: #e74a3b
+    background-color: #ab9e9d;
+    border-color: #b3abaa
 }
 
 .btn-danger:not(:disabled):not(.disabled).active,
 .btn-danger:not(:disabled):not(.disabled):active,
 .show>.btn-danger.dropdown-toggle {
     color: #fff;
-    background-color: #d52a1a;
-    border-color: #ca2819
+    background-color: #3c3333;
+    border-color: #7d7675
 }
 
 .btn-danger:not(:disabled):not(.disabled).active:focus,

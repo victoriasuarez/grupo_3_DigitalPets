@@ -47,6 +47,7 @@ function SearchProducts() {
                                     <input type="text" className="form-control" onChange={(event) => setKeyword(event.target.value)} />
                                 </div>
                                 <button className="btn btn-info">Search</button>
+                            
                             </form>
                         </div>
                     </div>
@@ -63,7 +64,7 @@ function SearchProducts() {
                                         
                                             <article>
                                                 <h5 className="product-name">{product.name} </h5>
-                                                <img src={`/images/${product.image}`} alt="<%=product.name%>"/>
+                                                <img src={`images/${product.image}`} alt={product.name}/>
                                                     <div className="product-details">
                                                         <p className="price">${product.price}</p>
                                                         <p className="stock">Stock: {product.stock}</p>
