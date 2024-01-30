@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         name: 'Otros',
-        image: 'categoria-otros.jpg'
+        image: 'categoria-otros.png'
       }
     ], {});
   },

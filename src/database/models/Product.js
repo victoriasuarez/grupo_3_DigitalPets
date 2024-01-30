@@ -22,6 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'productId',
         otherKey: 'petTypeId'
       });
+      Product.belongsTo(models.Brand, { 
+        as: 'brand',
+        foreignKey: 'brands_id'
+      });
+      Product.belongsTo(models.PetAge, { 
+        as: 'petAge',
+        foreignKey: 'petAges_id'
+      });
     }
   }
   Product.init({

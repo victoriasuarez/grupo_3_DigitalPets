@@ -1,0 +1,75 @@
+main{
+    width: 100%;
+    background-color: #fff;
+}
+.list-products{
+    margin-top:50px 0px;
+}
+.list-products h2{
+    display: block;
+    background-color:#000;
+    color: #fff;
+    margin: 50px 50px 0px 50px;
+    padding: 10px 0px;
+}
+.create{
+    display: block;
+    width: 150px;
+    height: 40px;
+    margin: 10px auto;
+    background-color: rgb(84, 84, 199);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.create:hover{
+    background-color: rgb(120, 120, 235);
+}
+div.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 2px; 
+    margin: 10px 0px; 
+}
+div.products article{
+    display: flex;
+    align-items: center;
+    width: 900px;
+    height: 200px;
+    border: #333 solid 1px;
+    padding: 5px;
+}
+div.products article img{
+    width: 180px;
+    height: 180px;
+    margin-left: 5px;
+}
+.product-details{
+    font-size: 14px;
+    text-align: left;
+    font-weight: 600;
+    margin-left: 3px;
+    padding-left: 10px;
+    flex-grow: 1;
+}
+.product-details span{
+    font-size: 18px;
+    font-weight: 900;
+}
+.product-edit{
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px;
+    background-color: rgb(55, 219, 55);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.product-edit:hover{
+    background-color: rgb(98, 223, 98);
+}

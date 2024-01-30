@@ -2,84 +2,20 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
-// const { error } = require('console');
-// const productsFilePath = path.join(__dirname, '../data/products.json');
-
-// function getProducts() {
-//     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-//     return products;
-// }
-
-// function getProductById(productId) {
-//     const products = getProducts();
-//     return products.find(product => product.id == productId);
-// }
-
-// const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-// const categories = [
-//     {
-//         id: 1,
-//         value: 'in-sale',
-//         label: 'En oferta'
-//     },
-//     {
-//         id: 2,
-//         value: 'visited',
-//         label: 'Últimos agregados'
-//     }
-
-// ];
-
-// const petTypes = [
-//     {
-//         id: 1,
-//         value: 'Dogs',
-//         label: 'Perro'
-//     },
-//     {
-//         id: 2,
-//         value: 'Cats',
-//         label: 'Gato'
-//     },
-//     {
-//         id: 3,
-//         value: 'Birds',
-//         label: 'Ave'
-//     },
-//     {
-//         id: 4,
-//         value: 'Fishes',
-//         label: 'Pez'
-//     },
-//     {
-//         id: 5,
-//         value: 'Others',
-//         label: 'Otros'
-//     }
-// ];
-
-// async function getPetTypes() {
-//     const petTypes = await db.PetType.findAll();
-//     console.log(petTypes.every(petType => petType instanceof PetType)); // true
-//     console.log("All petTypes:", JSON.stringify(petTypes, null, 2));
-//     return petTypes;
-// }
 
 const controller = {
 
-    index(req, res) {
-        const products = getProducts();
-        // const isLoggedIn = req.isAuthenticated();
-        res.render('products/products', { products });
+    index: async (req, res) => {
+		let products = await db.Product.findAll({ include: ['brand', 'petAge'] });
+		res.render('products/products', { products,  user: req.session.userLogged });
+	},
+
+    detail: async (req, res) => {
+        let product = await db.Product.findByPk(req.params.id);
+        let products = await db.Product.findAll({ include: ['petTypes'] });
+		res.render('products/productDetail', { product, products });
     },
-    detail(req, res) {
-        let products = getProducts();
-        const product = products.find(product => product.id == req.params.id);
-        // const isLoggedIn = req.isAuthenticated();
-        products = products.sort(() => 0.5 - Math.random());
-        res.render('products/productDetail', { product, products });
-    },
+
     cart(req, res) {
         // const isLoggedIn = req.isAuthenticated();
         const cartProducts = req.session.cart || []; // Obtener productos del carrito desde la sesión
@@ -143,21 +79,24 @@ const controller = {
             })
             .catch(error => res.send(error))
     },
+
     store: async (req, res) => {
-        try {
-            const result = await db.sequelize.transaction(async (t) => {
-                const product = await db.Product.create({
-                    name: req.body.name,
-                    price: req.body.price,
-                    stock: req.body.stock,
-                    brands_id: req.body.brand,
-                    petAges_id: req.body.petAge,
-                    description: req.body.description,
-                    discount: req.body.discount,
-                    image: req.file?.filename
-                    //weight: 
-                    //color: 
-                }, { transaction: t });
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            try {
+                const result = await db.sequelize.transaction(async (t) => {
+                    const product = await db.Product.create({
+                        name: req.body.name,
+                        price: req.body.price,
+                        stock: req.body.stock,
+                        brands_id: req.body.brand,
+                        petAges_id: req.body.petAge,
+                        description: req.body.description,
+                        discount: req.body.discount,
+                        image: req.file?.filename
+                        //weight: 
+                        //color: 
+                    }, { transaction: t });
 
                 let categoriesBody = Array.isArray(req.body.categories) ? req.body.categories : [req.body.categories];;
                 let categoriesProducts = categoriesBody.map((category) => {
@@ -202,22 +141,29 @@ const controller = {
         const petTypesInDB = db.PetType.findAll();
         const categoriesInDB = db.Category.findAll();
         const petAgesInDB = db.PetAge.findAll();
+        let categoriesProductsInDB = db.CategoryProduct.findAll({
+			where: {
+				productId: req.params.id
+			}
+		});
+        let petTypesProductsInDB = db.PetTypeProduct.findAll({
+			where: {
+				productId: req.params.id
+			}
+		});
         Promise
-            .all([productInDB, brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB])
-            .then(([product, brands, petTypes, categories, petAges]) => {
-                return res.render('products/productEdit', { product, brands, petTypes, categories, petAges })
+            .all([productInDB, brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB, categoriesProductsInDB, petTypesProductsInDB])
+            .then(([product, brands, petTypes, categories, petAges, categoriesProducts, petTypesProducts]) => {
+                return res.render('products/productEdit', { product, brands, petTypes, categories, petAges, categoriesProducts, petTypesProducts })
             })
             .catch(error => res.send(error))
-        // const products = getProducts();
-        // const product = products.find(product => product.id == req.params.id);
-        // res.render('products/productEdit', { product, categories, petTypes });
     },
 
-    update: (req, res) => {
+    update: async (req, res) => {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
             try {
-                db.Product.update({
+                const product = await db.Product.update({
                     name: req.body.name,
                     price: req.body.price,
                     stock: req.body.stock,
@@ -225,13 +171,13 @@ const controller = {
                     petAges_id: req.body.petAge,
                     description: req.body.description,
                     discount: req.body.discount,
-                    image: req.file.filename
-                }, {
-                    where: {
-                        id: req.params.id
-                    }
+                    image: req.file?.filename
+                    //weight: 
+                    //color: 
+                }, { where: { id: req.params.id }
                 });
-                res.redirect('/');
+                return res.redirect('/products');
+
             } catch (error) {
                 return res.render('products/productsEdit', {
                     errors: errors.mapped(),
@@ -243,18 +189,19 @@ const controller = {
                 errors: errors.mapped(),
                 oldData: req.body,
             });
-        }
+        }          
     },
 
-    destroy: (req, res) => {
-
-        const products = getProducts();
-        const indexProduct = products.findIndex(product => product.id == req.params.id);
-
-        products.splice(indexProduct, 1);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-        res.redirect('/');
-    }
+    destroy: async (req, res) => {
+        try {
+            await db.Product.destroy({ where: { id: req.params.id } })
+            await db.CategoryProduct.destroy({ where: { productId: req.params.id } })
+            await db.PetTypeProduct.destroy({ where: { productId: req.params.id } })
+            return res.redirect('/products');
+        } catch (error) {
+            return res.status(500).send(error);
+        }
+	}
 
 };
 

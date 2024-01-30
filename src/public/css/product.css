@@ -60,7 +60,7 @@ form input[type="file"]{
 }
 
 form button.store {
-    width: 30%;
+    width: 120px;
     height: 40px;
     background-color: #000;
     color: #fff;
@@ -87,5 +87,20 @@ form button.store:hover {
     margin-top: 10px;
   }
 .btn-delete:hover {
-    background-color: #f35f09;
+    background-color: #f5813e;
 }  
+.btn-create {
+    width: 120px;
+    height: 40px;
+    border: 1px solid rgb(84, 84, 199);
+    border-radius: 3px;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0s;
+    background-color: rgb(84, 84, 199);
+    margin-top: 10px;
+  }
+.btn-create:hover {
+    background-color: rgb(120, 120, 235);
+} 

@@ -22,116 +22,97 @@
     </section> 
     
     <section class="categories">
-        <article>
-            <div>
-                <a href="#"><img src="/images/categoria-perros.jpg" alt="Dog"></a>
-                <p><a href="#">Perros</a></p>
-            </div>
-        </article>
-        <article>
-            <div>
-                <a href="#"><img src="/images/categoria-gatos.jpg" alt="Cat"></a>
-                <p><a href="#">Gatos</a></p>
-            </div>
-        </article>
-        <article>
-            <div>
-                <a href="#"><img src="/images/categoria-aves.jpg" alt="Bird"></a>
-                <p><a href="#">Aves</a></p>
-            </div>
+        <% petTypes.forEach(petType => { %>
+            <article>
+                <div>
+                    <a href="#"><img src="/images/<%= petType.image %>" alt="Dog"></a>
+                    <p><a href="#"><%= petType.name %></a></p>
+                </div>
             </article>
-        <article>
-            <div>
-                <a href="#"><img src="/images/categoria-peces.jpg" alt="Fish"></a>
-                <p><a href="#">Peces</a></p>
-            </div>
-        </article>
-        <article>
-            <div>
-                <a href="#"><img src="/images/categoria-otros.png" alt="Others"></a>
-                <p><a href="#">Otros</a></p>
-            </div>
-        </article>
+        <% }) %>
     </section>
 
     <section class="featured-brands">
         <h2>Encontralo por marca</h2>
         <div class="brands">
-            <article>
-                <a href="#"><img src="/images/Kongo.jpg" alt="Kongo"></a>
-            </article>
-            <article>
-                <a href="#"><img src="/images/Whiskas.jpg" alt="Whiskas"></a>
-            </article>
-            <article>
-                <a href="#"><img src="/images/Pedigree.png" alt="Pedigree"></a>
-            </article>
-            <article>
-                <a href="#"><img src="/images/Sabrositos.png" alt="Sabrositos"></a>
-            </article>
+            <% brands.forEach(brand => { %>
+                <% if(brand.image !== null) { %>
+                    <article>
+                        <a href="#"><img src="/images/<%= brand.image %>" alt="Image"></a>
+                    </article>
+                <% } %>
+            <% }) %>
         </div>
     </section>
+
     <section class="in-sale-products">
-        <% if (locals.inSale) { %>
-            <h2>Productos en oferta</h2>
-            <div class="products">
-                <% inSale.forEach(product => { %>
-                                          
-                <a href="/products/<%=product.id%>/detail">
-                    <article>
-                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
-                        <div class="product-details">
-                            <p class="category"><%= product.petType %></p>
-                            <p class="product-name"><%= product.name %></p>
-                            <p class="price">$<%= product.price %></p>
-                        </div>
-                    </article>
-                </a>
-                <% }) %>                
-            </div>
-            <% }%>
+        <h2>Productos en oferta</h2>
+        <div class="products">
+                <% for( let i = 0; i < products.length; i++ ) { %>
+                    <% for( let j = 0; j < products[i].categories.length; j++ ) { %>
+                        <% if (products[i].categories[j].name == 'En oferta') { %> 
+                            <a href="/products/<%=products[i].id%>/detail">
+                            <article>
+                                <img src="/images/<%= products[i].image %>" alt="<%=products[i].name%>">
+                                <div class="product-details">
+                                    <p class="category"><%= products[i].petTypes[0].name %></p>
+                                    <p class="product-name"><%= products[i].name %></p>
+                                    <div><p class="price">$<%= products[i].price %> <span>/ <%= products[i].discount %>% OFF</span> </p>
+                                </div>
+                            </article>
+                            </a>
+                        <% }%>
+                    <% }%>
+                <% }%>
+        </div>
     </section>
+
     <section class="visited-products">
-         <% if (locals.visited) { %>
-            <h2>Productos Visitados</h2>
-            <div class="products">
-                <% visited.forEach(product => { %>
-                                          
-                <a href="/products/<%=product.id%>/detail">
-                    <article>
-                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
-                        <div class="product-details">
-                            <p class="category"><%= product.petType %></p>
-                            <p class="product-name"><%= product.name %></p>
-                            <p class="price">$<%= product.price %></p>
-                        </div>
-                    </article>
-                </a>
-                <% }) %>
-            </div>
-            <% }%>
+        <h2>Productos visitados</h2>
+        <div class="products">
+                <% for( let i = 0; i < products.length; i++ ) { %>
+                    <% for( let j = 0; j < products[i].categories.length; j++ ) { %>
+                        <% if (products[i].categories[j].name == 'Visitado') { %> 
+                            <a href="/products/<%=products[i].id%>/detail">
+                            <article>
+                                <img src="/images/<%= products[i].image %>" alt="<%=products[i].name%>">
+                                <div class="product-details">
+                                    <p class="category"><%= products[i].petTypes[0].name %></p>
+                                    <p class="product-name"><%= products[i].name %></p>
+                                    <div><p class="price">$<%= products[i].price %></p>
+                                </div>
+                            </article>
+                            </a>
+                        <% }%>
+                    <% }%>
+                <% }%>
+        </div>
     </section>
-    <section class="food-products">
-        <% if (locals.food) { %>
-            <h2>Alimentos</h2>
-            <div class="products">
-                <% food.forEach(product => { %>
-                                          
-                <a href="/products/<%=product.id%>/detail">
-                    <article>
-                        <img src="/images/<%= product.image %>" alt="<%=product.name%>">
-                        <div class="product-details">
-                            <p class="category"><%= product.petType %></p>
-                            <p class="product-name"><%= product.name %></p>
-                            <p class="price">$<%= product.price %></p>
-                        </div>
-                    </article>
-                </a>
-                <% }) %>                
-            </div>
-            <% }%>
+
+    <section class="visited-products">
+        <h2>Alimentos</h2>
+        <div class="products">
+                <% for( let i = 0; i < products.length; i++ ) { %>
+                    <% for( let j = 0; j < products[i].categories.length; j++ ) { %>
+                        <% if (products[i].categories[j].name == 'Alimento') { %> 
+                            <a href="/products/<%=products[i].id%>/detail">
+                            <article>
+                                <img src="/images/<%= products[i].image %>" alt="<%=products[i].name%>">
+                                <div class="product-details">
+                                    <p class="category"><%= products[i].petTypes[0].name %></p>
+                                    <p class="product-name"><%= products[i].name %></p>
+                                    <div><p class="price">$<%= products[i].price %></p>
+                                </div>
+                            </article>
+                            </a>
+                        <% }%>
+                    <% }%>
+                <% }%>
+        </div>
     </section>
+
 </main>
+
 <%- include ('partials/footer') %>
 <script>
     let index = 0;

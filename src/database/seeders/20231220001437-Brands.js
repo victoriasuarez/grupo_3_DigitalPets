@@ -10,7 +10,7 @@ module.exports = {
       },
       {
         name: 'Sabrositos',
-        image: 'Sabrositos.jpg'
+        image: 'Sabrositos.png'
       },
       {
         name: 'Kongo',
@@ -24,6 +24,10 @@ module.exports = {
       },
       {
         name: 'Power'
+      },
+      {
+        name: 'Pedigree',
+        image: 'Pedigree.png'
       }
     ], {});
   },
