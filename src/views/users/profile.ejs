@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','account', 'profile']}) %>
+<%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','account', 'profile' ]}) %>
 
-<body>
-    <%- include ('../partials/header') %>
-    <main class="main-profile">
-        <h1>Perfil de Usuario</h1>
-        <% if (user) { %>
-            <p>Nombre: <%= user.firstName %> <%= user.lastName %></p>
-            <p>Email: <%= user.email %></p>
-            <img src="/images/users/<%= user.image %>" alt="Imagen de perfil">
-        <% } else { %>
-            <p>No se pudo cargar el perfil.</p>
-        <% } %>
-    </main>
+    <body>
+        <%- include ('../partials/header') %>
+            <main>
+                <div class="conteiner">
+                    <section class="seccion-profile">
 
-    <%- include ('../partials/footer') %>
-</body>
+                        <h1>Perfil de Usuario</h1>
+                        <% if (user) { %>
+                            <p>Nombre: <%= user.firstName %>
+                                    <%= user.lastName %>
+                            </p>
+                            <p>Email: <%= user.email %>
+                            </p>
+                            <img src="/images/users/<%= user.image %>" alt="Imagen de perfil">
+                            <% } else { %>
+                                <p>No se pudo cargar el perfil.</p>
+                                <% } %>
+                    </section>
+                    <% if (user && user.roles_id===1) { %>
+                        <section class="seccion-product">
+                            <h2>Productos registrados</h2>
+                            <hr>
+                            <a class="product" href="/products/">Ver todos los productos</a>
+                        </section>
+                        <% } %>
+
+                </div>
+            </main>
+
+            <%- include ('../partials/footer') %>
+    </body>
 
 </html>
