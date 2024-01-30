@@ -159,7 +159,7 @@ const controller = {
                     //color: 
                 }, { transaction: t });
 
-                let categoriesBody = req.body.categories;
+                let categoriesBody = Array.isArray(req.body.categories) ? req.body.categories : [req.body.categories];;
                 let categoriesProducts = categoriesBody.map((category) => {
                     return {
                         categoryId: category,
@@ -172,7 +172,7 @@ const controller = {
                     throw new Error('Error al crear CategoryProduct');
                 }
                 
-                let petTypesBody = req.body.petTypes;
+                let petTypesBody = Array.isArray(req.body.petTypes) ? req.body.petTypes : [req.body.petTypes];
                 let petTypesProducts = petTypesBody.map((petType) => {
                     return {
                         petTypeId: petType,
@@ -189,6 +189,7 @@ const controller = {
 
             res.redirect('/');
         } catch (error) {
+            console.log(`Este fue el error: ${error}`);
             res.status(500).send(error);
         }
     },
