@@ -11,7 +11,7 @@ class UsersInDb extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://127.0.0.1:3030/api/users')
+        fetch('http://localhost:3030/api/users')
             .then(res => res.json())
             .then(users => {
                 this.setState({ usersList: users.data });

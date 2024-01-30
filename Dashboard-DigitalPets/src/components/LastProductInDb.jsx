@@ -21,7 +21,7 @@ function LastProductnDb() {
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '40rem' }} src={`/images/${product.image}`} alt={product.name} />
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '40rem' }} src={`../../../src/public/images/${product.image}`} alt={product.name} />
                     </div>
                     <p>{product.description}</p>
                     <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalles del producto</a>
