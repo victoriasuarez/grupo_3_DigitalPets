@@ -25,7 +25,7 @@
                         <p>Edad: <span><%= product.petAge && product.petAge.name ? product.petAge.name : 'No especificada' %></span></p>
                         <p>Precio de venta $ <span><%= product.price %></span></p>
                         <p>Stock: <span><%= product.stock %></span></p>
-                        <p>Descuento: <span><%= product.discount %>%</span></p>
+                        <p>Descuento: <span><%= product.discount ? `${product.discount}%` : 'No especificada' %></span></p>
                     </div>
                     <% if (user && user.roles_id === 1) { %>
                         <div class="product-edit">

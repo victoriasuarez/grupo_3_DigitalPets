@@ -25,20 +25,20 @@
 
                     
                     <div class="form-group">
-                        <label for="productCategory">Categorías de mascotas:</label><br>
-                        <% categories.forEach(category=> { %>
-                            <% const isChecked=categoriesProducts.some((valor)=> valor.categoryId === category.id); %>
-                            <input type="checkbox" name="categories" value="<%= category.id %>" <%=isChecked ? 'checked' : '' %>>
-                            <%= category.name %><br>
+                        <label for="petTypes">Categorías de mascotas:</label><br>
+                        <% petTypes.forEach(petType=> { %>
+                            <% const isChecked=petTypesProducts.some((valor)=> valor.petTypeId === petType.id); %>
+                            <input type="checkbox" id="<%= petType.id %>" name="petTypes" value="<%= petType.id %>" <%=isChecked ? 'checked' : '' %>>
+                            <label for="<%= petType.id %>"><%= petType.name %></label><br>
                     <% }) %>
                     </div><br><br>
                     
                     <div class="form-group">
-                        <label for="productCategory">Categorías:</label><br>
-                        <% petTypes.forEach( petType => { %>
-                            <% const isChecked=petTypesProducts.some((valor)=> valor.petTypeId === petType.id); %>
-                            <input type="checkbox" name="petTypes" value="<%= petType.id %>" <%=isChecked ? 'checked' : '' %>>
-                            <%= petType.name %><br>
+                        <label for="categories">Categorías:</label><br>
+                        <% categories.forEach( category => { %>
+                            <% const isChecked=categoriesProducts.some((valor)=> valor.categoryId === category.id); %>
+                            <input type="checkbox" name="categories" value="<%= category.id %>" <%=isChecked ? 'checked' : '' %>>
+                            <%= category.name %><br>
                         <% }) %>
                     </div><br><br>
 

@@ -89,10 +89,10 @@ const controller = {
                         name: req.body.name,
                         price: req.body.price,
                         stock: req.body.stock,
-                        brands_id: req.body.brand,
-                        petAges_id: req.body.petAge,
+                        brands_id: req.body.brand? req.body.brand : null,
+                        petAges_id: req.body.petAge? req.body.petAge : null,
                         description: req.body.description,
-                        discount: req.body.discount,
+                        discount: req.body.discount? req.body.discount : null,
                         image: req.file?.filename
                         //weight: 
                         //color: 
@@ -126,11 +126,29 @@ const controller = {
                     return product;
                 });
 
-                res.redirect('/');
+                res.redirect('/products/');
             } catch (error) {
                 console.log(`Este fue el error: ${error}`);
                 res.status(500).send(error);
             }
+        } else {
+            let brandsInDB = db.Brand.findAll();
+            let petTypesInDB = db.PetType.findAll();
+            let categoriesInDB = db.Category.findAll();
+            let petAgesInDB = db.PetAge.findAll();
+
+            Promise
+                .all([brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB])
+                .then(([brands, petTypes, categories, petAges]) => {
+                    return res.render('products/productCreate', { 
+                        brands, 
+                        petTypes,
+                        categories, 
+                        petAges, 
+                        errors: errors.mapped(),
+                        oldData: req.body, })
+                })
+                .catch(error => res.send(error));
         }
     },
 
@@ -168,8 +186,8 @@ const controller = {
                     name: req.body.name,
                     price: req.body.price,
                     stock: req.body.stock,
-                    brands_id: req.body.brand,
-                    petAges_id: req.body.petAge,
+                    brands_id: req.body.brand ? req.body.brand : null,
+                    petAges_id: req.body.petAge ? req.body.petAge : null,
                     description: req.body.description,
                     discount: req.body.discount,
                     image: req.file?.filename
@@ -190,6 +208,7 @@ const controller = {
             return res.render('products/productEdit', {
                 errors: errors.mapped(),
                 oldData: req.body,
+
             });
         }
     },

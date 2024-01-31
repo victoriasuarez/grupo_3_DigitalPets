@@ -80,10 +80,10 @@ window.addEventListener('load', function () {
     function validarImagen(input) {
         var valor = input.value.trim().toLowerCase();
 
-        if (valor === '') {
-            mostrarMensajeError('imagenPerfil', 'La imagen es obligatoria.');
-            return false;
-        } else {
+        // if (valor === '') {
+        //     mostrarMensajeError('imagenPerfil', 'La imagen es obligatoria.');
+        //     return false;
+        // } else {
             var imagenRegex = /\.(jpg|jpeg|png|gif)$/;
             if (!imagenRegex.test(valor)) {
                 mostrarMensajeError('imagenPerfil', 'Por favor, selecciona un archivo de imagen válido (JPG, JPEG, PNG, GIF).');
@@ -92,7 +92,7 @@ window.addEventListener('load', function () {
                 mostrarMensajeError('imagenPerfil', ''); // Limpiar mensaje de error
                 return true;
             }
-        }
+        // }
     }
 
     function manejarBlur(event) {
