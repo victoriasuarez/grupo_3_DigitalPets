@@ -25,6 +25,7 @@
                                     <h2>
                                         <%= locals.product && product.name %>
                                     </h2>
+                                    <% if(locals.product && product.discount) {%>
                                     <p class="product-detail-price small">
                                         <span>$<%= locals.product && product.price %></span>
                                         /
@@ -32,6 +33,7 @@
                                             <%= locals.product && product.discount %>% OFF
                                         </b>
                                     </p>
+                                    <% } %>
                                     <p class="product-detail-price">
                                         $ <%= locals.product && (product.price - (product.price * product.discount /
                                             100)) %>

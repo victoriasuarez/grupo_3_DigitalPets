@@ -8,8 +8,30 @@ const session = require('express-session');
 const controller = {
 
     index: async (req, res) => {
-        let products = await db.Product.findAll({ include: ['brand', 'petAge'] });
-        res.render('products/products', { products, user: req.session.userLogged });
+        try {
+            const { brand, petType, page } = req.query;
+            const filter = {};
+            if (brand) filter['$brands_id$'] = brand;
+            //if (brand) filter.brands_id = brand;
+            if (petType) filter['$petTypes.id$'] = petType;
+            console.log(filter);
+            const totalProducts = await db.Product.count({ where: filter });
+            const totalPages = Math.ceil(totalProducts / 5);
+            const offset = 5 * ((page || 1) - 1);
+            let brands = await db.Brand.findAll();
+            let petTypeInDb = await db.PetType.findAll();
+            let products = await db.Product.findAll({ 
+                include: ['brand', 'petAge', 'petTypes'], 
+                where: filter, 
+                limit: 5,
+                offset: offset,
+        });
+            //res.send(products);
+            res.render('products/products', { brands, petTypeInDb, products, user: req.session.userLogged, totalPages, currentPage: page || 1 });
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
+            res.status(500).send('Error interno del servidor');
+        }
     },
 
     detail: async (req, res) => {
@@ -93,10 +115,10 @@ const controller = {
                         name: req.body.name,
                         price: req.body.price,
                         stock: req.body.stock,
-                        brands_id: req.body.brand,
-                        petAges_id: req.body.petAge,
+                        brands_id: req.body.brand? req.body.brand : null,
+                        petAges_id: req.body.petAge? req.body.petAge : null,
                         description: req.body.description,
-                        discount: req.body.discount,
+                        discount: req.body.discount? req.body.discount : null,
                         image: req.file?.filename
                         //weight: 
                         //color: 
@@ -130,11 +152,29 @@ const controller = {
                     return product;
                 });
 
-                res.redirect('/');
+                res.redirect('/products/');
             } catch (error) {
                 console.log(`Este fue el error: ${error}`);
                 res.status(500).send(error);
             }
+        } else {
+            let brandsInDB = db.Brand.findAll();
+            let petTypesInDB = db.PetType.findAll();
+            let categoriesInDB = db.Category.findAll();
+            let petAgesInDB = db.PetAge.findAll();
+
+            Promise
+                .all([brandsInDB, petTypesInDB, categoriesInDB, petAgesInDB])
+                .then(([brands, petTypes, categories, petAges]) => {
+                    return res.render('products/productCreate', { 
+                        brands, 
+                        petTypes,
+                        categories, 
+                        petAges, 
+                        errors: errors.mapped(),
+                        oldData: req.body, })
+                })
+                .catch(error => res.send(error));
         }
     },
 
@@ -172,8 +212,8 @@ const controller = {
                     name: req.body.name,
                     price: req.body.price,
                     stock: req.body.stock,
-                    brands_id: req.body.brand,
-                    petAges_id: req.body.petAge,
+                    brands_id: req.body.brand ? req.body.brand : null,
+                    petAges_id: req.body.petAge ? req.body.petAge : null,
                     description: req.body.description,
                     discount: req.body.discount,
                     image: req.file?.filename
@@ -194,6 +234,7 @@ const controller = {
             return res.render('products/productEdit', {
                 errors: errors.mapped(),
                 oldData: req.body,
+
             });
         }
     },

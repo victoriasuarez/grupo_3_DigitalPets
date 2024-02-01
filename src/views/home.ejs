@@ -39,7 +39,7 @@
                 <% brands.forEach(brand => { %>
                     <% if(brand.image !== null) { %>
                         <article>
-                            <a href="#"><img src="/images/<%= brand.image %>" alt="Image"></a>
+                            <a href="/products?brand=<%= brand.id %>"><img src="/images/<%= brand.image %>" alt="Image"></a>
                         </article>
                         <% } %>
                         <% }) %>

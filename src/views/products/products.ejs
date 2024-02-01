@@ -1,48 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','productList']}) %>
-<body>
-    <%- include ('../partials/header') %>
-<main>
-       
-    <section class="list-products">
-        <h2>Productos</h2>
-        <% if (user && user.roles_id === 1) { %>
-            <a class="create" href="/products/create">Crear producto</a>
-        <% } %>
-        <% if (locals.products) { %>
-        <div class="products">
-            <% products.forEach(product => { %>
-                                      
-            
-                <article>
-                    <div>
-                        <img src="/images/<%= product.image %>" alt="image">
-                    </div>
-                    <div class="product-details">
-                        <p>Producto: <span><%= product.name %></span></p>
-                        <p>Marca: <span><%= product.brand && product.brand.name ? product.brand.name : 'No especificada' %></span></p>
-                        <p>Edad: <span><%= product.petAge && product.petAge.name ? product.petAge.name : 'No especificada' %></span></p>
-                        <p>Precio de venta $ <span><%= product.price %></span></p>
-                        <p>Stock: <span><%= product.stock %></span></p>
-                        <p>Descuento: <span><%= product.discount %>%</span></p>
-                    </div>
-                    <% if (user && user.roles_id === 1) { %>
-                        <div class="product-edit">
-                            <a href="/products/<%=product.id%>/edit">Editar</a>
-                        </div>
-                    <% } %>
-                </article>
-            
-            <% }) %>
-            
-        </div>
-        <% } else { %>
-            <h1>No hay productos registrados</h1>
-        <% } %>
-    </section>
+<%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','productList']}) %>
 
-</main>
-<%- include ('../partials/footer') %>
-</body>
+    <body>
+        <%- include ('../partials/header') %>
+            <main>
+
+                <section class="list-products">
+                    <h2>Productos</h2>
+
+                    <div class="search-product">
+                        <div>
+                            <form action="/products" method="get">
+                                <label for="brand">Busca por Marca:</label>
+                                <select name="brand" id="brand">
+                                    <option value="">Seleccionar</option>
+                                    <% if(locals.brands) { %>
+                                        <%brands.forEach(brand=> {%>
+                                            <option value="<%= brand.id %>">
+                                                <%= brand.name%>
+                                            </option>
+                                            <% }) %>
+                                                <% } %>
+                                </select>
+
+                                <!-- <label for="petType">Busca por Categoría:</label>
+                                <select name="petType" id="petType">
+                                    <option value="">Seleccionar</option>
+                                    <% if (locals.petTypeInDb) { %>
+                                        <% petTypeInDb.forEach(petType=> { %>
+                                            <option value="<%= petType.id %>">
+                                                <%= petType.name %>
+                                            </option>
+                                            <% }) %>
+                                                <% } %>
+                                </select> -->
+
+
+                                <button type="submit">Buscar</button>
+                            </form>
+                        </div>
+                        <div>
+                            <% if (user && user.roles_id===1) { %>
+                                <a class="create" href="/products/create">Crear producto</a>
+                                <% } %>
+                        </div>
+                    </div>
+
+
+                    <% if (products.length> 0) { %>
+                        <div>
+                            <div class="products">
+                                <% products.forEach(product=> { %>
+                                    <article>
+                                        <div>
+                                            <img src="/images/<%= product.image %>" alt="image">
+                                        </div>
+                                        <div class="product-details">
+                                            <p>Producto: <span>
+                                                    <%= product.name %>
+                                                </span></p>
+                                            <p>Marca: <span>
+                                                    <%= product.brand && product.brand.name ? product.brand.name
+                                                        : 'No especificada' %>
+                                                </span></p>
+                                            <p>Edad: <span>
+                                                    <%= product.petAge && product.petAge.name ? product.petAge.name
+                                                        : 'No especificada' %>
+                                                </span></p>
+                                            <p>Precio de venta $ <span>
+                                                    <%= product.price %>
+                                                </span></p>
+                                            <p>Stock: <span>
+                                                    <%= product.stock %>
+                                                </span></p>
+                                            <p>Descuento: <span>
+                                                    <%= product.discount ? `${product.discount}%` : 'No especificada' %>
+                                                </span></p>
+                                        </div>
+                                        <% if (user && user.roles_id===1) { %>
+                                            <div class="product-edit">
+                                                <a href="/products/<%=product.id%>/edit">Editar</a>
+                                            </div>
+                                            <% } %>
+                                    </article>
+                                    <% }) %>
+                            </div>
+
+                            <div class="pagination">
+                                <% if (currentPage> 1) { %>
+                                    <a href="?page=<%= currentPage - 1 %>">Anterior</a>
+                                    <% } %>
+
+                                        <% for (let i=1; i <=totalPages; i++) { %>
+                                            <a href="?page=<%= i %>" <%=i===currentPage ? 'class="active"' : '' %>><%= i
+                                                    %></a>
+                                            <% } %>
+
+                                                <% if (currentPage < totalPages) { %>
+                                                    <a href="?page=<%= currentPage + 1 %>">Siguiente</a>
+                                                    <% } %>
+                            </div>
+
+
+
+                        </div>
+                        <% } else { %>
+                            <h1>No hay productos registrados</h1>
+                            <% } %>
+                </section>
+
+            </main>
+            <%- include ('../partials/footer') %>
+    </body>
+
 </html>
