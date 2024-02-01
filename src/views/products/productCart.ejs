@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="div5 info-item remove">
-                                        <form action="/products/cart-removeItem" method="POST">
+                                        <form id="removeItem" action="/products/cart-removeItem" method="POST">
                                             <input type="hidden" name="productId" value="<%= product.productId %>">
                                             <button type="submit"><i class="fas fa-trash-alt"></i></button>
                                         </form>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="btn-fc">
-                            <button>Finalizar Compra</button>
+                            <button type="submit" id="finalizePurchase">Finalizar Compra</button>
                         </div>
                     </form>
                 </div>

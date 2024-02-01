@@ -256,8 +256,8 @@ const controller = {
         let discount = 0.0;
         let total = 0.0;
         if (cartProducts != []) {
-            subtotal = parseFloat((cartProducts.reduce((accum, product) => accum + product.price, 0))).toFixed(2);
-            discount = parseFloat(((cartProducts.reduce((accum, product) => accum + product.priceDiscount, 0,) - subtotal))).toFixed(2);
+            subtotal = parseFloat((cartProducts.reduce((accum, product) => accum + (product.price*product.quantity), 0))).toFixed(2);
+            discount = (parseFloat(cartProducts.reduce((accum, product) => accum + (product.priceDiscount*product.quantity), 0,) - subtotal)).toFixed(2);
             total = parseFloat(parseFloat(discount) + parseFloat(subtotal)).toFixed(2);
         }
         res.render('products/productCart', { cartProducts, subtotal, discount, total });
@@ -335,6 +335,25 @@ const controller = {
         req.session.cart = cart;
 
         return res.redirect(`/products/${product.id}/detail`);
+    },
+    removeItemCart(req,res){
+        // const isLoggedIn = req.isAuthenticated();
+        let cartProducts = req.session.cart || []; // Obtener productos del carrito desde la sesión
+        let subtotal = 0.0;
+        let discount = 0.0;
+        let total = 0.0;
+        if (cartProducts != []) {
+            req.session.cart = cartProducts.filter((product)=>product.productId != req.body.productId );
+            cartProducts = req.session.cart;
+            console.log('cartProducts');
+            console.log(cartProducts);
+            console.log('req.session.cart');
+            console.log(req.session.cart);
+            subtotal = parseFloat((cartProducts.reduce((accum, product) => accum + (product.price*product.quantity), 0))).toFixed(2);
+            discount = (parseFloat(cartProducts.reduce((accum, product) => accum + (product.priceDiscount*product.quantity), 0,) - subtotal)).toFixed(2);
+            total = parseFloat(parseFloat(discount) + parseFloat(subtotal)).toFixed(2);
+        }
+        res.render('products/productCart', { cartProducts, subtotal, discount, total });
     }
 };
 

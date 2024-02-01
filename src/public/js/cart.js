@@ -42,4 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         
     });
+
+    const finalizePurchase = document.getElementById('finalizePurchase');
+    finalizePurchase.addEventListener('click',(e)=>{
+        e.preventDefault();
+
+    })
 });

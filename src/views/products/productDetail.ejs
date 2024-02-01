@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="detail-container">
-                    <% if (locals.product) { %>
+                    <% if (locals.product) { const valueLoaded = productInCart? productInCart.quantity : 1 %>
                         <div class="detail-product">
                             <div>
                                 <img class="image-product" src="/images/<%= product.image %>" alt="image-product">
@@ -59,8 +59,8 @@
                                             <span class="out">-</span>
                                             <span class="num" 
                                                 data-stock="<%= product.stock %>"
-                                                data-quantity="<%=productInCart? productInCart.quantity : 1%>"
-                                                ><%=productInCart? productInCart.quantity : 1%>
+                                                data-quantity="<%=valueLoaded%>"
+                                                ><%=valueLoaded%>
                                             </span>
                                             <span class="add">+</span>
                                         </div>
@@ -68,7 +68,7 @@
 
                                     <form id="addToCartForm" action="/products/addToCart" method="POST">
                                         <input type="hidden" name="productId" value="<%= product.id %>">
-                                        <input type="hidden" id="quantityInput" name="quantity" value="1">
+                                        <input type="hidden" id="quantityInput" name="quantity" value="<%= valueLoaded %>">
                                         <button type="submit" class="btn btn-block">AGREGAR AL CARRITO</button>
                                     </form>
                                 </div>
@@ -114,24 +114,7 @@
                             <% } %>
             </main>
             <%- include ('../partials/footer') %>
-                <script src="/js/productDetail.js"></script>
-
-                <!-- <script src="/js/productDetail.js"> 
-                    // const add = document.querySelector(".add"),
-                    //     out = document.querySelector(".out"),
-                    //     num = document.querySelector(".num");
-                    // let a = 1;
-                    // add.addEventListener("click", () => {
-                    //     a++;
-                    //     num.innerText = a;
-                    // });
-                    // out.addEventListener("click", () => {
-                    //     if (a > 1) {
-                    //         a--;
-                    //         num.innerText = a;
-                    //     }
-                    // });
-        </script> -->
+            <script src="/js/productDetail.js"></script>
     </body>
 
 </html>

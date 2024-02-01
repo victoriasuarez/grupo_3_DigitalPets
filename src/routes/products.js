@@ -12,7 +12,7 @@ const checkAdminRole = require('../middlewares/checkAdminRole');
 router.get('/cart', productsController.cart)
 router.get('/:id/detail', productsController.detail);
 router.post('/addToCart', productsController.addToCart);
-// router.post('/updateQuantity', productsController.updateQuantity);
+router.post('/cart-removeItem', productsController.removeItemCart);
 router.get('/', productsController.index);
 
 
