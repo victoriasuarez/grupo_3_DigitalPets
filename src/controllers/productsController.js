@@ -6,8 +6,30 @@ const { validationResult } = require('express-validator');
 const controller = {
 
     index: async (req, res) => {
-        let products = await db.Product.findAll({ include: ['brand', 'petAge'] });
-        res.render('products/products', { products, user: req.session.userLogged });
+        try {
+            const { brand, petType, page } = req.query;
+            const filter = {};
+            if (brand) filter['$brands_id$'] = brand;
+            //if (brand) filter.brands_id = brand;
+            if (petType) filter['$petTypes.id$'] = petType;
+            console.log(filter);
+            const totalProducts = await db.Product.count({ where: filter });
+            const totalPages = Math.ceil(totalProducts / 5);
+            const offset = 5 * ((page || 1) - 1);
+            let brands = await db.Brand.findAll();
+            let petTypeInDb = await db.PetType.findAll();
+            let products = await db.Product.findAll({ 
+                include: ['brand', 'petAge', 'petTypes'], 
+                where: filter, 
+                limit: 5,
+                offset: offset,
+        });
+            //res.send(products);
+            res.render('products/products', { brands, petTypeInDb, products, user: req.session.userLogged, totalPages, currentPage: page || 1 });
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
+            res.status(500).send('Error interno del servidor');
+        }
     },
 
     detail: async (req, res) => {
