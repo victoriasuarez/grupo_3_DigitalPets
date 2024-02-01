@@ -9,10 +9,10 @@ const checkAdminRole = require('../middlewares/checkAdminRole');
 
 
 // rutas públicas
-router.get('/', productsController.index);
-router.get('/:id/detail', productsController.detail);
 router.get('/cart', productsController.cart)
-router.post('/cart', productsController.addToCart);
+router.get('/:id/detail', productsController.detail);
+router.post('/addToCart', productsController.addToCart);
+router.get('/', productsController.index);
 
 
 // rutas con login

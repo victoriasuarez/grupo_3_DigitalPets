@@ -49,12 +49,15 @@
                                         <span class="num">1</span>
                                         <span class="add">+</span>
                                     </div>
-                                    <button class="btn btn-block">AGREGAR AL CARRITO</button>
+                                    <form action="/products/addToCart" method="POST">
+                                        <input  type="hidden" name="productId" value="<%= product.id %>">
+                                        <input type="hidden" id="quantityInput" name="quantity" value="1">
+                                        <button type="submit" class="btn btn-block">AGREGAR AL CARRITO</button>
+                                    </form>
                                 </div>
                             </div>
+                            </div>
                         </div>
-
-
                         <div class="detail-description">
                             <h3>Descripción:</h3>
                             <p>
@@ -90,21 +93,21 @@
         </main>
         <%- include ('../partials/footer') %>
 
-        <script>
-                    const add = document.querySelector(".add"),
-                        out = document.querySelector(".out"),
-                        num = document.querySelector(".num");
-                    let a = 1;
-                    add.addEventListener("click", () => {
-                        a++;
-                        num.innerText = a;
-                    });
-                    out.addEventListener("click", () => {
-                        if (a > 1) {
-                            a--;
-                            num.innerText = a;
-                        }
-                    });
-        </script>
+        <!-- <script src="/js/productDetail.js"> 
+                    // const add = document.querySelector(".add"),
+                    //     out = document.querySelector(".out"),
+                    //     num = document.querySelector(".num");
+                    // let a = 1;
+                    // add.addEventListener("click", () => {
+                    //     a++;
+                    //     num.innerText = a;
+                    // });
+                    // out.addEventListener("click", () => {
+                    //     if (a > 1) {
+                    //         a--;
+                    //         num.innerText = a;
+                    //     }
+                    // });
+        </script> -->
     </body>
 </html>

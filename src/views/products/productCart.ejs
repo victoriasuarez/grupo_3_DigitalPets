@@ -1,178 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', {styles: ['normalize', 'styles','header','footer','cart']}) %>
+<%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','cart2']}) %>
 
-<body>
-    <%- include ('../partials/header') %>
-    <main>
+    <body>
+        <%- include ('../partials/header') %>
+            <main>
 
-        <div class="parent">
+                <div class="parent">
 
-            <div class="div-parent1">
-                <span class="prod">Producto</span>
-                <span class="desc">Descripción</span>
-                <span class="price">Precio</span>
-                <span class="count">Cantidad</span>
-            </div>
-
-        <% for (const product of cartProducts) { %>
-            <div class="div-parent2">
-                <div class="container">
-                    <div class="div1">
-                        <img src="/images/<%= product.name %>" alt="<%= product.name %>">
-                    </div>
-                    <div class="div2">
-
-                        <p><%= product.name %></p>
-                    </div>
-                    <div class="div3">
-
-                        <p><%= product.description %></p>
-                    </div>
-                    <div class="div4">
-
-                        <p class="product-price">$<%= product.price.toFixed(2) %></p>
-                    </div>
-                    <div class="div5">
-                        <div class="wrapper">
-                            <span class="out">-</span>
-                            <span class="num">1</span>
-                            <span class="add">+</span>
+                    <section class="info-products">
+                        <div class="info-headers">
+                            <span class="prod info-head">Producto</span>
+                            <span class="desc info-head">Descripción</span>
+                            <span class="price info-head">Precio</span>
+                            <span class="count info-head">Cantidad</span>
+                            <span class="remove info-head"></span>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <hr>
 
-            <div class="div-parent3">
-                <div class="container">
-                    <div class="div1">
-                        <img src="/images/<%= product.name %>" alt="<%= product.name %>">
-                    </div>
-                    <div class="div2">
-                        <p>Comida para conejo</p>
-                    </div>
-                    <div class="div3">
-                        <p>Alimento balanceado diario para conejos</p>
-                    </div>
-                    <div class="div4">
-                        <p class="product-price">$10.00</p>
-                    </div>
-                    <div class="div5">
-                        <div class="wrapper">
-                            <span class="out">-</span>
-                            <span class="num">1</span>
-                            <span class="add">+</span>
+                        <%if(locals.cartProducts){%>
+                            <% cartProducts.forEach((product)=> { %>
+                                <div class="info-items">
+                                    <div class="div1 info-item">
+                                        <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                                    </div>
+                                    <div class="div2 info-item">
+                                        <div class="info-subitem product-name">
+                                            <p><%= product.name %></p>
+                                        </div>
+                                        <div class="info-subitem">
+                                            <p><%= product.description %></p>
+                                        </div>
+                                    </div>
+                                    <div class="div3 info-item">
+                                        <p class="product-price">$<%= product.price %></p>
+                                    </div>
+                                    <div class="div4 info-item">
+                                        <div class="wrapper">
+                                            <span class="out">-</span>
+                                            <span class="num">1</span>
+                                            <span class="add">+</span>
+                                        </div>
+                                    </div>
+                                    <div class="div5 info-item remove">
+                                        <form action="/products/cart-removeItem" method="POST">
+                                            <input type="hidden" name="productId" value="<%= product.id %>">
+                                            <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+                                    <% } else{%>
+                                        <div>No hay productos en el carrito</div>
+                                        <% } %>
+                    </section>
+                    <form class="shipment-data">
+                        <div class="div-parent5">
+                            <div class="sidebar">
+                                <div class="envio">
+                                    <p><b>Envío:</b></p>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="envio" id="retiroSucursal"></input>
+                                    <label for="retiroSucursal">Retiro en sucursal</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="envio" id="envioDomicilio"></input>
+                                    <label for="envioDomicilio">Envío a domicilio</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="div-parent4">
-                <div class="container">
-                    <div class="div1">
-                        <img src="/images/<%= product.image %>" alt="<%= product.name %>">
-                    </div>
-                    <div class="div2">
-                        <p>Comida para conejo</p>
-                    </div>
-                    <div class="div3">
-                        <p>Alimento balanceado diario para conejos</p>
-                    </div>
-                    <div class="div4">
-                        <p class="product-price">$10.00</p>
-                    </div>
-                    <div class="div5">
-                        <div class="wrapper">
-                            <span class="out">-</span>
-                            <span class="num">1</span>
-                            <span class="add">+</span>
+                        <div class="div-parent6">
+                            <div class="options">
+                                <div class="mp">
+                                    <p><b>Medio de pago:</b></p>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="mp" id="transferencia"></input>
+                                    <label for="transferencia">Transferencia</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="mp" id="mercadopago"></input>
+                                    <label for="mercadopago">Mercado Pago</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="mp" id="pagosucursal"></input>
+                                    <label for="pagosucursal">Pago en Sucursal</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="div-parent7">
+                            <div class="checkout">
+                                <div class="detalle">
+                                    <p><b>Detalle de la compra:</b></p>
+                                </div>
+                                <div class="detalle-car">
+                                    <p>Carrito: $</p>
+                                    <p>Envío: $</p>
+                                    <p>Total: $</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-fc">
+                            <button>Finalizar Compra</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        <% } %>
-            <div class="div-parent5">
-                <div class="sidebar">
-                    <div class="envio">
-                        <p><b>Envío:</b></p>
-                    </div>
-                    <div class="option">
-                        <input type="radio" name="envio" id="retiroSucursal"></input>
-                        <label for="retiroSucursal">Retiro en sucursal</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio" name="envio" id="envioDomicilio"></input>
-                        <label for="envioDomicilio">Envío a domicilio</label>
-                    </div>
-                </div>
-            </div>
-            <div class="div-parent6">
-                <div class="options">
-                    <div class="mp">
-                        <p><b>Medio de pago:</b></p>
-                    </div>
-                    <div class="option">
-                        <input type="radio" name="mp" id="transferencia"></input>
-                        <label for="transferencia">Transferencia</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio" name="mp" id="mercadopago"></input>
-                        <label for="mercadopago">Mercado Pago</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio" name="mp" id="pagosucursal"></input>
-                        <label for="pagosucursal">Pago en Sucursal</label>
-                    </div>
-                </div>
-            </div>
-            <div class="div-parent7">
-                <div class="checkout">
-                    <div class="detalle">
-                        <p><b>Detalle de la compra:</b></p>
-                    </div>
-                    <div class="detalle-car">
-                        <p>Carrito ______ $10.00</p>
-                        <p>Envío ________ $0.00</p>
-                        <p>Total: _______ $10.00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="btn-fc">
-            <button>Finalizar Compra</button>
-        </div>
-    </main>
-    <%- include ('../partials/footer') %>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Asigna los botones de incremento y decremento a las variables correspondientes
-            const addButtons = document.querySelectorAll(".add");
-            const outButtons = document.querySelectorAll(".out");
-            const numElements = document.querySelectorAll(".num");
+            </main>
 
-            addButtons.forEach((addButton, index) => {
-                addButton.addEventListener("click", () => {
-                    let quantity = parseInt(numElements[index].innerText);
-                    quantity++;
-                    numElements[index].innerText = quantity;
-                });
-            });
+            <%- include ('../partials/footer') %>
 
-            outButtons.forEach((outButton, index) => {
-                outButton.addEventListener("click", () => {
-                    let quantity = parseInt(numElements[index].innerText);
-                    if (quantity > 1) {
-                        quantity--;
-                        numElements[index].innerText = quantity;
-                    }
-                });
-            });
-        });
-      </script>
-</body>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Asigna los botones de incremento y decremento a las variables correspondientes
+                        const addButtons = document.querySelectorAll(".add");
+                        const outButtons = document.querySelectorAll(".out");
+                        const numElements = document.querySelectorAll(".num");
+
+                        addButtons.forEach((addButton, index) => {
+                            addButton.addEventListener("click", () => {
+                                let quantity = parseInt(numElements[index].innerText);
+                                quantity++;
+                                numElements[index].innerText = quantity;
+                            });
+                        });
+
+                        outButtons.forEach((outButton, index) => {
+                            outButton.addEventListener("click", () => {
+                                let quantity = parseInt(numElements[index].innerText);
+                                if (quantity > 1) {
+                                    quantity--;
+                                    numElements[index].innerText = quantity;
+                                }
+                            });
+                        });
+                    });
+                </script>
+    </body>
 
 </html>

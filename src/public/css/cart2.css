@@ -1,0 +1,98 @@
+/*=======================MAIN======================*/
+
+/*--------Desktop-----------*/
+@media (min-width: 1023px) {
+    div.parent {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 1rem;
+        padding: 20px;
+    }
+   
+    /*Tabla con productos agregados*/
+    section.info-products{
+        display: block;
+        padding: 20px;
+        width: 70vw;
+    }
+    .info-headers,.info-items{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    .info-head{
+        font-weight: bold;
+    }
+    span.prod.info-head{
+        width: 100px;
+    }
+    .info-head,.info-item{
+        width: 15%;
+        text-align: center;
+        padding: 5px;
+        font-size: 1rem;
+    }
+    .div1{ width: 100px; height: 100px;}
+    .info-item img{
+        width: 100%;
+        height: 100%;
+    }
+    .div2,.desc{
+        width: 35%;
+    }
+    .product-name{
+        text-align: start;
+    }
+    .remove{
+        width: 5%;
+    }
+
+    .div4{    
+        padding-left: 20px;
+    }
+    .wrapper{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: black;
+        border-radius: 40px;
+    }
+    .wrapper span{
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+    }
+    .wrapper span.num{
+        pointer-events: none; 
+    }
+
+    /*formulario para finalizar la compra*/
+    form.shipment-data{
+        width: 25vw;
+        padding: 10px;
+    }
+
+    div.sidebar, div.options, div.checkout {
+        padding: 10px;
+        background-color: #bbbbbb;
+        border-radius: 10px;
+    }
+    
+    div.sidebar, div.options, div.checkout ,div.btn-fc button{
+        margin-top: 12px;
+    }
+    div.btn-fc button {
+        
+        border-radius: 20px;
+        padding: 5px;
+        background-color: black;
+        color: white;
+    }
+}
