@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head', {styles: ['normalize', 'styles' ,'header','footer','productDetail']}) %>
+
     <body>
         <%- include('../partials/header') %>
             <main>
@@ -27,10 +28,13 @@
                                     <p class="product-detail-price small">
                                         <span>$<%= locals.product && product.price %></span>
                                         /
-                                        <b><%= locals.product && product.discount %>% OFF</b>
+                                        <b>
+                                            <%= locals.product && product.discount %>% OFF
+                                        </b>
                                     </p>
                                     <p class="product-detail-price">
-                                        $ <%= locals.product && (product.price - (product.price * product.discount / 100)) %>
+                                        $ <%= locals.product && (product.price - (product.price * product.discount /
+                                            100)) %>
                                     </p>
                                     <ul class="actions-list">
                                         <li>
@@ -41,59 +45,76 @@
                                             <i class="fas fa-store"></i>
                                             <p>Retiro gratis en locales del vendedor</p>
                                         </li>
+                                        <li>
+                                            <p>Stock disponible: <%= product.stock%></p>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="detail-options">
-                                    <div class="wrapper">
-                                        <span class="out">-</span>
-                                        <span class="num">1</span>
-                                        <span class="add">+</span>
-                                    </div>
-                                    <form action="/products/addToCart" method="POST">
-                                        <input  type="hidden" name="productId" value="<%= product.id %>">
+
+                                    
+                                        <div class="wrapper">
+                                            <span class="out">-</span>
+                                            <span class="num" 
+                                                data-stock="<%= product.stock %>"
+                                                data-quantity="<%=productInCart? productInCart.quantity : 1%>"
+                                                ><%=productInCart? productInCart.quantity : 1%>
+                                            </span>
+                                            <span class="add">+</span>
+                                        </div>
+                                   
+
+                                    <form id="addToCartForm" action="/products/addToCart" method="POST">
+                                        <input type="hidden" name="productId" value="<%= product.id %>">
                                         <input type="hidden" id="quantityInput" name="quantity" value="1">
                                         <button type="submit" class="btn btn-block">AGREGAR AL CARRITO</button>
                                     </form>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                        <div class="detail-description">
-                            <h3>Descripción:</h3>
-                            <p>
-                                <%= product.description %>
-                            </p>
-                        </div>
-                        <% } else { %>
-                            <h1>Producto no encontrado</h1>
-                        <% } %>
                 </div>
-
-                <div class="suggested">
-                    <p>Productos Sugeridos</p>
-                </div>
-                <div class="products">
-                    <% if (locals.products) { %>
-                        <% for(let i=0;i< 3; i++){ let product=products[i] %>
-                            <a href="/products/<%=product.id%>/detail">
-                                <article>
-                                    <img src="/images/<%= product.image %>" alt="<%=product.name%>">
-                                    <div class="product-details">
-                                        <p class="category"><%= products[i].petTypes[0].name %></p>
-                                        <p class="product-name"><%= product.name %></p>
-                                        <p class="price">$<%= product.price %></p>
-                                    </div>
-                                </article>
-                            </a>
-                        <% } %>
+                <div class="detail-description">
+                    <h3>Descripción:</h3>
+                    <p>
+                        <%= product.description %>
+                    </p>
                 </div>
                 <% } else { %>
-                    <h1>No hay productos registrados</h1>
-                <% } %>
-        </main>
-        <%- include ('../partials/footer') %>
+                    <h1>Producto no encontrado</h1>
+                    <% } %>
+                        </div>
 
-        <!-- <script src="/js/productDetail.js"> 
+                        <div class="suggested">
+                            <p>Productos Sugeridos</p>
+                        </div>
+                        <div class="products">
+                            <% if (locals.products) { %>
+                                <% for(let i=0;i< 3; i++){ let product=products[i] %>
+                                    <a href="/products/<%=product.id%>/detail">
+                                        <article>
+                                            <img src="/images/<%= product.image %>" alt="<%=product.name%>">
+                                            <div class="product-details">
+                                                <p class="category">
+                                                    <%= products[i].petTypes[0].name %>
+                                                </p>
+                                                <p class="product-name">
+                                                    <%= product.name %>
+                                                </p>
+                                                <p class="price">$<%= product.price %>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </a>
+                                    <% } %>
+                        </div>
+                        <% } else { %>
+                            <h1>No hay productos registrados</h1>
+                            <% } %>
+            </main>
+            <%- include ('../partials/footer') %>
+                <script src="/js/productDetail.js"></script>
+
+                <!-- <script src="/js/productDetail.js"> 
                     // const add = document.querySelector(".add"),
                     //     out = document.querySelector(".out"),
                     //     num = document.querySelector(".num");
@@ -110,4 +131,5 @@
                     // });
         </script> -->
     </body>
+
 </html>

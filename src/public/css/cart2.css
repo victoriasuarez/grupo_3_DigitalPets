@@ -1,67 +1,283 @@
 /*=======================MAIN======================*/
 
-/*--------Desktop-----------*/
-@media (min-width: 1023px) {
+/*--------mobile-----------*/
+
+div.parent {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 15px;
+}
+
+/*Tabla con productos agregados*/
+section.info-products {
+    display: block;
+    width: 100%;
+}
+
+.info-headers,
+.info-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-head {
+    font-weight: bold;
+}
+
+span.prod.info-head {
+    width: 100px;
+}
+
+.info-head,
+.info-item {
+    width: 15%;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.5rem;
+}
+
+.div1 {
+    width: 100px;
+    height: 100px;
+}
+
+.info-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.div2,
+.desc {
+    width: 35%;
+}
+
+.product-name {
+    text-align: start;
+}
+
+.remove {
+    width: 5%;
+}
+
+
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    border-radius: 40px;
+}
+
+.wrapper span {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+}
+
+.wrapper span.num {
+    pointer-events: none;
+}
+
+/*formulario para finalizar la compra*/
+
+form.shipment-data {
+    width: 100%;
+    padding: 10px;
+}
+
+div.sidebar,
+div.mp,
+div.checkout {
+    background-color: #bbbbbb;
+    border-radius: 10px;
+}
+
+
+form.shipment-data h3{
+    padding: 10px;
+
+}
+div.btn-fc button {
+
+    border-radius: 20px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+.detalle-car {
+    text-align: justify;
+    padding: auto;
+}
+div.div-parent7,div.div-parent6,div.div-parent5 {
+    padding: 10px;
+    background-color: #bbbbbb;
+    border-radius: 10px;
+    margin: 6px 20px;
+
+}
+
+
+/*--------mini tablet-----------*/
+@media (min-width: 480px) {
     div.parent {
         display: flex;
         flex-flow: wrap;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
         font-size: 1rem;
-        padding: 20px;
+        padding: 15px;
     }
-   
+
+    .info-head,
+    .info-item {
+        width: 15%;
+        text-align: center;
+        padding: 5px;
+        font-size: 0.7rem;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+    div.div-parent7,div.div-parent6,div.div-parent5 {
+        padding: 10px;
+        background-color: #bbbbbb;
+        border-radius: 10px;
+        margin: 6px 30px;
+    }
+
+}
+
+/*--------tablet-----------*/
+@media (min-width: 760px) {
+    div.parent {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .info-head,
+    .info-item {
+        width: 15%;
+        text-align: center;
+        padding: 5px;
+        font-size: 0.8rem;
+    }
+
+    /* div.sidebar,
+    div.mp,
+    div.checkout {
+        margin: 6px 80px;
+    } */
+    div.div-parent7,div.div-parent6,div.div-parent5 {
+        padding: 10px;
+        background-color: #bbbbbb;
+        border-radius: 10px;
+        margin: 6px 40px;
+    
+    }
+
+    .options {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+    }
+}
+
+/*--------Desktop-----------*/
+@media (min-width:920px) {
+    div.parent {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1rem;
+        padding: 15px;
+    }
+
     /*Tabla con productos agregados*/
-    section.info-products{
+    section.info-products {
         display: block;
         padding: 20px;
         width: 70vw;
     }
-    .info-headers,.info-items{
+
+    .info-headers,
+    .info-items {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
     }
-    .info-head{
+
+    .info-head {
         font-weight: bold;
     }
-    span.prod.info-head{
+
+    span.prod.info-head {
         width: 100px;
     }
-    .info-head,.info-item{
+
+    .info-head,
+    .info-item {
         width: 15%;
         text-align: center;
         padding: 5px;
         font-size: 1rem;
     }
-    .div1{ width: 100px; height: 100px;}
-    .info-item img{
+
+    .div1 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .info-item img {
         width: 100%;
         height: 100%;
     }
-    .div2,.desc{
+
+    .div2,
+    .desc {
         width: 35%;
     }
-    .product-name{
+
+    .product-name {
         text-align: start;
     }
-    .remove{
+
+    .remove {
         width: 5%;
     }
 
-    .div4{    
+    .div4 {
         padding-left: 20px;
     }
-    .wrapper{
+
+    .wrapper {
         width: 80%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: black;
+        background-color: black;
         border-radius: 40px;
     }
-    .wrapper span{
+
+    .wrapper span {
         width: 100%;
         text-align: center;
         font-size: 15px;
@@ -69,30 +285,41 @@
         cursor: pointer;
         color: white;
     }
-    .wrapper span.num{
-        pointer-events: none; 
+
+    .wrapper span.num {
+        pointer-events: none;
     }
 
     /*formulario para finalizar la compra*/
-    form.shipment-data{
+    form.shipment-data {
         width: 25vw;
         padding: 10px;
     }
 
-    div.sidebar, div.options, div.checkout {
+    div.div-parent7,div.div-parent6,div.div-parent5 {
         padding: 10px;
         background-color: #bbbbbb;
         border-radius: 10px;
-    }
+        margin: 6px;
     
-    div.sidebar, div.options, div.checkout ,div.btn-fc button{
-        margin-top: 12px;
     }
+    /* div.sidebar,
+    div.mp,
+    div.checkout,
     div.btn-fc button {
-        
+        margin: 6px 0px;
+    } */
+
+    div.btn-fc button {
+
         border-radius: 20px;
         padding: 5px;
         background-color: black;
         color: white;
     }
+    .options{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }   
 }

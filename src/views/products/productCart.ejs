@@ -27,25 +27,30 @@
                                     </div>
                                     <div class="div2 info-item">
                                         <div class="info-subitem product-name">
-                                            <p><%= product.name %></p>
+                                            <p>
+                                                <%= product.name %>
+                                            </p>
                                         </div>
                                         <div class="info-subitem">
-                                            <p><%= product.description %></p>
+                                            <p>
+                                                <%= product.description %>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="div3 info-item">
-                                        <p class="product-price">$<%= product.price %></p>
+                                        <p class="product-price">$<%= product.price %>
+                                        </p>
                                     </div>
                                     <div class="div4 info-item">
                                         <div class="wrapper">
                                             <span class="out">-</span>
-                                            <span class="num">1</span>
+                                            <span class="num" data-stock="<%=product.stock%>"><%=product.quantity%></span>
                                             <span class="add">+</span>
                                         </div>
                                     </div>
                                     <div class="div5 info-item remove">
                                         <form action="/products/cart-removeItem" method="POST">
-                                            <input type="hidden" name="productId" value="<%= product.id %>">
+                                            <input type="hidden" name="productId" value="<%= product.productId %>">
                                             <button type="submit"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </div>
@@ -59,47 +64,48 @@
                     <form class="shipment-data">
                         <div class="div-parent5">
                             <div class="sidebar">
-                                <div class="envio">
-                                    <p><b>Envío:</b></p>
-                                </div>
-                                <div class="option">
-                                    <input type="radio" name="envio" id="retiroSucursal"></input>
-                                    <label for="retiroSucursal">Retiro en sucursal</label>
-                                </div>
-                                <div class="option">
-                                    <input type="radio" name="envio" id="envioDomicilio"></input>
-                                    <label for="envioDomicilio">Envío a domicilio</label>
+                                <h3><b>Envío:</b></h3>
+                                <div class="options">
+                                    <div class="option">
+                                        <input type="radio" name="envio" id="retiroSucursal"></input>
+                                        <label for="retiroSucursal">Retiro en sucursal</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" name="envio" id="envioDomicilio"></input>
+                                        <label for="envioDomicilio">Envío a domicilio</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="div-parent6">
-                            <div class="options">
-                                <div class="mp">
-                                    <p><b>Medio de pago:</b></p>
+                            <div class="mp">
+                                <h3><b>Medio de pago:</b></h3>
+                                <div class="options">
+                                    <div class="option">
+                                        <input type="radio" name="mp" id="transferencia"></input>
+                                        <label for="transferencia">Transferencia</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" name="mp" id="mercadopago"></input>
+                                        <label for="mercadopago">Mercado Pago</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" name="mp" id="pagosucursal"></input>
+                                        <label for="pagosucursal">Pago en Sucursal</label>
+                                    </div>
                                 </div>
-                                <div class="option">
-                                    <input type="radio" name="mp" id="transferencia"></input>
-                                    <label for="transferencia">Transferencia</label>
-                                </div>
-                                <div class="option">
-                                    <input type="radio" name="mp" id="mercadopago"></input>
-                                    <label for="mercadopago">Mercado Pago</label>
-                                </div>
-                                <div class="option">
-                                    <input type="radio" name="mp" id="pagosucursal"></input>
-                                    <label for="pagosucursal">Pago en Sucursal</label>
-                                </div>
+
                             </div>
                         </div>
                         <div class="div-parent7">
                             <div class="checkout">
-                                <div class="detalle">
-                                    <p><b>Detalle de la compra:</b></p>
-                                </div>
+                                <h3><b>Detalle de la compra:</b></h3>
                                 <div class="detalle-car">
-                                    <p>Carrito: $</p>
-                                    <p>Envío: $</p>
-                                    <p>Total: $</p>
+                                    <p>Subtotal: $<%= subtotal %>
+                                    </p>
+                                    <p>Descuentos: $<%= discount %>
+                                    </p>
+                                    <p><b>Total: $<%= total %></b></p>
                                 </div>
                             </div>
                         </div>
@@ -113,32 +119,7 @@
 
             <%- include ('../partials/footer') %>
 
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        // Asigna los botones de incremento y decremento a las variables correspondientes
-                        const addButtons = document.querySelectorAll(".add");
-                        const outButtons = document.querySelectorAll(".out");
-                        const numElements = document.querySelectorAll(".num");
-
-                        addButtons.forEach((addButton, index) => {
-                            addButton.addEventListener("click", () => {
-                                let quantity = parseInt(numElements[index].innerText);
-                                quantity++;
-                                numElements[index].innerText = quantity;
-                            });
-                        });
-
-                        outButtons.forEach((outButton, index) => {
-                            outButton.addEventListener("click", () => {
-                                let quantity = parseInt(numElements[index].innerText);
-                                if (quantity > 1) {
-                                    quantity--;
-                                    numElements[index].innerText = quantity;
-                                }
-                            });
-                        });
-                    });
-                </script>
+            <script src="/js/cart.js"></script>
     </body>
 
 </html>

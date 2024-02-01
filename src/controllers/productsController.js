@@ -13,12 +13,16 @@ const controller = {
     },
 
     detail: async (req, res) => {
+        const cart = req.session.cart || [];
         let product = await db.Product.findByPk(req.params.id);
+        const productInCart = cart.find(item => item.productId === product.id);
         let products = await db.Product.findAll({ include: ['petTypes'] });
-        res.render('products/productDetail', { product, products });
+        res.render('products/productDetail', { product, products, productInCart });
+
+
     },
 
-    
+
 
     // addToCart(req, res) {
     //     const productId = req.params.id;
@@ -207,7 +211,15 @@ const controller = {
     cart(req, res) {
         // const isLoggedIn = req.isAuthenticated();
         const cartProducts = req.session.cart || []; // Obtener productos del carrito desde la sesión
-        res.render('products/productCart',{cartProducts});
+        let subtotal = 0.0;
+        let discount = 0.0;
+        let total = 0.0;
+        if (cartProducts != []) {
+            subtotal = parseFloat((cartProducts.reduce((accum, product) => accum + product.price, 0))).toFixed(2);
+            discount = parseFloat(((cartProducts.reduce((accum, product) => accum + product.priceDiscount, 0,) - subtotal))).toFixed(2);
+            total = parseFloat(parseFloat(discount) + parseFloat(subtotal)).toFixed(2);
+        }
+        res.render('products/productCart', { cartProducts, subtotal, discount, total });
     },
     // async updateQuantity(req, res) {
     //     const productId = req.body.productId;
@@ -222,7 +234,7 @@ const controller = {
     //     }
 
     //     // Obtener o inicializar el carrito en la sesión del usuario
-    // //     const cart = req.session.cart || [];
+    //     const cart = req.session.cart || [];
 
     //     // Verificar si el producto ya está en el carrito
     //     const existingProduct = cart.find(item => item.productId === productId);
@@ -244,16 +256,16 @@ const controller = {
     //     }
 
     //     // Actualizar la sesión con el nuevo carrito
-    // //     req.session.cart = cart;
+    //     req.session.cart = cart;
 
     //     // Responder con la nueva cantidad
     //     res.json({ quantity: existingProduct ? existingProduct.quantity : 0 });
     // },
 
-    addToCart: async (req, res) =>{
-        
+    addToCart: async (req, res) => {
+
         const productIds = req.body.productId;
-        const quantity = req.body.quantity || 1;
+        const quantity = parseInt(req.body.quantity) || 1;
 
         // Obtener el producto según el ID
         const product = await db.Product.findByPk(productIds);
@@ -266,21 +278,23 @@ const controller = {
         const existingProduct = cart.find(item => item.productId == productIds);
 
         if (existingProduct) {
-            existingProduct.quantity += quantity;
+            existingProduct.quantity = quantity;
         } else {
             cart.push({
                 productId: product.id,
                 name: product.name,
                 price: product.price,
+                priceDiscount: product.discount ? (product.price - (product.price * product.discount) / 100.0) : product.price,
                 image: product.image,
-                quantity: quantity
+                quantity: quantity,
+                stock: product.stock
             });
+            console.log(product.discount ? (product.price - (product.price * product.discount) / 100.0) : product.price);
         }
         req.session.cart = cart;
-        
-        return res.redirect(`/products/${product.id}/detail`);
-    },
 
+        return res.redirect(`/products/${product.id}/detail`);
+    }
 };
 
 module.exports = controller;
